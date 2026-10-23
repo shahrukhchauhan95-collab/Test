@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>🎯 HTAT લક્ષ્યવેધ 2026 - Premium 150 MCQ Test Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-surface: #1e293b;
+      --bg-card: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --brand-accent: #38bdf8;
+      --brand-glow: rgba(56, 189, 248, 0.35);
+      --correct: #10b981;
+      --correct-bg: rgba(16, 185, 129, 0.15);
+      --wrong: #ef4444;
+      --wrong-bg: rgba(239, 68, 68, 0.15);
+      --review: #f59e0b;
+      --review-bg: rgba(245, 158, 11, 0.15);
+      --border-color: #475569;
+      --safe-bottom: env(safe-area-inset-bottom, 16px);
+      --font-family: 'Noto Sans Gujarati', 'Poppins', sans-serif;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f1f5f9;
+      --bg-surface: #ffffff;
+      --bg-card: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --brand-accent: #0284c7;
+      --brand-glow: rgba(2, 132, 199, 0.25);
+      --correct: #059669;
+      --correct-bg: #d1fae5;
+      --wrong: #dc2626;
+      --wrong-bg: #fee2e2;
+      --review: #d97706;
+      --review-bg: #fef3c7;
+      --border-color: #cbd5e1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    header.test-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      padding: 8px 14px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .brand-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--brand-accent);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .theme-toggle-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    .header-stats {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+    }
+
+    .stat-badge {
+      background: var(--bg-card);
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .timer-badge {
+      font-family: monospace;
+      font-size: 1.05rem;
+      font-weight: 700;
+      background: #000;
+      color: #38bdf8;
+      border: 1px solid var(--border-color);
+      padding: 4px 10px;
+      border-radius: 8px;
+      letter-spacing: 1px;
+    }
+    .timer-warning { color: #f59e0b !important; border-color: #f59e0b !important; }
+    .timer-critical { color: #ef4444 !important; border-color: #ef4444 !important; animation: pulse 1s infinite; }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: var(--bg-card);
+      border-radius: 3px;
+      margin-top: 6px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--brand-accent), #10b981);
+      transition: width 0.3s ease;
+    }
+
+    main.app-viewport {
+      flex: 1;
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 12px 14px var(--safe-bottom);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .screen {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      animation: fadeIn 0.25s ease-out;
+    }
+    .screen.active { display: flex; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .welcome-header { text-align: center; margin-bottom: 16px; }
+    .welcome-header h1 { font-size: 1.4rem; font-weight: 800; color: var(--brand-accent); margin-bottom: 4px; }
+    .welcome-header p.sub { font-size: 0.88rem; color: var(--text-muted); }
+
+    .branding-box {
+      background: var(--bg-card);
+      border-left: 4px solid var(--brand-accent);
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+      font-size: 0.85rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+    }
+    .info-card .val { font-size: 1.2rem; font-weight: 800; color: var(--brand-accent); }
+    .info-card .lbl { font-size: 0.78rem; color: var(--text-muted); }
+
+    .input-group { margin-bottom: 14px; }
+    .input-group label { display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 600; }
+    .input-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-size: 1rem;
+      font-family: var(--font-family);
+      outline: none;
+    }
+    .input-group input:focus { border-color: var(--brand-accent); box-shadow: 0 0 0 2px var(--brand-glow); }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 13px 18px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font-family);
+      transition: all 0.2s ease;
+      touch-action: manipulation;
+    }
+    .btn-primary { background: var(--brand-accent); color: #0f172a; }
+    .btn-secondary { background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); }
+    .btn-danger { background: var(--wrong); color: #fff; }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    .q-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* વિધાન આધારિત પ્રશ્નો સુવ્યવસ્થિત દેખાય તે માટે pre-line ગોઠવણ */
+    .q-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      color: var(--text-main);
+      white-space: pre-line;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .opt-label {
+      min-width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.82rem;
+      border: 1px solid var(--border-color);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .opt-text { flex: 1; }
+
+    .option-item.correct {
+      background: var(--correct-bg) !important;
+      border-color: var(--correct) !important;
+      color: var(--text-main);
+    }
+    .option-item.correct .opt-label {
+      background: var(--correct);
+      color: #fff;
+      border-color: var(--correct);
+    }
+
+    .option-item.wrong {
+      background: var(--wrong-bg) !important;
+      border-color: var(--wrong) !important;
+      color: var(--text-main);
+    }
+    .option-item.wrong .opt-label {
+      background: var(--wrong);
+      color: #fff;
+      border-color: var(--wrong);
+    }
+
+    .option-item.disabled { cursor: default; }
+
+    .explanation-box {
+      display: none;
+      background: var(--bg-card);
+      border-left: 4px solid var(--correct);
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 0.88rem;
+      white-space: pre-line;
+    }
+    .explanation-box.show { display: block; }
+    .explanation-box strong { color: var(--correct); display: block; margin-bottom: 3px; }
+
+    .nav-controls {
+      display: grid;
+      grid-template-columns: 1fr auto 1.3fr;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 10px;
+    }
+
+    .btn-review-flag {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0 12px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .btn-review-flag.flagged {
+      background: var(--review-bg);
+      border-color: var(--review);
+      color: var(--review);
+    }
+
+    .navigator-sheet {
+      margin-top: 14px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    .nav-grid-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 6px;
+      max-height: 180px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .nav-cell {
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.74rem;
+      font-weight: 700;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+    }
+    .nav-cell.active { outline: 2px solid var(--brand-accent); }
+    .nav-cell.correct { background: var(--correct); color: #fff; border-color: var(--correct); }
+    .nav-cell.wrong { background: var(--wrong); color: #fff; border-color: var(--wrong); }
+    .nav-cell.review { border-color: var(--review); box-shadow: inset 0 0 0 2px var(--review); }
+    .nav-cell.locked { opacity: 0.35; cursor: not-allowed; }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(3px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.active { display: flex; }
+
+    .modal-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 20px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+    .modal-box h3 { margin-bottom: 10px; font-size: 1.2rem; }
+    .modal-box p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; }
+    .modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .result-score-ring {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 14px 0;
+    }
+
+    .badge-tag {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+    }
+    .badge-outstanding { background: #10b981; color: #fff; }
+    .badge-excellent { background: #0284c7; color: #fff; }
+    .badge-verygood { background: #8b5cf6; color: #fff; }
+    .badge-good { background: #f59e0b; color: #fff; }
+    .badge-keepgoing { background: #ef4444; color: #fff; }
+
+    .result-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .review-accordion { margin-top: 16px; }
+    .review-item {
+      background: var(--bg-card);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      border-left: 4px solid var(--border-color);
+      white-space: pre-line;
+    }
+    .review-item.is-correct { border-left-color: var(--correct); }
+    .review-item.is-wrong { border-left-color: var(--wrong); }
+    .review-item.is-unanswered { border-left-color: var(--text-muted); }
+
+    #cardCanvas { display: none; }
+
+    @media (max-width: 360px) {
+      .header-stats { font-size: 0.74rem; }
+      .brand-title { font-size: 0.88rem; }
+      .nav-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <header class="test-header" id="testHeader" style="display: none;">
+    <div class="header-top">
+      <div class="brand-title">🎯 HTAT લક્ષ્યવેધ 2026</div>
+      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">☀️ Theme</button>
+    </div>
+    <div class="header-stats">
+      <div class="stat-badge">પ્રશ્ન: <span id="hdrCurrentQ">001</span>/<span id="hdrTotalQ">150</span></div>
+      <div class="timer-badge" id="hdrTimer">02:15:00</div>
+      <div class="stat-badge">ગુણ: <span id="hdrScore">00</span></div>
+    </div>
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="hdrProgressBar"></div>
+    </div>
+  </header>
+
+  <main class="app-viewport">
+
+    <section class="screen active" id="screenWelcome">
+      <div class="card welcome-header">
+        <div style="font-size: 2.2rem; margin-bottom: 6px;">🎯</div>
+        <h1>HTAT લક્ષ્યવેધ 2026</h1>
+        <p class="sub">HEAD TEACHER APTITUDE TEST PREMIUM PRACTICE SERIES</p>
+      </div>
+
+      <div class="branding-box">
+        <strong>માર્ગદર્શક & સંકલન:</strong> શાહરૂખખાન ચૌહાણ<br>
+        <span style="color: var(--text-muted);">નઘાતપોર પ્રાથમિક શાળા તા. ગરુડેશ્વર • જી. નર્મદા</span>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="val" id="dispTotalQ">150</div>
+          <div class="lbl">કુલ પ્રશ્નો</div>
+        </div>
+        <div class="info-card">
+          <div class="val">135 મિનિટ</div>
+          <div class="lbl">પરીક્ષા સમય</div>
+        </div>
+        <div class="info-card">
+          <div class="val" id="dispTotalMarks">150</div>
+          <div class="lbl">કુલ ગુણ</div>
+        </div>
+        <div class="info-card">
+          <div class="val">નહીં</div>
+          <div class="lbl">નેગેટિવ માર્કિંગ</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="input-group">
+          <label for="studentNameInput">વિદ્યાર્થીનું નામ <span style="color:var(--wrong);">*</span></label>
+          <input type="text" id="studentNameInput" placeholder="તમારું પૂરું નામ લખો..." autocomplete="name">
+        </div>
+        <div class="input-group">
+          <label for="studentRollInput">Roll Number / ID (વૈકલ્પિક)</label>
+          <input type="text" id="studentRollInput" placeholder="ઉદા. HTAT-2026-001">
+        </div>
+        <button class="btn btn-primary" onclick="requestStartTest()">🚀 TEST શરૂ કરો</button>
+      </div>
+
+      <div id="resumePromptBox" style="display: none;" class="card" style="border-color: var(--review);">
+        <p style="font-size: 0.9rem; margin-bottom: 10px;">⚠️ તમારી અગાઉની અપૂર્ણ ટેસ્ટ સંગ્રહિત છે.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <button class="btn btn-secondary" onclick="resumeSavedTest()">▶ RESUME TEST</button>
+          <button class="btn btn-danger" onclick="discardAndStartNew()">✕ નવી ટેસ્ટ</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="screenTest">
+      <div class="card" style="margin-bottom: 8px; flex: 1; display: flex; flex-direction: column;">
+        <div class="q-meta">
+          <span>QUESTION <strong id="qMetaNumber">001</strong> / <span id="qMetaTotal">150</span></span>
+          <span id="qMetaOriginalId" style="font-size: 0.75rem; color: var(--text-muted);">ક્રમ: #1</span>
+        </div>
+
+        <div class="q-title" id="qTitleText">અહીં પ્રશ્નનું લખાણ આવશે...</div>
+
+        <div class="options-list" id="optionsContainer"></div>
+
+        <div class="explanation-box" id="explanationBox">
+          <strong>💡 સાચો ઉત્તર અને સમજૂતી:</strong>
+          <span id="explanationText"></span>
+        </div>
+
+        <div class="nav-controls">
+          <button class="btn btn-secondary" id="btnPrevQ" onclick="navigatePrev()">← PREV</button>
+          <button class="btn-review-flag" id="btnReviewFlag" onclick="toggleReviewFlag()">
+            🔖 <span id="lblReviewFlag">MARK</span>
+          </button>
+          <button class="btn btn-primary" id="btnNextQ" onclick="navigateNext()" disabled>NEXT →</button>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 10px; margin-bottom: 8px; font-size: 0.8rem; display: flex; justify-content: space-around; text-align: center;">
+        <div>સંપૂર્ણ: <strong id="statAttempted">0</strong>/<span id="statTotal">150</span></div>
+        <div style="color: var(--correct);">સાચા: <strong id="statCorrect">0</strong></div>
+        <div style="color: var(--wrong);">ખોટા: <strong id="statWrong">0</strong></div>
+        <div style="color: var(--review);">રિવ્યૂ: <strong id="statReview">0</strong></div>
+      </div>
+
+      <div class="navigator-sheet">
+        <div class="nav-grid-title">
+          <span>QUESTION NAVIGATOR (150 MCQs)</span>
+          <span style="font-size: 0.72rem;">(લાલ: ખોટો, લીલો: સાચો)</span>
+        </div>
+        <div class="nav-grid" id="questionNavGrid"></div>
+      </div>
+
+      <div style="margin-top: 10px;">
+        <button class="btn btn-danger" id="btnManualSubmit" onclick="requestManualSubmit()" disabled>
+          🏁 TEST SUBMIT કરો (<span id="submitProgressTxt">0/150</span>)
+        </button>
+      </div>
+    </section>
+
+    <section class="screen" id="screenResult">
+      <div class="card welcome-header">
+        <div style="font-size: 2.2rem; margin-bottom: 4px;">🏆</div>
+        <h1>TEST RESULT DASHBOARD</h1>
+        <p class="sub" id="resStudentName">વિદ્યાર્થી: શાહરૂખખાન</p>
+      </div>
+
+      <div class="card result-score-ring">
+        <div style="font-size: 2.6rem; font-weight: 800; color: var(--brand-accent);" id="resScoreVal">00 / 150</div>
+        <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-muted);" id="resPercentageVal">00.0%</div>
+        <div class="badge-tag" id="resBadgeTag">OUTSTANDING</div>
+      </div>
+
+      <div class="result-stats-grid">
+        <div class="info-card">
+          <div class="val" id="resCorrectCount" style="color: var(--correct);">0</div>
+          <div class="lbl">સાચા ઉત્તરો</div>
+        </div>
+        <div class="info-card">
+          <div class="val" id="resWrongCount" style="color: var(--wrong);">0</div>
+          <div class="lbl">ખોટા ઉત્તરો</div>
+        </div>
+        <div class="info-card">
+          <div class="val" id="resAccuracy">0%</div>
+          <div class="lbl">Accuracy</div>
+        </div>
+        <div class="info-card">
+          <div class="val" id="resTimeTaken">00:00</div>
+          <div class="lbl">વીતેલો સમય</div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px;">
+        <button class="btn btn-primary" onclick="shareMyScoreNative()">📲 SHARE SCORE</button>
+        <button class="btn btn-secondary" onclick="generateAndDownloadCard()">📸 RESULT CARD</button>
+      </div>
+
+      <div class="branding-box" style="text-align: center; margin-top: 4px;">
+        <strong>🎯 HTAT લક્ષ્યવેધ 2026</strong><br>
+        નઘાતપોર પ્રાથમિક શાળા, તા. ગરુડેશ્વર, જી. નર્મદા
+      </div>
+
+      <div class="card review-accordion">
+        <h3 style="font-size: 1rem; margin-bottom: 10px; display: flex; justify-content: space-between;">
+          <span>📋 ANSWER REVIEW (૧ થી ૧૫૦ પ્રશ્નો)</span>
+          <span style="font-size: 0.8rem; color: var(--brand-accent);">સંપૂર્ણ વિશ્લેષણ</span>
+        </h3>
+        <div id="reviewItemsContainer"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal-overlay" id="confirmStartModal">
+    <div class="modal-box">
+      <h3>ટેસ્ટ શરૂ કરવા તૈયાર છો?</h3>
+      <p>ટેસ્ટ શરૂ થતાં જ 135 મિનિટનો કાઉન્ટડાઉન ટાઈમર શરૂ થશે. દરેક પ્રશ્નનો જવાબ આપ્યા પછી જ આગળ વધી શકાશે.</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeModal('confirmStartModal')">✕ પાછા જાઓ</button>
+        <button class="btn btn-primary" onclick="executeStartTest()">✓ શરૂ કરો</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="confirmSubmitModal">
+    <div class="modal-box">
+      <h3>ટેસ્ટ સબમિટ કરવી છે?</h3>
+      <p id="submitModalDetails">તમે બધા ૧૫૦ પ્રશ્નોના ઉત્તર આપી દીધા છે.</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeModal('confirmSubmitModal')">↩ ચાલુ રાખો</button>
+        <button class="btn btn-danger" onclick="finalizeTestSubmission()">🏁 SUBMIT</button>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="cardCanvas" width="800" height="1000"></canvas>
+
+  <script>
+    const ALL_150_QUESTIONS = [
+      // 1 to 50: General Studies
+      {
+        id: 1,
+        question: "ઉત્તર ગુજરાતમાં બનાસકાંઠા જિલ્લાના વાવ તાલુકાના પશ્ચિમ ભાગમાં આવેલો અર્ધ-રણ જેવો નીચાણવાળો ખારાપાટ વિસ્તાર કયા નામે ઓળખાય છે?",
+        options: ["નેસડા", "ગોઢા", "વાંઢ", "ખાવડા"],
+        answer: 1,
+        explanation: "વાવ અને થરાદ તાલુકાની પશ્ચિમે કચ્છના નાના રણને અડીને આવેલો રેતાળ અને ક્ષારીય નીચાણવાળો વિસ્તાર સ્થાનિક સ્તરે ‘ગોઢા વિસ્તાર’ તરીકે ઓળખાય છે, જ્યાં ક્ષાર-સહનશીલ વનસ્પતિઓ થાય છે."
+      },
+      {
+        id: 2,
+        question: "કચ્છના મુખ્ય ભૂમિભાગ અને મોટા રણની વચ્ચે આવેલા ઉત્તર ધારના ટેકરી સમૂહમાં સૌથી ઊંચી ટેકરી કઈ છે?",
+        options: ["ધીણોધર", "કાળો ડુંગર", "ભુજિયો ડુંગર", "હબ્બો ડુંગર"],
+        answer: 1,
+        explanation: "કચ્છની ઉત્તર ધારમાં આવેલો ‘કાળો ડુંગર’ આશરે ૪૩૮ મીટરની ઊંચાઈ ધરાવે છે, જે સમગ્ર કચ્છ ક્ષેત્રનું સર્વોચ્ચ શિખર છે. જ્યારે ધીણોધર (૩૮૭ મીટર) મધ્ય ધારમાં આવેલો છે."
+      },
+      {
+        id: 3,
+        question: "ગુજરાતમાં ‘વિશ્વામિત્રી’ નદીનું ઉદ્ગમ સ્થાન કઈ ટેકરીઓમાંથી થાય છે?",
+        options: ["ચોટીલાની ટેકરીઓ", "પાવાગઢની ટેકરીઓ", "રાજપીપળાની ટેકરીઓ", "બરડા ડુંગર"],
+        answer: 1,
+        explanation: "પંચમહાલ જિલ્લાના પાવાગઢ ડુંગર પરથી વિશ્વામિત્રી નદી નીકળે છે, જે વડોદરા શહેરની મધ્યમાંથી વહીને આગળ જતાં ઢાઢર નદીને મળે છે."
+      },
+      {
+        id: 4,
+        question: "ભારતીય દ્વીપકલ્પીય નદીઓ પૈકી કઈ એકમાત્ર મુખ્ય નદી પશ્ચિમ ઘાટના મહાબળેશ્વર નજીકથી નીકળી પૂર્વ તરફ વહી બંગાળની ખાડીને મળે છે?",
+        options: ["કાવેરી", "ગોદાવરી", "કૃષ્ણા", "તુંગભદ્રા"],
+        answer: 2,
+        explanation: "કૃષ્ણા નદી મહારાષ્ટ્રના મહાબળેશ્વર પાસેથી નીકળે છે અને આશરે ૧૪૦૦ કિમી વહીને આંધ્રપ્રદેશના હંસલાદીવી નજીક બંગાળની ખાડીમાં મુખત્રિકોણ રચે છે. (ગોદાવરી ત્ર્યંબકેશ્વરમાંથી અને કાવેરી તલકાવેરીમાંથી નીકળે છે)."
+      },
+      {
+        id: 5,
+        question: "ગુજરાતમાં સૌથી વધુ ચૂનાના પથ્થરો (લાઈમસ્ટોન) ના ભંડાર કયા જિલ્લાના દરિયાકાંઠાના ભૂસ્તરીય પટ્ટામાં આવેલા છે?",
+        options: ["પોરબંદર અને ગીર સોમનાથ", "આણંદ અને ખેડા", "સાબરકાંઠા અને અરવલ્લી", "ભરૂચ અને સુરત"],
+        answer: 0,
+        explanation: "સૌરાષ્ટ્રના દરિયાકાંઠે ‘મિલિયોલાઇટ’ લાઈમસ્ટોન (પોરબંદર પથ્થર) મોટા પાયે મળે છે, જે સિમેન્ટ ઉદ્યોગ અને સોડા એશ ઉદ્યોગ માટે ઉચ્ચ ગુણવત્તાવાળો કાચો માલ પૂરો પાડે છે."
+      },
+      {
+        id: 6,
+        question: "વસ્તી ગણતરી ૨૦૧૧ અનુસાર ગુજરાતના કયા જિલ્લામાં બાળ લિંગ ગુણોત્તર (Child Sex Ratio - ૦ થી ૬ વયજૂથ) સૌથી ઓછો નોંધાયો હતો?",
+        options: ["મહેસાણા", "સુરત", "અમદાવાદ", "બનાસકાંઠા"],
+        answer: 0,
+        explanation: "૨૦૧૧ ની વસ્તી ગણતરી મુજબ મહેસાણા જિલ્લામાં ૦ થી ૬ વર્ષની વયજૂથનું જાતિ પ્રમાણ પ્રતિ ૧૦૦૦ કુમારે માત્ર ૮૪૨ કન્યાઓ નોંધાયું હતું, જે સમગ્ર રાજ્યમાં સૌથી નીચું હતું."
+      },
+      {
+        id: 7,
+        question: "ભરૂચ જિલ્લાના અંકલેશ્વર નજીક કિમ અને નર્મદા નદી વચ્ચે આવેલો ફળદ્રુપ કાળી જમીન ધરાવતો પ્રદેશ કયા નામે જાણીતો છે?",
+        options: ["કાનમ", "ચરોતર", "વાકડ", "ભાલ"],
+        answer: 0,
+        explanation: "ઢાઢર અને નર્મદા/કિમ વચ્ચેનો ફળદ્રુપ કાળી કપાસીય જમીનનો વિસ્તાર ‘કાનમ પ્રદેશ’ તરીકે ઓળખાય છે, જે લાંબા તારના કપાસના ઉત્પાદન માટે પ્રખ્યાત છે."
+      },
+      {
+        id: 8,
+        question: "ગુજરાતમાં સમુદ્રકાંઠે આવેલા કયા બંદરને ‘મુક્ત વ્યાપાર ક્ષેત્ર’ (Free Trade Zone - FTZ) તરીકે દેશમાં સર્વપ્રથમ જાહેર કરવામાં આવ્યું હતું?",
+        options: ["પોરબંદર", "કંડલા", "ભાવનગર", "બેડી"],
+        answer: 1,
+        explanation: "કંડલા (દીનદયાલ પોર્ટ) ખાતે ઈ.સ. ૧૯૬૫ માં ભારત અને એશિયાનો સૌપ્રથમ એક્સપોર્ટ પ્રોસેસિંગ ઝોન (EPZ/FTZ) સ્થાપવામાં આવ્યો હતો."
+      },
+      {
+        id: 9,
+        question: "હડપ્પીય સભ્યતાનું કયું સ્થળ કચ્છના રાપર તાલુકામાં આવેલું છે, જ્યાંથી શંખની બંગડીઓ બનાવવાના અવશેષો અને મણકા બનાવવાનું કારખાનું મળી આવ્યું છે?",
+        options: ["લાખાબાવળ", "સુરકોટડા", "કુંતાસી", "રોજડી"],
+        answer: 1,
+        explanation: "સુરકોટડા કચ્છના રાપર તાલુકામાં આવેલું છે, જેની શોધ ૧૯૬૪ માં જે. પી. જોશીએ કરી હતી. અહીંથી ઘોડાના અસ્થિઓ અને કબરના વિશિષ્ટ અવશેષો પણ મળ્યા છે."
+      },
+      {
+        id: 10,
+        question: "ગુપ્ત સમ્રાટ સ્કંદગુપ્તના શાસનકાળ દરમિયાન ગિરિનગર (જૂનાગઢ) ના સુબા પર્ણદત્તના પુત્ર ચક્રપાલિતે સુદર્શન તળાવના સમારકામ બાદ તેના કિનારે કયું મંદિર બંધાવ્યું હતું?",
+        options: ["શિવ મંદિર", "સૂર્ય મંદિર", "ચક્રધારી વિષ્ણુ મંદિર", "મહાવીર જિનાલય"],
+        answer: 2,
+        explanation: "જૂનાગઢ શિલાલેખ અનુસાર સુદર્શન તળાવનું પાળ તૂટી જતાં ચક્રપાલિતે અતિભારે ખર્ચે તેનું પુનઃનિર્માણ કરાવ્યું અને ઈ.સ. ૪૫૭-૫૮ માં તળાવના તટ પર ભગવાન વિષ્ણુનું ચક્રધર મંદિર સ્થાપિત કર્યું."
+      },
+      {
+        id: 11,
+        question: "ગુજરાતમાં ચાવડા વંશના અંત પછી સોલંકી વંશની સ્થાપના કરનાર મૂળરાજ સોલંકીએ પોતાની રાજધાની ક્યાં સ્થાપી હતી?",
+        options: ["ભિન્નમાલ", "અણહિલવાડ પાટણ", "ચાંપાનેર", "વલ્લભી"],
+        answer: 1,
+        explanation: "ઈ.સ. ૯૪૨ માં સામંતસિંહ ચાવડાનો અંત આણી મૂળરાજ પ્રથમે અણહિલવાડ પાટણની ગાદી સંભાળીને સોલંકી વંશની સ્થાપના કરી અને સરસ્વતી નદી કાંઠે રુદ્રમહાલય બાંધવાની શરૂઆત કરી."
+      },
+      {
+        id: 12,
+        question: "ઈ.સ. ૧૮૫૭ ના સંગ્રામ દરમિયાન ગુજરાતના પંચમહાલ ક્ષેત્રમાં બ્રિટિશ સૈન્ય સામે ‘નાયકડા આંદોલન’ નું નેતૃત્વ કોણે સંભાળ્યું હતું?",
+        options: ["રૂપસિંહ નાયક અને જોરિયા પરમેશ્વર", "મગનલાલ પટેલ", "ગરબડદાસ મુખી", "જીવાભાઈ ઠાકોર"],
+        answer: 0,
+        explanation: "પંચમહાલના જાંબુઘોડા અને ડાલોદ વિસ્તારમાં રૂપસિંહ નાયક અને ધાર્મિક નેતૃત્વ આપનાર જોરિયા ભગતે બ્રિટિશ હકૂમત સામે સશસ્ત્ર બળવો પોકાર્યો હતો."
+      },
+      {
+        id: 13,
+        question: "મહાત્મા ગાંધીજીએ અમદાવાદમાં ‘મજૂર મહાજન સંઘ’ (TLA) ની સ્થાપના કયા વર્ષમાં કરી હતી?",
+        options: ["૧૯૧૫", "૧૯૧૮", "૧૯૨૦", "૧૯૨૨"],
+        answer: 2,
+        explanation: "૧૯૧૮ ની અમદાવાદ મિલ હડતાળના સફળ સમાધાન બાદ કામદારોના હિત, ટ્રસ્ટીશીપ સિદ્ધાંત અને શાંતિપૂર્ણ વાટાઘાટો માટે ગાંધીજી અને અનસૂયાબહેન સારાભાઈએ ૨૫ ફેબ્રુઆરી ૧૯૨૦ના રોજ મજૂર મહાજન સંઘ સ્થાપ્યો."
+      },
+      {
+        id: 14,
+        question: "કચ્છના ‘બન્ની’ વિસ્તારમાં માલધારી સમુદાયની મહિલાઓ દ્વારા સોય અને દોરા વડે કરવામાં આવતું બારીક ભરતકામ કયા નામે ઓળખાય છે?",
+        options: ["મુત્વા અને આરી ભરત", "બાંધણી", "પટોળું", "અજરખ"],
+        answer: 0,
+        explanation: "બન્ની પ્રદેશના મુત્વા, જાટ અને મેઘવાલ સમુદાયો દ્વારા નાના અરીસા (આભલા) અને ઝીણા ટાંકા વડે મુત્વા, રબારી અને આરી ભરતની અનોખી કળા કરવામાં આવે છે."
+      },
+      {
+        id: 15,
+        question: "ગુજરાતમાં હોળીના તહેવાર પછી છોટાઉદેપુર અને ક્વાંટ વિસ્તારના આદિવાસીઓ દ્વારા પરંપરાગત ઘેરિયા નૃત્ય સાથે કયો મેળો ઉજવાય છે?",
+        options: ["ચિત્ર-વિચિત્રનો મેળો", "ક્વાંટનો મેળો", "ગોળ ગધેડાનો મેળો", "ડાંગ દરબાર"],
+        answer: 1,
+        explanation: "રાઠવા સમુદાય દ્વારા હોળીના પાંચમા દિવસે ક્વાંટ ખાતે ભવ્ય મેળો ભરાય છે, જેમાં યુવાનો શરીર પર પીઠોરા ચિત્રકળાની જેમ સફેદ માટીના ટપકાં કરી મોરપીંછ ધારણ કરી ઘેર નૃત્ય કરે છે."
+      },
+      {
+        id: 16,
+        question: "કાઠિયાવાડમાં ચારણો અને બારોટો દ્વારા ઐતિહાસિક શૌર્યકથાઓ, દુહા અને છંદોના લયબદ્ધ ગાન સાથે રજૂ થતી પરંપરાગત વાર્તાકથન શૈલી કઈ છે?",
+        options: ["ડાયરો", "ભવાઈ", "આખ્યાન", "કવાલી"],
+        answer: 0,
+        explanation: "લોકસાહિત્ય, વીરરસ અને ભક્તિરસના દુહા-છંદ લલકારીને ચારણી શૈલીમાં લોકવાર્તાનું વર્ણન કરવાની પરંપરા એટલે ડાયરો (લોકડાયરો)."
+      },
+      {
+        id: 17,
+        question: "આપેલ સંખ્યા શ્રેણીમાં પ્રશ્નાર્થચિહ્ન (?) ના સ્થાને કઈ સંખ્યા આવશે?\n6, 24, 60, 120, 210, 336, ?",
+        options: ["૪૮૦", "૫૦૪", "૫૧૨", "૫૨૦"],
+        answer: 1,
+        explanation: "આ શ્રેણી n³ - n ના તર્ક પર આધારિત છે:\n૨³ - ૨ = ૮ - ૨ = ૬\n૩³ - ૩ = ૨૭ - ૩ = ૨૪\n૪³ - ૪ = ૬૪ - ૪ = ૬૦\n૫³ - ૫ = ૧૨૫ - ૫ = ૧૨૦\n૬³ - ૬ = ૨૧૬ - ૬ = ૨૧૦\n૭³ - ૭ = ૩૪૩ - ૭ = ૩૩૬\n૮³ - ૮ = ૫૧૨ - ૮ = ૫૦૪."
+      },
+      {
+        id: 18,
+        question: "એક સાંકેતિક ભાષામાં જો ‘PENCIL’ ને ‘MKJZFJ’ લખાય, તો તે જ સાંકેતિક ભાષામાં ‘RUBBER’ ને શું લખાશે?",
+        options: ["OSYYZM", "OSYYBO", "ORYYAM", "OSXZBN"],
+        answer: 0,
+        explanation: "મૂળાક્ષરોના ક્રમમાં નિયત પેટર્ન મુજબ ઘટાડો થવાથી RUBBER નો સાંકેતિક શબ્દ OSYYZM બને છે."
+      },
+      {
+        id: 19,
+        question: "એક વ્યક્તિ બિંદુ A થી દક્ષિણ દિશામાં ૧૨ મીટર ચાલે છે. ત્યારબાદ ડાબી બાજુ વળીને ૫ મીટર ચાલે છે. ત્યાંથી ઉત્તર તરફ વળીને ૨૪ મીટર ચાલે છે અને અંતે પશ્ચિમ તરફ વળીને ૧૦ મીટર ચાલીને બિંદુ B પર પહોંચે છે. તો પ્રારંભિક બિંદુ A અને અંતિમ બિંદુ B વચ્ચેનું લઘુત્તમ અંતર કેટલું થશે?",
+        options: ["૧૫ મીટર", "૧૩ મીટર", "૧૭ મીટર", "૧૦ મીટર"],
+        answer: 1,
+        explanation: "દક્ષિણ-ઉત્તર અંતર: -૧૨ + ૨૪ = +૧૨ મીટર (ઉત્તર).\nપૂર્વ-પશ્ચિમ અંતર: +૫ - ૧૦ = -૫ મીટર (પશ્ચિમ).\nપાયથાગોરસ પ્રમેય: √(૧૨² + ૫²) = √(૧૪૪ + ૨૫) = √૧૬૯ = ૧૩ મીટર."
+      },
+      {
+        id: 20,
+        question: "૪૦ વિદ્યાર્થીઓની એક લાઈનમાં રાહુલ ડાબી બાજુથી ૧૭મા ક્રમે છે અને સંજય જમણી બાજુથી ૧૯મા ક્રમે છે. જો પરેશ તે બંનેની બરાબર વચ્ચે બેઠો હોય, તો ડાબી બાજુથી પરેશનો ક્રમ કેટલામો હશે?",
+        options: ["૨૦મો", "૨૧મો", "૧૯મો", "૨૨મો"],
+        answer: 2,
+        explanation: "સંજયનો ડાબેથી ક્રમ: (૪૦ - ૧૯) + ૧ = ૨૨મો.\nરાહુલ ડાબેથી ૧૭મો અને સંજય ૨૨મો હોવાથી બંનેની મધ્યમાં રહેલો સંતુલિત ક્રમ ૧૯મો આવે છે."
+      },
+      {
+        id: 21,
+        question: "કોઈ રકમ સાદા વ્યાજે ૫ વર્ષમાં બમણી (૨ ગણી) થાય છે, તો તે જ રકમ તે જ વ્યાજના દરે કેટલા વર્ષમાં ૫ ગણી થશે?",
+        options: ["૧૫ વર્ષ", "૨૦ વર્ષ", "૨૫ વર્ષ", "૧૨.૫ વર્ષ"],
+        answer: 1,
+        explanation: "બમણી થાય ત્યારે વ્યાજ = P (સમય = ૫ વર્ષ).\n૫ ગણી થાય ત્યારે વ્યાજ = ૪P થવું જોઈએ.\nસમય = ૪ × ૫ = ૨૦ વર્ષ."
+      },
+      {
+        id: 22,
+        question: "એક ઘડિયાળમાં ૫ વાગીને ૪૦ મિનિટનો સમય થયો છે. જો ઘડિયાળને દર્પણ (અરીસા) સામે રાખવામાં આવે, તો દર્પણમાં પ્રતિબિંબિત સમય કેટલો દેખાશે?",
+        options: ["૭:૨૦", "૬:૨૦", "૬:૪૦", "૭:૪૦"],
+        answer: 1,
+        explanation: "દર્પણ સમય શોધવા: ૧૧:૬૦ - ૫:૪૦ = ૬ કલાક ૨૦ મિનિટ."
+      },
+      {
+        id: 23,
+        question: "૨૬ જાન્યુઆરી ૧૯૫૦ ના રોજ જ્યારે ભારતીય બંધારણ અમલમાં આવ્યું ત્યારે કયો વાર હતો?",
+        options: ["બુધવાર", "ગુરુવાર", "શુક્રવાર", "મંગળવાર"],
+        answer: 1,
+        explanation: "કેલેન્ડર ગણતરી મુજબ ૧૯૪૯ પૂર્ણ વર્ષો સુધીના વધારાના દિવસો (૬) અને જાન્યુઆરીના ૨૬ દિવસ (૫) મળીને કુલ ૧૧ દિવસ થાય. ૧૧ / ૭ = ૪ શેષ વધે, જે ગુરુવાર દર્શાવે છે."
+      },
+      {
+        id: 24,
+        question: "A એક કામ ૧૨ દિવસમાં પૂરું કરે છે અને B તે જ કામ ૧૮ દિવસમાં પૂરું કરે છે. બંને સાથે મળીને ૪ દિવસ કામ કરે છે, ત્યારબાદ A કામ છોડી દે છે. તો બાકીનું વધેલું કામ પૂરું કરતાં B ને બીજા કેટલા વધારાના દિવસ લાગશે?",
+        options: ["૬ દિવસ", "૮ દિવસ", "૧૦ દિવસ", "૫ દિવસ"],
+        answer: 1,
+        explanation: "કુલ કામ = ૩૬ એકમ. A = ૩, B = ૨ એકમ/દિવસ. ૪ દિવસનું સંયુક્ત કામ = ૫ × ૪ = ૨૦ એકમ. બાકી કામ = ૧૬ એકમ. B નો સમય = ૧૬ / ૨ = ૮ દિવસ."
+      },
+      {
+        id: 25,
+        question: "બંધારણના કયા અનુચ્છેદ હેઠળ લશ્કરી અને શૈક્ષણિક પદવીઓ સિવાયની તમામ પ્રકારની ‘ઇલકાબો/ખિતાબોની નાબૂદી’ (Abolition of Titles) કરવામાં આવી છે?",
+        options: ["અનુચ્છેદ ૧૬", "અનુચ્છેદ ૧૭", "અનુચ્છેદ ૧૮", "અનુચ્છેદ ૧૯"],
+        answer: 2,
+        explanation: "અનુચ્છેદ ૧૮ રાજ્યને સૈન્ય કે શૈક્ષણિક સિવાયના ખિતાબો આપતા અટકાવે છે."
+      },
+      {
+        id: 26,
+        question: "ભારતીય બંધારણના કયા અનુચ્છેદ હેઠળ કોઈપણ વ્યક્તિને એક જ ગુના માટે એક કરતાં વધુ વખત કેસ ચલાવી સજા કરી શકાતી નથી (Protection against Double Jeopardy)?",
+        options: ["અનુચ્છેદ ૨૦(૧)", "અનુચ્છેદ ૨૦(૨)", "અનુચ્છેદ ૨૦(૩)", "અનુચ્છેદ ૨૨(૧)"],
+        answer: 1,
+        explanation: "અનુચ્છેદ ૨૦(૨) માં બેવડી સજા સામે રક્ષણ (Double Jeopardy) આપેલું છે."
+      },
+      {
+        id: 27,
+        question: "બંધારણના અનુચ્છેદ ૨૫ હેઠળ અંતઃકરણની અને ધર્મ માનવાની સ્વતંત્રતા રાજ્ય દ્વારા કયા ત્રણ આધારો પર પ્રતિબંધિત કરી શકાય છે?",
+        options: ["જાહેર વ્યવસ્થા, નૈતિકતા અને સ્વાસ્થ્ય", "માત્ર રાષ્ટ્રીય સુરક્ષા", "માત્ર વિદેશી સંબંધો", "વસ્તી નિયંત્રણ અને શિક્ષણ"],
+        answer: 0,
+        explanation: "અનુચ્છેદ ૨૫(૧) મુજબ ધાર્મિક સ્વતંત્રતા જાહેર સુલેહ-શાંતિ (Public Order), સદાચાર/નૈતિકતા (Morality) અને આરોગ્ય (Health) ને આધીન છે."
+      },
+      {
+        id: 28,
+        question: "સર્વોચ્ચ અદાલત સમક્ષ બંધારણીય ઉપચારો મેળવવા માટે અનુચ્છેદ ૩૨ હેઠળ રીટ અરજી દાખલ કરવાનો અધિકાર કટોકટીની કઈ સ્થિતિ દરમિયાન મોકૂફ રાખી શકાતો નથી?",
+        options: ["અનુચ્છેદ ૨૦ અને ૨૧ ના અમલ સંદર્ભે", "અનુચ્છેદ ૧૯ ના સંદર્ભે", "અનુચ્છેદ ૧૪ ના સંદર્ભે", "તમામ મૂળભૂત હકો આપોઆપ રદ થાય છે"],
+        answer: 0,
+        explanation: "૪૪મા બંધારણીય સુધારા ૧૯૭૮ મુજબ રાષ્ટ્રીય કટોકટીમાં પણ અનુચ્છેદ ૨૦ અને ૨૧ ના અમલ માટે અદાલતમાં જવાનો અધિકાર સ્થગિત કરી શકાતો નથી."
+      },
+      {
+        id: 29,
+        question: "રાજ્યનીતિના માર્ગદર્શક સિદ્ધાંતો અંતર્ગત ગ્રામ પંચાયતોની સ્થાપના અને સત્તા આપવા માટે કયો અનુચ્છેદ નિર્દેશ કરે છે?",
+        options: ["અનુચ્છેદ ૩૯", "અનુચ્છેદ ૪૦", "અનુચ્છેદ ૪૩", "અનુચ્છેદ ૪૪"],
+        answer: 1,
+        explanation: "ગાંધીવાદી વિચારધારા આધારિત અનુચ્છેદ ૪૦ રાજ્યને ગ્રામ પંચાયતોની રચના કરી સત્તા સોંપવાનો આદેશ આપે છે."
+      },
+      {
+        id: 30,
+        question: "બંધારણના કયા અનુચ્છેદ હેઠળ રાજ્યને દેશના તમામ નાગરિકો માટે ‘સમાન દીવાની કાયદો’ (Uniform Civil Code - UCC) અમલમાં લાવવાનો પ્રયાસ કરવાનો આદેશ અપાયો છે?",
+        options: ["અનુચ્છેદ ૪૨", "અનુચ્છેદ ૪૪", "અનુચ્છેદ ૪૬", "અનુચ્છેદ ૪૮"],
+        answer: 1,
+        explanation: "ભાગ-૪ ના અનુચ્છેદ ૪૪ માં રાજ્ય સમગ્ર ભારતમાં એક સમાન દીવાની સંહિતા દાખલ કરવા કાયદાકીય પ્રયત્ન કરશે તેવી જોગવાઈ છે."
+      },
+      {
+        id: 31,
+        question: "૪૨મા બંધારણીય સુધારા ૧૯૭૬ દ્વારા બંધારણમાં કઈ સમિતિની ભલામણોના આધારે ‘મૂળભૂત ફરજો’ નો સમાવેશ કરવામાં આવ્યો હતો?",
+        options: ["બળવંતરાય મહેતા સમિતિ", "સરદાર સ્વર્ણસિંહ સમિતિ", "ઠક્કર બાપા સમિતિ", "સરકારિયા કમિશન"],
+        answer: 1,
+        explanation: "સ્વર્ણસિંહ સમિતિની ભલામણથી ૧૯૭૬ માં ૪૨મા સુધારા દ્વારા ભાગ ૪-ક અને અનુચ્છેદ ૫૧-ક ઉમેરીને મૂળભૂત ફરજો દાખલ કરાઈ હતી."
+      },
+      {
+        id: 32,
+        question: "અનુચ્છેદ ૫૧-ક (g) મુજબ નાગરિકની કઈ મૂળભૂત ફરજ પર્યાવરણ સાથે સીધી સંકળાયેલી છે?",
+        options: [
+          "જંગલો, તળાવો, નદીઓ અને વન્યજીવો સહિત કુદરતી પર્યાવરણનું જતન અને સુધારણા કરવી તથા જીવો પ્રત્યે દયા રાખવી",
+          "જાહેર મિલકતોનું રક્ષણ કરવું",
+          "વૈજ્ઞાનિક અભિગમ વિકસાવવો",
+          "દેશના વારસાનું મૂલ્ય સમજવું"
+        ],
+        answer: 0,
+        explanation: "૫૧-ક(g) પ્રત્યેક નાગરિકને કુદરતી સંપદા અને વન્યજીવોનું રક્ષણ કરવાની તેમજ તમામ જીવો પ્રત્યે દયા રાખવાની ફરજ સોંપે છે."
+      },
+      {
+        id: 33,
+        question: "માનવ શરીરના કયા અંગમાં સૌથી વધુ લોહીનું શુદ્ધિકરણ થાય છે અને ‘નેફ્રોન’ (Nephron) કોનો પાયાનો રચનાત્મક અને કાર્યાત્મક એકમ છે?",
+        options: ["યકૃત (Liver)", "મૂત્રપિંડ (Kidney)", "હૃદય (Heart)", "ફેફસાં (Lungs)"],
+        answer: 1,
+        explanation: "મૂત્રપિંડ રક્તમાંથી યુરિયા અને ઝેરી દ્રવ્યો ગાળવાનું કાર્ય કરે છે. પ્રત્યેક કિડનીનો રચનાત્મક અને કાર્યાત્મક એકમ નેફ્રોન છે."
+      },
+      {
+        id: 34,
+        question: "વાહનોના પાછળનું દ્રશ્ય જોવા માટે વપરાતા સાઈડ ગ્લાસ (Rear-view Mirror) માં કયા પ્રકારના અરીસાનો ઉપયોગ કરવામાં આવે છે?",
+        options: ["અંતર્ગોળ અરીસો", "બહિર્ગોળ અરીસો", "સમતલ અરીસો", "નળાકાર અરીસો"],
+        answer: 1,
+        explanation: "બહિર્ગોળ અરીસો હંમેશાં સીધું, નાનું પ્રતિબિંબ આપે છે અને વિશાળ દ્રષ્ટિ ક્ષેત્ર (Wider Field of View) પૂરું પાડે છે."
+      },
+      {
+        id: 35,
+        question: "મનુષ્યમાં થતો ‘મિનામાટા’ (Minamata) રોગ પીવાના પાણીમાં કયા ભારે ધાતુ તત્વના પ્રદૂષણને કારણે થાય છે?",
+        options: ["સીસું (Lead)", "પારો (Mercury / મર્ક્યુરી)", "કેડમિયમ (Cadmium)", "આર્સેનિક (Arsenic)"],
+        answer: 1,
+        explanation: "પારાયુક્ત ઔદ્યોગિક કચરો પાણીમાં ભળતાં માછલીઓ દ્વારા મિથાઈલ મર્ક્યુરી શરીરમાં પ્રવેશવાથી ચેતાતંત્રને નુકસાન કરતો મિનામાટા રોગ થાય છે."
+      },
+      {
+        id: 36,
+        question: "અવાજની તીવ્રતા માપવા માટેનો પ્રમાણભૂત એકમ કયો છે?",
+        options: ["હર્ટ્ઝ (Hz)", "ડેસિબલ (dB)", "પાસ્કલ (Pa)", "લ્યુમેન (lm)"],
+        answer: 1,
+        explanation: "ધ્વનિની તીવ્રતા ડેસિબલ (dB) માં મપાય છે, જ્યારે ધ્વનિની આવૃત્તિ (Frequency) હર્ટ્ઝ (Hz) માં માપવામાં આવે છે."
+      },
+      {
+        id: 37,
+        question: "પૃથ્વીના વાતાવરણમાં સૂર્યના હાનિકારક પારજાંબલી (UV) કિરણોને શોષી લેતા ઓઝોન સ્તરની જાડાઈ માપવા માટે કયો એકમ વપરાય છે?",
+        options: ["ડોબસન યુનિટ (DU)", "બેકવેરેલ (Bq)", "નોટિકલ માઈલ", "ક્યુરી (Ci)"],
+        answer: 0,
+        explanation: "ઓઝોન પડની સાંદ્રતા અને જાડાઈ માપવા માટે વૈજ્ઞાનિક જી. એમ. બી. ડોબસનના નામ પરથી ‘ડોબસન એકમ’ (DU) નો ઉપયોગ થાય છે."
+      },
+      {
+        id: 38,
+        question: "એસિડિક જમીનને તટસ્થ બનાવવા અને ખેતીલાયક સુધારવા માટે ખેડૂતો સામાન્ય રીતે જમીનમાં કયો પદાર્થ ઉમેરે છે?",
+        options: ["જીપ્સમ (ચિરોડી)", "કળીચૂનો (કેલ્શિયમ ઓક્સાઈડ / સ્લેક્ડ લાઈમ)", "યુરિયા", "મીઠું"],
+        answer: 1,
+        explanation: "એસિડિક જમીન સુધારવા માટે ચૂનો (લાઈમ) ઉમેરાય છે, જ્યારે ક્ષારીય જમીન સુધારવા માટે જીપ્સમ ઉમેરવામાં આવે છે."
+      },
+      {
+        id: 39,
+        question: "પારિસ્થિતિક તંત્ર (Ecosystem) માં ઊર્જાનો પ્રવાહ હંમેશાં કેવો હોય છે?",
+        options: ["એકમાર્ગી (Unidirectional)", "ચક્રીય (Cyclic)", "દ્વિમાર્ગી (Bidirectional)", "બહુમાર્ગી (Multidirectional)"],
+        answer: 0,
+        explanation: "લિન્ડમેનના નિયમ મુજબ પોષક સ્તરોમાં ઊર્જા ઉત્પાદકોથી ઉપભોક્તાઓ તરફ માત્ર એક જ દિશામાં વહે છે; તે ક્યારેય ઉલટી દિશામાં પાછી ફરતી નથી."
+      },
+      {
+        id: 40,
+        question: "માનવ શરીરમાં રક્તમાં ગ્લુકોઝનું પ્રમાણ નિયંત્રિત કરતો ‘ઇન્સ્યુલિન’ અંતઃસ્ત્રાવ કઈ ગ્રંથિના બીટા કોષોમાંથી સ્ત્રવે છે?",
+        options: ["થાયરોઇડ ગ્રંથિ", "સ્વાદુપિંડ (Pancreas)", "પિચ્યુટરી ગ્રંથિ", "એડ્રિનલ ગ્રંથિ"],
+        answer: 1,
+        explanation: "સ્વાદુપિંડના લેંગરહાન્સના કોષપુંજોમાં આવેલા બીટા (Beta) કોષોમાંથી ઇન્સ્યુલિન હોર્મોન નીકળે છે, જેની ખામીથી ડાયાબિટીસ થાય છે."
+      },
+      {
+        id: 41,
+        question: "કમ્પ્યુટરમાં પ્રોસેસર અને મુખ્ય મેમરી (RAM) વચ્ચે ડેટા ટ્રાન્સફરની ઝડપ વધારવા માટે વપરાતી અતિ ઝડપી અને અસ્થાયી મેમરી કઈ છે?",
+        options: ["વર્ચ્યુઅલ મેમરી", "કેશ મેમરી (Cache Memory)", "સેકન્ડરી મેમરી", "ફ્લેશ ડ્રાઇવ"],
+        answer: 1,
+        explanation: "કેશ મેમરી એ CPU અને RAM ની વચ્ચે ગોઠવાયેલી હાઈ-સ્પીડ બફર મેમરી છે, જે વારંવાર વપરાતા ડેટાને તાત્કાલિક એક્સેસ કરવા સંગ્રહિત રાખે છે."
+      },
+      {
+        id: 42,
+        question: "એક ગીગાબાઇટ (1 GB) બરાબર ચોક્કસ કેટલા બાઇટ્સ (Bytes) થાય?",
+        options: [
+          "૧૦૨૪ × ૧૦૨૪ બાઇટ્સ",
+          "૧૦૨૪ × ૧૦૨૪ × ૧૦૨૪ બાઇટ્સ",
+          "૧૦૦૦ કિલોબાઇટ્સ",
+          "૧૦ લાખ બાઇટ્સ"
+        ],
+        answer: 1,
+        explanation: "બાઇનરી પદ્ધતિ મુજબ: ૧ GB = ૧૦૨૪ MB = ૧૦૨૪ × ૧૦૨૪ KB = ૧૦૨૪ × ૧૦૨૪ × ૧૦૨૪ Bytes (૨^૩૦ બાઇટ્સ)."
+      },
+      {
+        id: 43,
+        question: "શિક્ષણ અને સંશોધનમાં ચોરી અટકાવવા માટે વિદ્યાર્થી કે સંશોધકે અન્યના લખાણની નકલ કરી છે કે નહીં તે ચકાસવા માટે કયું સોફ્ટવેર વપરાય છે?",
+        options: ["સ્પ્રેડશીટ સોફ્ટવેર", "પ્લેજિઆરિઝમ ચેકર (Plagiarism Checker)", "ડેટાબેઝ મેનેજમેન્ટ", "મલ્ટિમીડિયા પ્લેયર"],
+        answer: 1,
+        explanation: "શૈક્ષણિક સાહિત્યિક ચોરી (Plagiarism) પકડવા માટે Turnitin, Urkund જેવા સોફ્ટવેરનો ઉપયોગ થાય છે."
+      },
+      {
+        id: 44,
+        question: "શાળા શિક્ષણમાં મુક્ત અને ઓપન-સોર્સ લર્નિંગ રિસોર્સિસ પૂરા પાડવા માટે NCERT દ્વારા વિકસાવવામાં આવેલી મોબાઈલ અને વેબ એપ્લિકેશન કઈ છે?",
+        options: ["ઈ-પાઠશાલા (e-Pathshala)", "સ્વયં પ્રભા", "ઉમંગ", "સ્માર્ટ શાલા"],
+        answer: 0,
+        explanation: "NCERT દ્વારા શરૂ કરાયેલ ‘e-Pathshala’ પોર્ટલ ધોરણ ૧ થી ૧૨ ના તમામ પાઠ્યપુસ્તકો, ઓડિયો, વિડિયો અને ઈ-પબ્લિકેશન મફત ઉપલબ્ધ કરાવે છે."
+      },
+      {
+        id: 45,
+        question: "ભારતીય નૌકાદળમાં સામેલ કરવામાં આવેલી ‘પ્રોજેક્ટ ૭૫’ (Project-75) અંતર્ગતની છઠ્ઠી અને અંતિમ સ્કોર્પિન ક્લાસની ડીઝલ-ઇલેક્ટ્રિક સબમરીન કઈ છે?",
+        options: ["INS વાગ્શીર (INS Vagsheer)", "INS વાગીર", "INS કરંજ", "INS ખંડેરી"],
+        answer: 0,
+        explanation: "મઝગાવ ડોક શિપબિલ્ડર્સ લિમિટેડ (MDL) દ્વારા બનાવવામાં આવેલી સ્કોર્પિન શ્રેણીની છઠ્ઠી સબમરીન ‘INS વાગ્શીર’ છે."
+      },
+      {
+        id: 46,
+        question: "રિઝર્વ બેંક ઓફ ઇન્ડિયા (RBI) દ્વારા ભારત અને અન્ય દેશો વચ્ચે સરહદ પાર સ્થાનિક ચલણમાં સીધા નાણાકીય વ્યવહારો માટે કઈ સિસ્ટમને વૈશ્વિક સ્તરે લિંક કરવામાં આવી રહી છે?",
+        options: ["RTGS ગ્લોબલ", "નેક્સસ (Nexus - Project Nexus)", "સ્વિફ્ટ પે (SWIFT Pay)", "ફોરેક્સ ડાયરેક્ટ"],
+        answer: 1,
+        explanation: "બેંક ફોર ઇન્ટરનેશનલ સેટલમેન્ટ્સ (BIS) ના ‘પ્રોજેક્ટ નેક્સસ’ હેઠળ ભારતની UPI સિસ્ટમને આસિયાન દેશોની ફાસ્ટ પેમેન્ટ સિસ્ટમ્સ સાથે જોડવામાં આવી રહી છે."
+      },
+      {
+        id: 47,
+        question: "તાજેતરમાં પેરિસ ઓલિમ્પિક્સ ૨૦૨૪ માં ભારતીય શૂટર મનુ ભાકરે એક જ ઓલિમ્પિક્સ રમતોત્સવમાં બે મેડલ જીતનાર સ્વતંત્ર ભારતની પ્રથમ એથ્લેટ બનવાની ઐતિહાસિક સિદ્ધિ મેળવી, તે પૈકી તેણે કઈ વ્યક્તિગત સ્પર્ધામાં બ્રોન્ઝ મેડલ જીત્યો હતો?",
+        options: ["મહિલાઓની ૨૫ મીટર પિસ્તોલ", "મહિલાઓની ૧૦ મીટર એર પિસ્તોલ", "મહિલાઓની ૫૦ મીટર રાઇફલ", "૧૦ મીટર એર રાઇફલ"],
+        answer: 1,
+        explanation: "મનુ ભાકરે વ્યક્તિગત કેટેગરીમાં ‘મહિલાઓની ૧૦ મીટર એર પિસ્તોલ’ સ્પર્ધામાં પ્રથમ બ્રોન્ઝ મેડલ જીત્યો હતો."
+      },
+      {
+        id: 48,
+        question: "સંયુક્ત રાષ્ટ્ર (UN) ના પર્યાવરણ કાર્યક્રમ (UNEP) દ્વારા વર્ષ ૨૦૨૪-૨૫ ના વિશ્વ પર્યાવરણ દિવસની સત્તાવાર થીમ ‘જમીન પુનઃપ્રાપ્તિ, રણીકરણ અટકાવવું અને દુષ્કાળ સામે સ્થિતિસ્થાપકતા’ રાખવામાં આવી હતી, તેનું વૈશ્વિક આયોજક (Global Host) કયો દેશ હતો?",
+        options: ["સાઉદી અરેબિયા", "સંયુક્ત આરબ અમીરાત (UAE)", "ભારત", "બ્રાઝિલ"],
+        answer: 0,
+        explanation: "રિયાધ (સાઉદી અરેબિયા) ખાતે યોજાયેલા વૈશ્વિક કાર્યક્રમમાં આ અભિયાન હાથ ધરાયું હતું."
+      },
+      {
+        id: 49,
+        question: "દેશમાં પરિવહન ક્ષેત્રે કાર્બન ઉત્સર્જન ઘટાડવા માટે ભારત સરકાર દ્વારા શરૂ કરાયેલ ‘નેશનલ ગ્રીન હાઇડ્રોજન મિશન’ હેઠળ ભારતનો પ્રથમ હાઇડ્રોજન ઇંધણ આધારિત ટ્રેન ટ્રાયલ રન કયા રેલવે રૂટ પર યોજવાનું આયોજન કરાયું છે?",
+        options: ["કાલકા - શિમલા હેરિટેજ લાઇન", "જીંદ - સોનીપત રૂટ (હરિયાણા)", "દિલ્હી - વારાણસી રૂટ", "મુંબઈ - પુણે ડેક્કન રૂટ"],
+        answer: 1,
+        explanation: "હરિયાણા સ્થિત ૮૯ કિમી લાંબા જીંદ-સોનીપત સેક્શન પર પ્રથમ હાઇડ્રોજન ટ્રેનનું ટ્રાયલ રન નિર્ધારિત કરવામાં આવ્યું છે."
+      },
+      {
+        id: 50,
+        question: "ભારત સરકારે સાયબર છેતરપિંડી અને ટેલિકોમ ગેરરીતિઓ અટકાવવા માટે નાગરિકોને શંકાસ્પદ કોલ્સ અને સંદેશાઓની સીધી ઓનલાઇન ફરિયાદ કરવા કયું કેન્દ્રીય પોર્ટલ શરૂ કર્યું છે?",
+        options: ["સાયબરમિત્ર પોર્ટલ", "ચક્ષુ (Chakshu) પોર્ટલ (સંચાર સાથી અંતર્ગત)", "રક્ષક ડિજિટલ મિશન", "સુરક્ષા કવચ એપ"],
+        answer: 1,
+        explanation: "ડિપાર્ટમેન્ટ ઓફ ટેલિકોમ્યુનિકેશન્સ (DoT) દ્વારા ‘સંચાર સાથી’ પહેલ હેઠળ ‘ચક્ષુ’ પોર્ટલ લોન્ચ કરવામાં આવ્યું છે."
+      },
+
+      // 51 to 90: Education & Pedagogy
+      {
+        id: 51,
+        question: "NEP-2020 અનુસાર માધ્યમિક તબક્કે (Secondary Stage: ધોરણ ૯ થી ૧૨) શિક્ષણ પ્રણાલીમાં કયો પાયાનો માળખાકીય ફેરફાર સૂચવવામાં આવ્યો છે?",
+        options: [
+          "વિજ્ઞાન, વાણિજ્ય અને વિનયન (Arts) વચ્ચેના પરંપરાગત કઠોર વિભાજનને નાબૂદ કરી બહુવિધ વિષય પસંદગી (Multi-disciplinary flexibility) આપવી",
+          "૧૦મા અને ૧૨મા ધોરણની બોર્ડ પરીક્ષાઓ કાયમી ધોરણે રદ કરવી",
+          "માત્ર અંગ્રેજી માધ્યમમાં જ તમામ વૈજ્ઞાનિક વિષયો ભણાવવા",
+          "વ્યવસાયિક વિષયોને મુખ્ય વિષયોથી સંપૂર્ણ અલગ રાખવા"
+        ],
+        answer: 0,
+        explanation: "NEP-2020 વિદ્યાર્થીઓને વિજ્ઞાનની સાથે સંગીત કે અર્થશાસ્ત્ર જેવા વિષયો પસંદ કરવાની છૂટ આપીને કળા અને વિજ્ઞાન વચ્ચેના ભેદભાવને દૂર કરે છે."
+      },
+      {
+        id: 52,
+        question: "NCF-SE ૨૦૨૩ અનુસાર શાળા શિક્ષણમાં ‘અધ્યયન ક્ષમતાઓ’ (Competencies) હાંસલ કરવા માટે કયો યોગ્ય તાર્કિક ક્રમ નિર્ધારિત થયેલો છે?",
+        options: [
+          "વ્યાપક ધ્યેયો (Aims) → અભ્યાસક્રમીય લક્ષ્યો (Curricular Goals) → ક્ષમતાઓ (Competencies) → અધ્યયન નિષ્પત્તિઓ (Learning Outcomes)",
+          "અધ્યયન નિષ્પત્તિઓ → ક્ષમતાઓ → અભ્યાસક્રમીય લક્ષ્યો → વ્યાપક ધ્યેયો",
+          "ક્ષમતાઓ → અધ્યયન નિષ્પત્તિઓ → વ્યાપક ધ્યેયો → અભ્યાસક્રમીય લક્ષ્યો",
+          "અભ્યાસક્રમીય લક્ષ્યો → વ્યાપક ધ્યેયો → અધ્યયન નિષ્પત્તિઓ → ક્ષમતાઓ"
+        ],
+        answer: 0,
+        explanation: "NCF-SE માળખામાં શિક્ષણના આદર્શ ઉદ્દેશોથી શરૂ કરીને વર્ગખંડ સ્તરની દૈનિક અધ્યયન નિષ્પત્તિઓ સુધી પહોંચવાનું શુદ્ધ વૈજ્ઞાનિક સોપાન નક્કી કરવામાં આવ્યું છે."
+      },
+      {
+        id: 53,
+        question: "NEP-2020 અંતર્ગત શાળા શિક્ષણમાં વિશિષ્ટ પ્રતિભા ધરાવતા બાળકો (Gifted Children) ના વિકાસ માટે કઈ પદ્ધતિની હિમાયત કરવામાં આવી છે?",
+        options: [
+          "તેમને સામાન્ય બાળકોથી અલગ શાળામાં મોકલવા",
+          "પ્રોજેક્ટ-આધારિત પ્રવૃત્તિઓ, ઓલિમ્પિયાડ્સ અને અદ્યતન સમૃદ્ધિ સામગ્રી (Enrichment Materials) પૂરી પાડવી",
+          "તેમને સીધા બે વર્ષ આગળના ધોરણમાં પ્રમોશન આપી દેવું",
+          "માત્ર પુસ્તકાલયમાં બેસાડી રાખવા"
+        ],
+        answer: 1,
+        explanation: "નીતિ અનુસાર પ્રતિભાશાળી બાળકો પોતાની ગતિએ આગળ વધી શકે તે માટે પ્રોજેક્ટ આધારિત કાર્ય અને વિશેષ માર્ગદર્શન આપવાની ભલામણ છે."
+      },
+      {
+        id: 54,
+        question: "NEP-2020 માં મૂલ્યાંકન ક્ષેત્રે સ્થાપિત ‘PARAKH’ નામના રાષ્ટ્રીય કેન્દ્રના ટૂંકાક્ષરી નામમાં બીજા ‘A’ નો અર્થ શું થાય છે?",
+        options: ["Action", "Analysis", "Aptitude", "Achievement"],
+        answer: 1,
+        explanation: "PARAKH નું પૂર્ણ સ્વરૂપ: Performance Assessment, Review, and Analysis of Knowledge for Holistic Development છે."
+      },
+      {
+        id: 55,
+        question: "NCF-FS ૨૦૨૨ મુજબ પાયાના તબક્કે (Foundational Stage) ભાષા વિકાસ માટે ‘ELPS’ અભિગમમાં ‘P’ નો અર્થ શું થાય છે?",
+        options: ["Practice", "Pictures (ચિત્રો)", "Phonetics", "Print"],
+        answer: 1,
+        explanation: "પાયાનો ક્રમ: Experience (મૂર્ત અનુભવ) → Language (ભાષા) → Pictures (ચિત્ર રજૂઆત) → Symbols (પ્રતીકો/સંકેતો) છે."
+      },
+      {
+        id: 56,
+        question: "NEP-2020 અનુસાર પ્રાથમિક શાળાના શિક્ષકો માટે વ્યવસાયિક ધોરણો (NPST) ઘડવાની મુખ્ય જવાબદારી કઈ સંસ્થાને સોંપાઈ છે?",
+        options: ["AICTE", "NCTE (નેશનલ કાઉન્સિલ ફોર ટીચર એજ્યુકેશન)", "CBSE", "UGC"],
+        answer: 1,
+        explanation: "National Professional Standards for Teachers (NPST) તૈયાર કરવાની જવાબદારી NCERT અને SCERTs ના સંકલન સાથે NCTE ને સોંપવામાં આવી છે."
+      },
+      {
+        id: 57,
+        question: "NEP-2020 માં ‘બાલવાટિકા’ ના વર્ગમાં બાળકોના શારીરિક, જ્ઞાનાત્મક અને સામાજિક-આવેગિક વિકાસનું મૂલ્યાંકન કરવા NCERT દ્વારા કયું મોડ્યુલ તૈયાર કરાયું છે?",
+        options: ["વિદ્યા પ્રવેશ (Vidya Pravesh)", "પ્રજ્ઞા", "કૌશલ દીક્ષા", "દીક્ષારંભ"],
+        answer: 0,
+        explanation: "ધોરણ-૧ માં પ્રવેશતાં પહેલાં બાળકની શાળા-તત્પરતા (School Readiness) કેળવવા માટે ૩ મહિનાનો પ્રવૃત્તિ આધારિત કાર્યક્રમ એટલે ‘વિદ્યા પ્રવેશ’."
+      },
+      {
+        id: 58,
+        question: "NEP-2020 મુજબ શાળા સંકુલો (School Complexes) ની સ્થાપના પાછળનો મુખ્ય વહીવટી ઉદ્દેશ્ય શો છે?",
+        options: [
+          "નાની અને એકલવાયી શાળાઓ વચ્ચે સંસાધનો (લેબ, પુસ્તકાલય, કલા-રમતગમત શિક્ષકો) ની વહેંચણી અને બહેતર વહીવટી સંકલન",
+          "ગ્રામીણ શાળાઓને કાયમી બંધ કરવી",
+          "તમામ શાળાઓનું ખાનગીકરણ કરવું",
+          "માત્ર પરીક્ષાઓનું સેન્ટ્રલાઇઝેશન કરવું"
+        ],
+        answer: 0,
+        explanation: "સંસાધનોની તંગી દૂર કરવા ૫ થી ૧૦ કિમીના વિસ્તારની પ્રાથમિક શાળાઓને એક મુખ્ય હાઈસ્કૂલ સાથે જોડી ‘સ્કૂલ કોમ્પ્લેક્સ’ બનાવવાની જોગવાઈ છે."
+      },
+      {
+        id: 59,
+        question: "NCERT ના કયા પ્રભાગ દ્વારા દેશમાં શૈક્ષણિક ટેકનોલોજી, રેડિયો/ટીવી પાઠો અને ડિજિટલ સામગ્રીનું નિર્માણ કરવામાં આવે છે?",
+        options: ["NIE", "CIET (સેન્ટ્રલ ઇન્સ્ટિટ્યૂટ ઓફ એજ્યુકેશનલ ટેકનોલોજી)", "PSSCIVE", "RIE"],
+        answer: 1,
+        explanation: "CIET નવી દિલ્હી ખાતે આવેલી NCERT ની વિશેષ શાખા છે જે PM e-VIDYA, DIKSHA અને શૈક્ષણિક મલ્ટિમીડિયા પ્રોગ્રામ્સ તૈયાર કરે છે."
+      },
+      {
+        id: 60,
+        question: "NIEPA (National Institute of Educational Planning and Administration) ને કયા વર્ષમાં ડીમ્ડ-ટુ-બી યુનિવર્સિટી (Deemed University) નો દરજ્જો આપવામાં આવ્યો?",
+        options: ["૧૯૭૯", "૨૦૦૬", "૧૯૯૫", "૨૦૧૫"],
+        answer: 1,
+        explanation: "શિક્ષણ આયોજન અને વહીવટના ક્ષેત્રે ઉચ્ચ શિક્ષણ તથા સંશોધન માટે ઓગસ્ટ ૨૦૦૬ માં NIEPA ને માનિત યુનિવર્સિટીનો દરજ્જો મળ્યો."
+      },
+      {
+        id: 61,
+        question: "NCTE ના માળખામાં નીતિ-વિષયક નિર્ણયો લેતી સર્વોચ્ચ ‘જનરલ કાઉન્સિલ’ ના અધ્યક્ષ કોણ હોય છે?",
+        options: ["કેન્દ્રીય શિક્ષણ મંત્રી", "NCTE ના પૂર્ણકાલીન અધ્યક્ષ (Chairperson)", "NCERT ના ડિરેક્ટર", "યુજીસીના ચેરમેન"],
+        answer: 1,
+        explanation: "NCTE એક્ટ, ૧૯૯૩ હેઠળ કેન્દ્ર સરકાર દ્વારા નિયુક્ત પૂર્ણકાલીન ચેરપર્સન પરિષદનું સુકાન સંભાળે છે."
+      },
+      {
+        id: 62,
+        question: "CBSE દ્વારા સંચાલિત શાળાઓમાં વિદ્યાર્થીઓની સામાજિક-આવેગિક સુખાકારી માટે કઈ ફરજિયાત વ્યવસ્થા ગોઠવવામાં આવી છે?",
+        options: [
+          "પૂર્ણકાલીન વેલનેસ ટીચર / શાળા કાઉન્સિલર (School Counselor) ની નિમણૂક",
+          "માત્ર અઠવાડિક ટેસ્ટ લેવી",
+          "યોગ સ્પર્ધા ફરજિયાત કરવી",
+          "વાલીઓ પર સંપૂર્ણ જવાબદારી સોંપવી"
+        ],
+        answer: 0,
+        explanation: "CBSE એફિલિએશન નિયમો મુજબ માધ્યમિક અને ઉચ્ચતર માધ્યમિક શાળાઓમાં પ્રશિક્ષિત મનોવૈજ્ઞાનિક/કાઉન્સિલર રાખવા ફરજિયાત છે."
+      },
+      {
+        id: 63,
+        question: "ગુજરાત શૈક્ષણિક સંશોધન અને તાલીમ પરિષદ (GCERT) ના વહીવટી વડા તરીકે કયા સંવર્ગના અધિકારી ફરજ બજાવે છે?",
+        options: [
+          "જિલ્લા શિક્ષણાધિકારી (વર્ગ-૨)",
+          "નિયામકશ્રી (Director - GAS/IAS અથવા સંયુક્ત શિક્ષણ નિયામક કેડર)",
+          "આચાર્ય, ડાયેટ",
+          "ચેરમેન, રાજ્ય પરીક્ષા બોર્ડ"
+        ],
+        answer: 1,
+        explanation: "GCERT નું સુકાન શિક્ષણ વિભાગ હેઠળના ‘નિયામકશ્રી, જીસીઈઆરટી’ સંભાળે છે."
+      },
+      {
+        id: 64,
+        question: "જિલ્લા શિક્ષણ અને તાલીમ ભવન (DIET) ના ‘P&M’ શાખાનું મુખ્ય કાર્ય શું છે?",
+        options: ["આયોજન અને વ્યવસ્થાપન (Planning and Management)", "પરીક્ષા અને મૂલ્યાંકન", "પ્રાયોગિક વિજ્ઞાન", "ભૌતિક બાંધકામ"],
+        answer: 0,
+        explanation: "DIET ની પ્લાનિંગ એન્ડ મેનેજમેન્ટ શાખા સમગ્ર જિલ્લાના શૈક્ષણિક આંકડાઓ એકત્રિત કરી સંસ્થાકીય આયોજન તૈયાર કરે છે."
+      },
+      {
+        id: 65,
+        question: "સમગ્ર શિક્ષા યોજના હેઠળ પ્રાથમિક શાળાઓને અપાતી ‘વાર્ષિક સંયુક્ત શાળા ગ્રાન્ટ’ (Composite School Grant) ની રકમનો આધાર મુખ્યત્વે કઈ બાબત પર રહેલો છે?",
+        options: ["શાળામાં નોંધાયેલી કુલ વિદ્યાર્થી સંખ્યા (Enrollment)", "શાળા મકાનનું ક્ષેત્રફળ", "શિક્ષકોની સિનિયોરિટી", "ગામની કુલ વસ્તી"],
+        answer: 0,
+        explanation: "ભારત સરકારના ધોરણ મુજબ ૧ થી ૩૦ વિદ્યાર્થી માટે રૂ. ૧૦,૦૦૦ થી શરૂ કરીને ૧૦૦૦ થી વધુ સંખ્યા ધરાવતી શાળાઓ માટે રૂ. ૧,૦૦,૦૦૦ સુધીની ગ્રાન્ટ સીધી વિદ્યાર્થી સંખ્યા આધારિત ફાળવાય છે."
+      },
+      {
+        id: 66,
+        question: "ગુજરાતમાં સરકારી પ્રાથમિક શાળાઓના વર્ગખંડોમાં ઇન્ટરેક્ટિવ શિક્ષણ આપવા માટે કયો આઈસીટી પ્રોજેક્ટ અમલમાં છે?",
+        options: ["જ્ઞાનકુંજ પ્રોજેક્ટ (Gyankunj Project)", "વિદ્યા વાહિની", "શાળા સંગમ", "ઈ-વિદ્યા પ્રોજેક્ટ"],
+        answer: 0,
+        explanation: "જ્ઞાનકુંજ મોડેલ હેઠળ વર્ગખંડોમાં સ્માર્ટ ઇન્ટરેક્ટિવ વ્હાઇટબોર્ડ, પ્રોજેક્ટર, લેપટોપ અને સ્પીકર લગાવી ડિજિટલ શિક્ષણ આપવામાં આવે છે."
+      },
+      {
+        id: 67,
+        question: "PM-POSHAN યોજના હેઠળ શાળાઓમાં ‘ન્યુટ્રી-ગાર્ડન’ (કિચન ગાર્ડન) વિકસાવવા પાછળનો મુખ્ય ઉદ્દેશ્ય શો છે?",
+        options: [
+          "માત્ર શાળાનું સુશોભન વધારવું",
+          "તાજા શાકભાજી દ્વારા બાળકોને સૂક્ષ્મ પોષકતત્વો પૂરા પાડવા અને કૃષિ-પ્રકૃતિ શિક્ષણ આપવું",
+          "બજારમાં શાકભાજી વેચી નફો કરવો",
+          "મધ્યાહ્ન ભોજન રસોઈયાનો પગાર ઘટાડવો"
+        ],
+        answer: 1,
+        explanation: "શાળાના પ્લોટમાં શાકભાજી ઉગાડી ભોજનમાં વિટામિન્સ-મિનરલ્સ વધારવા અને બાળકોને શ્રમ તથા પ્રકૃતિ સાથે જોડવાનો આશય છે."
+      },
+      {
+        id: 68,
+        question: "કેન્દ્ર સરકારની ‘PM-SHRI’ યોજના અંતર્ગત પસંદ થયેલી શાળાઓને કયા સમયગાળા સુધીમાં આદર્શ શાળા તરીકે વિકસાવવાની જોગવાઈ છે?",
+        options: ["૨૦૨૨-૨૩ થી ૨૦૨૬-૨૭ (૫ વર્ષ)", "૨૦૨૦ થી ૨૦૩૦", "માત્ર ૨ વર્ષ", "૨૦૨૫ થી ૨૦૩૫"],
+        answer: 0,
+        explanation: "કેન્દ્રીય કેબિનેટે ૫ વર્ષના સમયગાળા (૨૦૨૨-૨૩ થી ૨૦૨૬-૨૭) માટે PM-SHRI શાળાઓનો પ્રોજેક્ટ મંજૂર કર્યો છે."
+      },
+      {
+        id: 69,
+        question: "ગુજરાત રાજ્યમાં પછાત તાલુકાઓમાં કન્યા શિક્ષણને પ્રોત્સાહિત કરવા સ્થપાયેલી KGBV (ટાઈપ-૧) માં કયા ધોરણોનું શિક્ષણ આપવામાં આવે છે?",
+        options: ["ધોરણ ૧ થી ૫", "ધોરણ ૬ થી ૮ (ઉચ્ચ પ્રાથમિક નિવાસી)", "માત્ર ધોરણ ૧૧ અને ૧૨", "પૂર્વ-પ્રાથમિક"],
+        answer: 1,
+        explanation: "કસ્તુરબા ગાંધી બાલિકા વિદ્યાલય ટાઈપ-૧ ખાસ કરીને ધોરણ ૬ થી ૮ ની ડ્રોપઆઉટ કે વંચિત કન્યાઓ માટે હોસ્ટેલ સહિતનું નિવાસી શિક્ષણ આપે છે."
+      },
+      {
+        id: 70,
+        question: "‘વિદ્યાંજલિ ૨.૦’ પોર્ટલ પર નોંધણી કરાવીને સ્વયંસેવકો શાળામાં કઈ સેવા આપી શકતા નથી?",
+        options: [
+          "સ્પર્ધાત્મક પરીક્ષા માર્ગદર્શન કે વિષય શિક્ષણ સહાય",
+          "યોગ, રમતગમત કે કલા કૌશલ્ય પ્રશિક્ષણ",
+          "શાળાના કાયમી શિક્ષકની જગ્યાએ કાયમી નોકરીનો દાવો કરવો",
+          "ડિજિટલ કે ભૌતિક સાધન સહાય દાન આપવું"
+        ],
+        answer: 2,
+        explanation: "વિદ્યાંજલિ સંપૂર્ણપણે સ્વેચ્છિક સમુદાય સહયોગ પ્લેટફોર્મ છે; તે કોઈ સરકારી રોજગાર કે શિક્ષક બદલીનો વિકલ્પ નથી."
+      },
+      {
+        id: 71,
+        question: "સ્વતંત્રતા પૂર્વે ઈ.સ. ૧૯૩૭ માં મહાત્મા ગાંધીજી દ્વારા વર્ધા ખાતે યોજાયેલી પરિષદમાં કઈ શિક્ષણ યોજનાનો પાયો નંખાયો હતો?",
+        options: ["સાર્જન્ટ પ્લાન", "બુનિયાદી શિક્ષણ યોજના (વર્ધા શિક્ષણ યોજના / નઈ તાલીમ)", "વૂડનો ખરીતો", "હંટર કમિશન"],
+        answer: 1,
+        explanation: "ડૉ. ઝાકીર હુસૈનની અધ્યક્ષતાવાળી સમિતિએ ગાંધીજીના સ્વાવલંબી, હસ્તકળા-કેન્દ્રી અને માતૃભાષા આધારિત શિક્ષણનો મુસદ્દો તૈયાર કર્યો હતો."
+      },
+      {
+        id: 72,
+        question: "કોઠારી કમિશન (૧૯૬૪-૬૬) દ્વારા સૂચવવામાં આવેલી શિક્ષણની રાષ્ટ્રીય તરાહ (Pattern) કઈ હતી?",
+        options: ["10 + 2 + 3", "8 + 4 + 3", "5 + 3 + 3 + 4", "11 + 3"],
+        answer: 0,
+        explanation: "કોઠારી પંચે સમગ્ર દેશમાં સમાન શૈક્ષણિક માળખું લાવવા માટે ૧૦ વર્ષ સામાન્ય શાળા શિક્ષણ, ૨ વર્ષ ઉચ્ચતર માધ્યમિક અને ૩ વર્ષ સ્નાતક અભ્યાસક્રમની ભલામણ કરી હતી."
+      },
+      {
+        id: 73,
+        question: "પ્રોફેસર યશપાલ સમિતિ (૧૯૯૩) દ્વારા પ્રાથમિક શાળાઓમાં ‘ગૃહકાર્ય’ (Homework) સંદર્ભે કઈ સ્પષ્ટ ભલામણ કરવામાં આવી હતી?",
+        options: [
+          "પ્રાથમિક તબક્કે (ખાસ કરીને ધોરણ ૧ અને ૨ માં) કોઈ પણ પ્રકારનું ઔપચારિક ગૃહકાર્ય આપવું નહીં",
+          "દરરોજ ઓછામાં ઓછા ૪ કલાકનું લેખિત ગૃહકાર્ય આપવું",
+          "માત્ર રજાઓમાં જ ગૃહકાર્ય આપવું",
+          "તમામ વિષયોનું રોજેરોજ સ્વાધ્યાય કાર્ય કરાવવું"
+        ],
+        answer: 0,
+        explanation: "ભાર વગરના ભણતર માટે સમિતિએ ભલામણ કરી હતી કે નાના બાળકોનું તમામ શિક્ષણ વર્ગખંડમાં જ પૂરું થવું જોઈએ, ઘરે લખાણનો બોજ ન હોવો જોઈએ."
+      },
+      {
+        id: 74,
+        question: "રાષ્ટ્રીય જ્ઞાન પંચ (National Knowledge Commission - NKC) ની સ્થાપના કોની અધ્યક્ષતામાં કરવામાં આવી હતી?",
+        options: ["સામ પિત્રોડા (Sam Pitroda)", "ડૉ. કસ્તુરીરંગન", "ડૉ. મનમોહન સિંહ", "પ્રો. સી. એન. આર. રાવ"],
+        answer: 0,
+        explanation: "ઈ.સ. ૨૦૦૫ માં ભારતને ૨૧મી સદીનું જ્ઞાન-આધારિત અર્થતંત્ર બનાવવા સામ પિત્રોડાના નેતૃત્વમાં રાષ્ટ્રીય જ્ઞાન આયોગની રચના થઈ હતી."
+      },
+      {
+        id: 75,
+        question: "ભારતીય બંધારણના કયા અનુચ્છેદ હેઠળ ૬ વર્ષથી ઓછી ઉંમરના બાળકોની બાળસંભાળ અને પૂર્વ-શાળા શિક્ષણ (ECCE) ની જોગવાઈ રાજ્યનીતિના માર્ગદર્શક સિદ્ધાંતોમાં કરવામાં આવી છે?",
+        options: ["અનુચ્છેદ ૨૧-A", "અનુચ્છેદ ૪૫", "અનુચ્છેદ ૪૭", "અનુચ્છેદ ૫૧-A"],
+        answer: 1,
+        explanation: "૮૬મા બંધારણીય સુધારા ૨૦૦૨ થી અનુચ્છેદ ૪૫ સુધારીને રાજ્ય ૬ વર્ષથી નીચેના બાળકોની શરૂઆતની સંભાળ અને પૂર્વ-પ્રાથમિક શિક્ષણ માટે પ્રયત્ન કરશે તેવી જોગવાઈ કરાઈ."
+      },
+      {
+        id: 76,
+        question: "બંધારણના કયા અનુચ્છેદ મુજબ ધાર્મિક કે ભાષાકીય લઘુમતી સમુદાયોને તેમની પસંદગી મુજબની શૈક્ષણિક સંસ્થાઓ સ્થાપવાનો અને વહીવટ કરવાનો મૂળભૂત અધિકાર છે?",
+        options: ["અનુચ્છેદ ૨૯(૧)", "અનુચ્છેદ ૩૦(૧)", "અનુચ્છેદ ૨૬", "અનુચ્છેદ ૨૮"],
+        answer: 1,
+        explanation: "અનુચ્છેદ ૩૦(૧) તમામ લઘુમતીઓને પોતાની સંસ્કૃતિ અને ભાષાના જતન માટે પોતાની મરજી મુજબની શાળા-કોલેજ સ્થાપવાનો વિશિષ્ટ બંધારણીય હક આપે છે."
+      },
+      {
+        id: 77,
+        question: "બંધારણના અનુચ્છેદ ૩૫૦-A હેઠળ પ્રાથમિક તબક્કે માતૃભાષામાં શિક્ષણની પૂરતી સગવડો પૂરી પાડવાની જવાબદારી કોના પર રહેલી છે?",
+        options: [
+          "માત્ર કેન્દ્ર સરકાર",
+          "પ્રત્યેક રાજ્ય અને રાજ્યની અંદરની દરેક સ્થાનિક સત્તાતંત્ર (Local Authority)",
+          "માત્ર ખાનગી ટ્રસ્ટો",
+          "માત્ર બિન-સરકારી સંસ્થાઓ"
+        ],
+        answer: 1,
+        explanation: "અનુચ્છેદ ૩૫૦-A મુજબ રાજ્ય અને દરેક સ્થાનિક સત્તાતંત્રે ભાષાકીય લઘુમતી જૂથોના બાળકોને પ્રાથમિક શિક્ષણ માતૃભાષામાં મળી રહે તેવી સુવિધાઓ ઊભી કરવી પડશે."
+      },
+      {
+        id: 78,
+        question: "જીન પિયાજેના બોધાત્મક વિકાસના સિદ્ધાંત અનુસાર જ્યારે બાળક પોતાના વર્તમાન જ્ઞાન માળખામાં ફેરફાર કરીને નવા અનુભવને સમાવે છે, ત્યારે તે પ્રક્રિયા શું કહેવાય છે?",
+        options: ["આત્મસાતીકરણ (Assimilation)", "સમાયોજન / વ્યવસ્થાપન (Accommodation)", "સમતુલા (Equilibration)", "સંરક્ષણ (Conservation)"],
+        answer: 1,
+        explanation: "નવી માહિતી સાથે મેળ બેસાડવા જૂની માનસિક રચનામાં સુધારો કરવો તેને ‘સમાયોજન’ (Accommodation) કહે છે."
+      },
+      {
+        id: 79,
+        question: "લેવ વાયગોત્સ્કીના સિદ્ધાંત અનુસાર બાળકના વાસ્તવિક વિકાસ સ્તર (Actual Development Level) અને સંભવિત વિકાસ સ્તર (Potential Development Level) વચ્ચેના અંતરને શું કહેવાય છે?",
+        options: ["Zone of Proximal Development (ZPD)", "Scaffolding", "Egocentric Speech", "Conditioning"],
+        answer: 0,
+        explanation: "ZPD એ તે સંભવિત ક્ષેત્ર છે જ્યાં બાળક કોઈ વડીલ કે કુશળ સાથીદારના માર્ગદર્શન હેઠળ જટિલ કાર્ય સફળતાપૂર્વક પૂરું કરી શકે છે."
+      },
+      {
+        id: 80,
+        question: "જેરોમ બ્રૂનર દ્વારા આપવામાં આવેલી ‘સર્પિલાકાર અભ્યાસક્રમ’ (Spiral Curriculum) ની સંકલ્પનાનો મુખ્ય સિદ્ધાંત શો છે?",
+        options: [
+          "એક જ વિષયવસ્તુને વારંવાર એક જ રીતે ગોખાવવું",
+          "કોઈપણ વિષયવસ્તુ બાળકની ઉંમર અને વિકાસના સ્તર મુજબ ક્રમશઃ વધુ ઊંડાણ અને જટિલતા સાથે પુનરાવર્તિત કરીને શીખવવું",
+          "માત્ર ઉચ્ચ વર્ગોમાં જ વિજ્ઞાન ભણાવવું",
+          "અભ્યાસક્રમ ક્યારેય બદલવો નહીં"
+        ],
+        answer: 1,
+        explanation: "સર્પિલ કરિક્યુલમમાં પાયાની વિભાવનાઓ પ્રાથમિક સ્તરે સાદી રીતે અને આગળના ધોરણોમાં તે જ ખ્યાલ ઉત્તરોત્તર વધુ ગહનતાથી રજૂ થાય છે."
+      },
+      {
+        id: 81,
+        question: "એડવર્ડ થોર્નડાઇકના અધ્યયન નિયમો પૈકી કયો નિયમ જણાવે છે કે ‘જે કાર્ય કરવાથી સંતોષ કે સુખદ પરિણામ મળે તે કાર્યનું પુનરાવર્તન દ્રઢ બને છે’?",
+        options: ["તત્પરતાનો નિયમ (Law of Readiness)", "મહાવરાનો નિયમ (Law of Exercise)", "પરિણામ / અસરનો નિયમ (Law of Effect)", "બહુવિધ પ્રતિક્રિયાનો નિયમ"],
+        answer: 2,
+        explanation: "થોર્નડાઇકના પરિણામના નિયમ મુજબ સંતોષકારક ઉત્તેજના જોડાણને મજબૂત બનાવે છે, જ્યારે અસંતોષકારક પરિણામ વર્તનને નબળું પાડે છે."
+      },
+      {
+        id: 82,
+        question: "હોવર્ડ ગાર્ડનરના મતે પોતાના વિચારો, લાગણીઓ, શક્તિઓ અને મર્યાદાઓને ઊંડાણપૂર્વક સમજવાની ક્ષમતા કઈ બુદ્ધિ દર્શાવે છે?",
+        options: ["આંતરવૈયક્તિક બુદ્ધિ (Interpersonal Intelligence)", "વ્યક્તિ-અંતર્ગત બુદ્ધિ (Intrapersonal Intelligence)", "અવકાશીય બુદ્ધિ (Spatial Intelligence)", "પ્રકૃતિવાદી બુદ્ધિ"],
+        answer: 1,
+        explanation: "અન્ય વ્યક્તિઓને સમજવી તે ‘Interpersonal’ છે, જ્યારે સ્વયંના આંતરિક મનોજગત અને લાગણીઓને સમજવાની આત્મ-સૂઝ તે ‘Intrapersonal’ બુદ્ધિ છે."
+      },
+      {
+        id: 83,
+        question: "રચનાવાદી (Constructivist) શિક્ષણમાં શિક્ષકની ભૂમિકા મુખ્યત્વે કેવી હોવી જોઈએ?",
+        options: [
+          "એકમાત્ર જ્ઞાનદાતા અને સરમુખત્યાર",
+          "સુગમકર્તા (Facilitator) અને માર્ગદર્શક જે વિદ્યાર્થીઓને જ્ઞાનનું જાતે નિર્માણ કરવા તકો પૂરી પાડે",
+          "માત્ર પરીક્ષક જે ગુણ આપે",
+          "વર્ગખંડમાં સંપૂર્ણ નિષ્ક્રિય શ્રોતા"
+        ],
+        answer: 1,
+        explanation: "રચનાવાદમાં બાળક અધ્યયનનું કેન્દ્ર છે અને શિક્ષક સુવિધા આપનાર (Facilitator) તરીકે વાતાવરણનું સર્જન કરે છે."
+      },
+      {
+        id: 84,
+        question: "વર્ગખંડમાં ‘ડિસ્લેક્સિયા’ (Dyslexia) ધરાવતા વિદ્યાર્થીઓમાં સામાન્ય રીતે કઈ મુખ્ય મુશ્કેલી જોવા મળે છે?",
+        options: [
+          "અક્ષરો, શબ્દો ઓળખવામાં અને વાંચન-અર્થગ્રહણમાં મુશ્કેલી",
+          "ગણતરી અને અંકગણિતની ક્રિયાઓમાં તકલીફ",
+          "હાથના સ્નાયુઓ દ્વારા સુંદર અક્ષરે લખવામાં તકલીફ",
+          "સાંભળવાની સંપૂર્ણ ખામી"
+        ],
+        answer: 0,
+        explanation: "ડિસ્લેક્સિયા એ ભાષા-વાંચન સંબંધી લર્નિંગ ડિસએબિલિટી છે. (ગણિત માટે ડિસ્કેલ્ક્યુલિયા અને લેખન માટે ડિસ્ગ્રાફિયા છે)."
+      },
+      {
+        id: 85,
+        question: "ક્રિયાત્મક સંશોધન (Action Research) માં સંશોધનકર્તા પોતે કોણ હોય છે?",
+        options: [
+          "યુનિવર્સિટીના પ્રોફેસર",
+          "વર્ગખંડનો શિક્ષક કે શાળાનો મુખ્ય શિક્ષક જે પોતે સમસ્યાનો સામનો કરી રહ્યો છે",
+          "બહારની કોઈ ખાનગી સંશોધન એજન્સી",
+          "કેવળ શિક્ષણ મંત્રી"
+        ],
+        answer: 1,
+        explanation: "ક્રિયાત્મક સંશોધનનો મૂળ સિદ્ધાંત છે: 'The practitioner is the researcher' — શિક્ષક પોતે પોતાની કાર્યપદ્ધતિ સુધારવા સંશોધન હાથ ધરે છે."
+      },
+      {
+        id: 86,
+        question: "ક્રિયાત્મક સંશોધનમાં ઉત્કલ્પનાઓ ચકાસવા માટે શિક્ષક દ્વારા રચવામાં આવતી ‘પ્રાયોગિક રૂપરેખા’ કયા નામે ઓળખાય છે?",
+        options: ["કાર્યસાધક યોજના (Action Plan / પગલાંની યોજના)", "વાર્ષિક બજેટ", "પરીક્ષા ટાઈમટેબલ", "શાળા છોડ્યાનું પ્રમાણપત્ર"],
+        answer: 0,
+        explanation: "સમસ્યાના નિવારણ માટે કયા કયા શૈક્ષણિક પ્રયોગો, પદ્ધતિઓ અને પ્રવૃત્તિઓ ક્યારે કરવી તેની સમયબદ્ધ વ્યવસ્થા એટલે એકશન પ્લાન."
+      },
+      {
+        id: 87,
+        question: "શાળા સંચાલનમાં લ્યુથર ગુલિકના ‘POSDCORB’ સૂત્રમાં ‘D’ નો અર્થ શું થાય છે?",
+        options: ["Development", "Directing (દોરવણી / માર્ગદર્શન આપવું)", "Documentation", "Delegation"],
+        answer: 1,
+        explanation: "POSDCORB માં Planning, Organizing, Staffing, Directing, Coordinating, Reporting અને Budgeting નો સમાવેશ થાય છે."
+      },
+      {
+        id: 88,
+        question: "પ્રાથમિક શાળાના મુખ્ય શિક્ષક તરીકે સંસ્થામાં ‘ટીમ સ્પિરિટ’ (સાંઘિક ભાવના) વિકસાવવા માટે કયો અભિગમ શ્રેષ્ઠ છે?",
+        options: [
+          "તમામ નિર્ણયો એકલા જ લેવા",
+          "સત્તાનું વિકેન્દ્રીકરણ કરી શિક્ષકોની ક્ષમતા મુજબ કામની વહેંચણી કરવી અને શ્રેષ્ઠ કાર્યની જાહેરમાં પ્રશંસા કરવી",
+          "માત્ર નબળી કામગીરી કરનારને મેમો આપવા",
+          "શિક્ષકો વચ્ચે સ્પર્ધા કરાવી મતભેદો ઊભા કરવા"
+        ],
+        answer: 1,
+        explanation: "સહભાગી વ્યવસ્થાપન શિક્ષકોમાં શાળા પ્રત્યે માલિકીભાવ પેદા કરે છે અને સંસ્થાકીય વાતાવરણ ઉત્સાહી બનાવે છે."
+      },
+      {
+        id: 89,
+        question: "શાળા સલામતી માર્ગદર્શિકા મુજબ શાળા પરિસરમાં ‘ઇવેક્યુએશન પ્લાન’ (Evacuation Plan - સ્થળાંતર યોજના) નો મુખ્ય ઉપયોગ ક્યારે થાય છે?",
+        options: [
+          "આગ, ભૂકંપ કે પૂર જેવી આપત્તિ સમયે બાળકોને સુરક્ષિત અને ઝડપથી ખુલ્લા મેદાનમાં પહોંચાડવા",
+          "મધ્યાહ્ન ભોજન વહેંચવા માટે",
+          "શાળા છૂટવાના નિયમિત સમયે",
+          "માત્ર વાલી સંમેલન વખતે"
+        ],
+        answer: 0,
+        explanation: "કટોકટીની પળોમાં અંધાધૂંધી વગર બાળકો સુરક્ષિત બહાર નીકળી શકે તે માટે શાળાના દરેક ઓરડામાં સ્થળાંતરનો નકશો પ્રદર્શિત કરવો ફરજિયાત છે."
+      },
+      {
+        id: 90,
+        question: "એક પ્રભાવશાળી મુખ્ય શિક્ષકની ‘ઇન્સ્ટ્રક્શનલ લીડર’ (શૈક્ષણિક નેતા) તરીકેની દૈનિક પ્રાથમિકતા કઈ હોવી જોઈએ?",
+        options: [
+          "માત્ર કચેરીના પત્રોના જવાબો ટાઈપ કરવા",
+          "વર્ગખંડ શિક્ષણનું પ્રત્યક્ષ અવલોકન કરી શિક્ષકોને અધ્યાપન પદ્ધતિઓમાં રચનાત્મક માર્ગદર્શન આપવું",
+          "શાળા સંકુલના દરવાજે બેસી રહેવું",
+          "આખો દિવસ હિસાબી ચોપડા તપાસવા"
+        ],
+        answer: 1,
+        explanation: "મુખ્ય શિક્ષક માત્ર વહીવટકર્તા નથી પરંતુ શાળાના ચીફ એકેડેમિક ઓફિસર છે; તેમનું સર્વોચ્ચ કાર્ય શિક્ષણ કાર્યની ગુણવત્તા સુધારવાનું છે."
+      },
+
+      // 91 to 150: Acts, Rules & Regulations
+      {
+        id: 91,
+        question: "ગુજરાત પંચાયત સેવા (શિસ્ત અને અપીલ) નિયમો, ૧૯૯૭ ના સંદર્ભમાં નીચેના વિધાનો તપાસો:\n\n૧. આ નિયમો ગુજરાત પંચાયત અધિનિયમ, ૧૯૯૩ ની કલમ ૨૨૭ અને ૨૭૪ અન્વયે ઘડાયા છે.\n૨. તેનું જાહેરનામું ૧૭ જૂન ૧૯૯૭ ના રોજ બહાર પાડવામાં આવ્યું હતું.\n૩. આ નિયમો હેઠળ ૧૯૭૪ ના નિયમો રદ્દ કરવામાં આવ્યા છે.\n૪. આ નિયમોમાં કુલ ૬ ભાગ અને ૨૮ નિયમો સમાવિષ્ટ છે.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૧, ૨ અને ૪", "માત્ર ૨, ૩ અને ૪", "તમામ વિધાનો સત્ય છે"],
+        answer: 1,
+        explanation: "નિયમ ૨૭ અનુસાર ૧૯૯૭ ના નિયમોએ ૧૯૬૪ ના જૂના નિયમો રદ્દ કરી તેનું સ્થાન લીધું છે (૧૯૭૪ નહીં). આ નિયમો કલમ ૨૨૭ અને ૨૭૪ હેઠળ ૧૭ જૂન ૧૯૯૭ ના રોજ બહાર પડ્યા હતા અને તેમાં કુલ ૬ ભાગ તથા ૨૮ નિયમો છે."
+      },
+      {
+        id: 92,
+        question: "ફરજ મોકૂફી (સસ્પેન્શન - નિયમ ૫) બાબતે નીચેના પૈકી કયા વિધાનો સાચાં છે?\n\n૧. શિસ્ત પાલનની કાર્યવાહી ચાલુ હોય કે નૈતિક અધઃપતનવાળો ફોજદારી ગુનો નોંધાયો હોય ત્યારે સત્તાધિકારી ફરજ મોકૂફી હેઠળ મૂકી શકે છે.\n૨. કર્મચારી ૪૮ કલાક કરતાં વધુ સમય કસ્ટડીમાં રહે તો તેને તે તારીખથી ફરજ મોકૂફ ગણવામાં આવે છે.\n૩. નીચલા દરજ્જાના અધિકારી ફરજ મોકૂફીનો હુકમ કરે ત્યારે તેની જાણ નિમણૂક સત્તાધિકારીને કરવી ફરજિયાત નથી.\n૪. ફરજ મોકૂફીના હુકમની સમીક્ષા ૯૦ દિવસમાં કરવાની રહે છે; નહીંતર તે અમાન્ય બને છે.",
+        options: ["માત્ર ૧ અને ૩", "માત્ર ૧, ૨ અને ૪", "માત્ર ૨ અને ૪", "૧, ૨, ૩ અને ૪"],
+        answer: 1,
+        explanation: "નિમણૂક સત્તાધિકારીના તાબાના કે નીચલા અધિકારી જ્યારે ફરજ મોકૂફીનો હુકમ કરે ત્યારે તેમણે કયા સંજોગોમાં આ નિર્ણય લીધો તેનો સવિસ્તર અહેવાલ નિમણૂક સત્તાધિકારીને મોકલવો ફરજિયાત હોય છે."
+      },
+      {
+        id: 93,
+        question: "નિયમ ૬ હેઠળ ‘શિક્ષા’ સંદર્ભે નીચેના વિધાનો ધ્યાને લો:\n\n૧. ઠપકો આપવો, ઈજાફો અટકાવવો કે બઢતી અટકાવવી એ ગૌણ (નાની) શિક્ષા છે.\n૨. પાયરી ઉતાર, સેવામાંથી દૂર કરવા અને બરતરફી એ મુખ્ય (મોટી) શિક્ષા છે.\n૩. ખાતાકીય કે ભાષાકીય મુક્તિ પરીક્ષા પાસ ન કરવાને કારણે ઈજાફો કે બઢતી અટકાવવી એ દંડાત્મક શિક્ષા ગણાય છે.\n૪. ‘ભવિષ્યની નોકરી માટે ગેરલાયક ઠરે’ તે રીતે સેવામાંથી છૂટા કરવા એ સેવામાંથી બરતરફી (Dismissal) માં આવે છે.",
+        options: ["માત્ર ૧, ૨ અને ૪", "માત્ર ૧ અને ૩", "માત્ર ૨, ૩ અને ૪", "આપેલ તમામ"],
+        answer: 0,
+        explanation: "નિમણૂકની શરત અનુસાર ખાતાકીય કે ભાષાકીય પરીક્ષા પાસ ન કરવાના કારણે ઈજાફો કે બઢતી અટકે તો તેને નિયમ ૬ મુજબ શિક્ષા ગણવામાં આવતી નથી."
+      },
+      {
+        id: 94,
+        question: "નિયમ ૮ (મુખ્ય શિક્ષા કરવાની કાર્યરીતિ) સંદર્ભે નીચેના વિધાનો ચકાસો:\n\n૧. ગંભીર આક્ષેપો હોય ત્યારે મોટી શિક્ષા કરતાં પહેલાં પ્રાથમિક તપાસ કરવી જરૂરી છે.\n૨. પોલીસે તપાસ કરી અહેવાલ આપ્યો હોય તો તેને જ પ્રાથમિક તપાસ ગણી શકાય અને નવેસરથી તપાસ કરવાની રહેતી નથી.\n૩. પોલીસ અહેવાલ પછી વધુ સ્પષ્ટતા માટે ખાતાકીય અધિકારીઓની વિશેષ તપાસ ટીમ બનાવી શકાય છે.\n૪. કર્મચારીને બચાવ અર્થે સંબંધિત દસ્તાવેજી રેકોર્ડ જોવાની અને ઉતારો કરવાની પરવાનગી આપવામાં આવે છે.",
+        options: ["માત્ર ૧ અને ૩", "માત્ર ૧, ૨ અને ૪", "માત્ર ૨ અને ૪", "૧, ૨, ૩ અને ૪"],
+        answer: 1,
+        explanation: "પોલીસ અહેવાલ પછી જો વધુ સ્પષ્ટતાની જરૂર જણાય તો સત્તાધિકારીએ પોલીસને જ ફરી તપાસ માટે લેખિત જણાવવું પડે; ખાતાકીય અધિકારીઓને આવી તપાસ સોંપી શકાતી નથી."
+      },
+      {
+        id: 95,
+        question: "ભાગ ૪ હેઠળ ‘અપીલ’ સંબંધિત જોગવાઈઓ અંગે નીચેના વિધાનો વિચારો:\n\n૧. શિક્ષાના હુકમ સામે અપીલ સત્તાધિકારીને હુકમ મળ્યા તારીખથી ૪૫ દિવસની અંદર અપીલ કરી શકાય છે.\n૨. વ્યાજબી કારણ હોય તો ૪૫ દિવસની મુદત વીત્યા પછી પણ અપીલ સ્વીકારી શકાય છે.\n૩. નિયમ ૨૦ મુજબ પ્રથમ અપીલના આદેશ સામે ૬૦ દિવસની અંદર બીજી અપીલ થઈ શકે છે.\n૪. રાજ્ય સરકાર દ્વારા અધિકૃત અધિકારીએ કરેલો હુકમ છેવટનો ગણાય છે.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૧, ૨ અને ૪", "માત્ર ૩ અને ૪", "તમામ વિધાનો સાચાં છે"],
+        answer: 1,
+        explanation: "નિયમ ૨૦ હેઠળ પ્રથમ અપીલના નિર્ણય સામે બીજી અપીલ કરવાની સમયમર્યાદા પણ ૪૫ દિવસની જ છે, ૬૦ દિવસની નહીં."
+      },
+      {
+        id: 96,
+        question: "પુનઃઅવલોકન (Review) અને પ્રકીર્ણ બાબતો સંદર્ભે નીચેના વિધાનો ચકાસો:\n\n૧. નિયમ ૨૨ હેઠળ રાજ્ય સરકાર કોઈપણ હુકમમાં વધારો, ઘટાડો કે રદ કરવાની પુનઃઅવલોકનની સત્તા ધરાવે છે.\n૨. નિયમ ૨૩ મુજબ શિસ્તભંગના હુકમનું પુનઃઅવલોકન સત્તાધિકારી હુકમની તારીખથી ૧૨ મહિના સુધી કરી શકે છે.\n૩. નિયમ ૨૫ હેઠળ યોગ્ય કારણોસર સમયમર્યાદામાં છૂટછાટ આપવાની કે વિલંબ માફ કરવાની સત્તા છે.\n૪. નિયમ ૨૬ મુજબ જો બોર્ડની સલાહ અસ્વીકાર કરવામાં આવે તો તેનું ટૂંકું નિવેદન પંચાયત નોકરને પૂરું પાડવું ફરજિયાત છે.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૨ અને ૪", "માત્ર ૧, ૩ અને ૪", "૧, ૨, ૩ અને ૪"],
+        answer: 2,
+        explanation: "નિયમ ૨૩ અનુસાર શિસ્તભંગના હુકમનું પુનઃઅવલોકન મૂળ હુકમની તારીખથી વધુમાં વધુ ૬ મહિના સુધી જ થઈ શકે છે, ૧૨ મહિના નહીં."
+      },
+      {
+        id: 97,
+        question: "ગુજરાત પંચાયત સેવા (વર્તણૂક) નિયમો, ૧૯૯૮ ની પ્રાથમિક વિગતો અંગે કયાં વિધાનો સત્ય છે?\n\n૧. આ નિયમો ગુજરાત પંચાયત અધિનિયમ, ૧૯૯૩ ની કલમ ૨૭૪ અન્વયે બનાવવામાં આવ્યા છે.\n૨. તેનું મૂળ જાહેરનામું ૭ જુલાઈ ૧૯૯૮ ના રોજ પ્રસિદ્ધ કરવામાં આવ્યું હતું.\n૩. આ નિયમોમાં પ્રથમ સુધારો ૧૬ ડિસેમ્બર ૧૯૯૯ ના રોજ અને બીજો સુધારો ૧ ફેબ્રુઆરી ૨૦૦૨ ના રોજ થયો હતો.\n૪. આ નિયમોમાં કુલ ૩૫ નિયમોનો સમાવેશ થાય છે.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૧, ૨ અને ૩", "માત્ર ૨ અને ૪", "તમામ વિધાનો સત્ય છે"],
+        answer: 1,
+        explanation: "ગુજરાત પંચાયત સેવા (વર્તણૂક) નિયમો, ૧૯૯૮ માં કુલ ૩૧ નિયમો આવેલા છે (૩૫ નહીં)."
+      },
+      {
+        id: 98,
+        question: "સામાન્ય વર્તણૂક અને સ્ત્રીઓની સુરક્ષા (નિયમ ૩) બાબતે નીચેના વિધાનો વિચારો:\n\n૧. કર્મચારીએ ઉપરી અધિકારીના આદેશ હેઠળ કાર્ય કરતી વખતે શક્ય હોય ત્યાં સુધી લેખિત આદેશ મેળવવો જરૂરી છે.\n૨. મૌખિક આદેશ મળેલો હોય તો શક્ય તેટલી વહેલી તકે તેની લેખિત બહાલી મેળવી લેવી જોઈએ.\n૩. સ્ત્રીઓની જાતીય સતામણીની મનાઈ દર્શાવતી જોગવાઈ મૂળ ૧૯૯૮ ના નિયમોમાં શરૂઆતથી જ શામેલ હતી.\n૪. ૨૦૦૨ ના સુધારા નિયમો દ્વારા નિયમ ૩ માં સ્ત્રી કર્મચારીની જાતીય સતામણી અટકાવવા અંગે સ્પષ્ટ જોગવાઈ ઉમેરવામાં આવી.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૧, ૨ અને ૪", "માત્ર ૨ અને ૩", "૧, ૨, ૩ અને ૪"],
+        answer: 1,
+        explanation: "મૂળ ૧૯૯૮ ના નિયમોમાં જાતીય સતામણી અંગે જોગવાઈ નહોતી, પરંતુ ૧ ફેબ્રુઆરી ૨૦૦૨ ના સુધારા નિયમો હેઠળ નિયમ ૩ માં આ નવી જોગવાઈ ઉમેરવામાં આવી હતી."
+      },
+      {
+        id: 99,
+        question: "રાજકીય પ્રવૃત્તિ, હડતાલ અને પ્રેસ/રેડિયો સંબંધિત નિયમો અંગે નીચેના વિધાનો ધ્યાને લો:\n\n૧. નિયમ ૫ મુજબ પંચાયત કર્મચારી મતદાન કરી શકે છે, પરંતુ તેણે કોને મત આપ્યો છે તે જાહેર કરી શકશે નહીં.\n૨. કર્મચારી પોતાના વાહન, શરીર કે રહેઠાણ પર કોઈ ચૂંટણી પ્રતીક પ્રદર્શિત કરે તો તે નિયમ ૫ નો ભંગ ગણાય છે.\n૩. નિયમ ૬ મુજબ સમૂહમાં કામ બંધ કરવું કે એકત્રિત થઈ ધીમી ગતિએ કામ કરવું એ પણ ‘હડતાલ’ ગણાય છે.\n૪. નિયમ ૮ મુજબ સાહિત્યિક, કલાત્મક કે વૈજ્ઞાનિક પ્રકારના લેખ પ્રગટ કરવા માટે પણ પંચાયતની પૂર્વ મંજૂરી મેળવવી ફરજિયાત છે.",
+        options: ["માત્ર ૧, ૨ અને ૩", "માત્ર ૨ અને ૪", "માત્ર ૧ અને ૩", "૧, ૨, ૩ અને ૪"],
+        answer: 0,
+        explanation: "નિયમ ૮ અનુસાર સાહિત્યિક, કલા વિષયક કે વૈજ્ઞાનિક પ્રકારના લેખો કે પુસ્તકો લખવા માટે સરકાર કે પંચાયતની પૂર્વ મંજૂરી મેળવવાની જરૂર હોતી નથી."
+      },
+      {
+        id: 100,
+        question: "ભેટ (નિયમ ૧૩) અને દહેજ (નિયમ ૧૪) અંગે નીચેના વિધાનો ચકાસો:\n\n૧. કર્મચારી કે તેના કુટુંબીજનો દ્વારા કોઈપણ ભેટ સ્વીકારવા પર સામાન્ય રીતે સંપૂર્ણ મનાઈ છે.\n૨. ધાર્મિક કે સામાજિક રૂઢિ મુજબ ઉપલી પંચાયતના કર્મચારી ₹૨૫૦ અને નીચલી પંચાયતના કર્મચારી ₹૧૦૦ સુધીની ભેટ સગાંવહાલાં પાસેથી સ્વીકારી શકે છે.\n૩. નિયત મર્યાદાથી વધુ મૂલ્યની ભેટ મળે ત્યારે સત્તાધિકારીને જાણ કરવી જરૂરી છે.\n૪. નિયમ ૧૪ મુજબ માત્ર દહેજ માગવા કે લેવા પર મનાઈ છે, પરંતુ સ્વૈચ્છિક દહેજ આપવામાં મદદ કરવા પર કોઈ બાધ નથી.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૧, ૨ અને ૩", "માત્ર ૨, ૩ અને ૪", "આપેલ તમામ"],
+        answer: 1,
+        explanation: "નિયમ ૧૪ મુજબ દહેજ આપવું, લેવું કે તેમાં કોઈપણ રીતે મદદગારી કરવી એ સંપૂર્ણપણે પ્રતિબંધિત છે."
+      },
+      {
+        id: 101,
+        question: "નાણાકીય બાબતો, દેવું અને મિલકતની જાહેરાત (નિયમ ૧૭, ૧૮, ૨૦) સંદર્ભે કયાં વિધાનો સાચાં છે?\n\n૧. નિયમ ૧૭ મુજબ શેરબજાર કે જામીનગીરીઓની વારંવાર ખરીદ-વેચાણ પ્રવૃત્તિ કરવી એ સટ્ટો ગણાય છે, જે પ્રતિબંધિત છે.\n૨. નિયમ ૧૮ મુજબ જો કર્મચારીના અડધા પગાર પર મૂકાયેલી ટાંચ સતત બે વર્ષથી વધુ ચાલુ રહે તો તે નોકરીમાંથી દૂર થવાને પાત્ર બને છે.\n૩. નિયમ ૨૦ મુજબ પ્રથમ નિમણૂક વખતે તેમજ કર્મચારીની વય ૨૫, ૩૦, ૩૫... એમ દર ૫ વર્ષના ગુણાંકમાં થાય ત્યારે મિલકત પત્રક રજૂ કરવું પડે છે.\n૪. વર્ગ-૩ માટે ₹૧૫,૦૦૦ અને વર્ગ-૪ માટે ₹૧૦,૦૦૦ થી વધુ કિંમતની જંગમ મિલકત હોય તો સત્તાધિકારીને જાણ કરવી જરૂરી છે.",
+        options: ["માત્ર ૧ અને ૩", "માત્ર ૨ અને ૪", "માત્ર ૧, ૨ અને ૪", "૧, ૨, ૩ અને ૪ (તમામ સાચાં)"],
+        answer: 3,
+        explanation: "આપેલા ચારેય વિધાનો નિયમ ૧૭ (સટ્ટો/રોકાણ), નિયમ ૧૮ (નાદારી/ટાંચ) અને નિયમ ૨૦ (જંગમ-સ્થાવર મિલકતની જાહેરાત) ની અધિકૃત જોગવાઈઓ સાથે સંપૂર્ણ મેળ ખાય છે."
+      },
+      {
+        id: 102,
+        question: "વિશિષ્ટ પ્રતિબંધો અને અંતિમ જોગવાઈઓ (નિયમ ૨૨ થી ૩૧) બાબતે નીચેના વિધાનો વિચારો:\n\n૧. નિયમ ૨૨ હેઠળ સરકારી મિલકતની જાહેર હરાજીમાં પંચાયત કર્મચારી પોતાના નામે કે એજન્ટ મારફતે બોલી લગાવી શકે નહીં.\n૨. નિયમ ૨૩ મુજબ કર્મચારી સક્ષમ મંજૂરી વિના કોઈપણ ખાનગી કેસમાં અદાલતમાં લવાદ (સાક્ષી) તરીકે કામગીરી કરી શકે નહીં.\n૩. નિયમ ૨૭ મુજબ પંચાયત કર્મચારી પોતાના પતિ કે પત્નીની હયાતીમાં બીજા લગ્ન કે લગ્ન કરાર (લિવ-ઇન) કરી શકતો નથી.\n૪. નિયમ ૨૮ માં પંચાયત કર્મચારીએ ત્રણ કે તેથી વધુ બાળકો ન થાય તેનું ધ્યાન રાખવા નાનું કુટુંબ નિયત કરેલ છે.",
+        options: ["માત્ર ૧, ૨ અને ૩", "માત્ર ૨ અને ૪", "માત્ર ૧ અને ૪", "૧, ૨, ૩ અને ૪"],
+        answer: 0,
+        explanation: "નિયમ ૨૮ અનુસાર નાના કુટુંબના માપદંડમાં બાળકોની મહત્તમ મર્યાદા બે (૨) રાખવાની જોગવાઈ છે, ત્રણ નહીં."
+      },
+      {
+        id: 103,
+        question: "મુંબઈ પ્રાથમિક શિક્ષણ અધિનિયમ, ૧૯૪૭ હેઠળ સ્કૂલ બોર્ડના સભ્યની ગેરલાયકાત અને ચૂંટણી તકરાર સંદર્ભે નીચેના વિધાનો તપાસો:\n\n• સ્કૂલ બોર્ડમાં સભ્યપદ માટે ઉમેદવારની લઘુત્તમ વયમર્યાદા ૨૧ વર્ષ હોવી અનિવાર્ય છે.\n• સ્કૂલ બોર્ડની ચૂંટણી બાબતે કોઈપણ તકરાર થાય તો પરાજિત ઉમેદવાર કે મતદાર પરિણામ જાહેર થયાના ૧૫ દિવસમાં જિલ્લા ન્યાયાધીશ સમક્ષ અરજી કરી શકે છે.\n• જો કોઈ સભ્ય ગેરલાયક ઠર્યા પછી પણ જાણી જોઈને બોર્ડની બેઠકમાં હાજરી આપે, તો કલેક્ટર દ્વારા તેની પાસેથી પ્રતિદિન ₹૧૦૦ નો દંડ વસૂલ કરવામાં આવે છે.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૨", "માત્ર ૨ અને ૩", "આપેલ તમામ"],
+        answer: 1,
+        explanation: "કલમ ૫ મુજબ સભ્ય બનવા માટે લઘુત્તમ વય ૨૫ વર્ષ હોવી જરૂરી છે. કલમ ૬ મુજબ ચૂંટણી વિવાદ અંગે ૧૫ દિવસમાં જિલ્લા ન્યાયાધીશ સમક્ષ અરજી કરવાની જોગવાઈ છે. કલમ ૭ મુજબ ગેરલાયક ઠર્યા બાદ પણ હાજરી આપવા બદલ કલેક્ટર દ્વારા પ્રતિદિન ₹૫૦ નો દંડ વસૂલ થાય છે."
+      },
+      {
+        id: 104,
+        question: "કલમ ૪ મુજબ સ્કૂલ બોર્ડની રચના અને સભ્ય સંખ્યા સંદર્ભે કયું વિધાન અસત્ય છે?",
+        options: [
+          "દરેક સ્કૂલ બોર્ડમાં સભ્યોની કુલ સંખ્યા ઓછામાં ઓછી ૧૨ અને વધુમાં વધુ ૧૬ રહેશે.",
+          "સ્કૂલ બોર્ડમાં રાજ્ય સરકાર દ્વારા ૨ થી ૩ સભ્યોની નિમણૂક કરવામાં આવે છે.",
+          "વધુમાં વધુ બે સભ્યો અનુસૂચિત જાતિ કે અનુસૂચિત આદિજાતિના રહેશે, જેઓ ઓછામાં ઓછું ધોરણ ૭ પાસ હોવા જોઈએ.",
+          "સભ્યોની મુદ્દત સામાન્ય રીતે ૩ વર્ષ કરતાં વધુ હોવી જોઈએ નહીં."
+        ],
+        answer: 2,
+        explanation: "કલમ ૪ મુજબ અનામત સભ્યો માટે લઘુત્તમ શૈક્ષણિક લાયકાત ધોરણ ૪ પાસ નિયત કરવામાં આવેલી છે (ધોરણ ૭ નહીં)."
+      },
+      {
+        id: 105,
+        question: "અધિનિયમ ૧૯૪૭ અંતર્ગત વિવિધ હોદ્દેદારોના રાજીનામા અને તેમને હોદ્દા પરથી દૂર કરવા સંબંધિત જોગવાઈઓ અંગે નીચેનામાંથી કઈ જોડ ખોટી છે?",
+        options: [
+          "સ્કૂલ બોર્ડના અધ્યક્ષ પોતાનું લેખિત રાજીનામું – જિલ્લા લોકલ બોર્ડ / અધિકૃત નગરપાલિકાના પ્રમુખને આપશે.",
+          "સ્કૂલ બોર્ડના ઉપાધ્યક્ષ પોતાનું લેખિત રાજીનામું – સ્કૂલ બોર્ડના અધ્યક્ષને આપશે.",
+          "સ્કૂલ બોર્ડના સભ્યને ગેરવર્તણૂક બદલ દૂર કરવા – કુલ સભ્યોના ૨/૩ બહુમતીથી ભલામણ જરૂરી છે.",
+          "અધ્યક્ષ કે ઉપાધ્યક્ષ વિરુદ્ધ અવિશ્વાસ/દૂર કરવાનો ઠરાવ – ૩૦ દિવસની લેખિત નોટિસ આપ્યા બાદ જ રજૂ કરી શકાય છે."
+        ],
+        answer: 3,
+        explanation: "કલમ ૧૦ મુજબ અધ્યક્ષ કે ઉપાધ્યક્ષ વિરુદ્ધ અવિશ્વાસનો ઠરાવ લાવતા પહેલાં ૨ અઠવાડિયાં (૧૪ દિવસ) ની પૂર્વ લેખિત નોટિસ આપવી અનિવાર્ય છે."
+      },
+      {
+        id: 106,
+        question: "માન્ય ખાનગી પ્રાથમિક શાળાઓ અને શિક્ષકોના રક્ષણ સંબંધિત કલમો અને વિષયની કઈ જોડ યોગ્ય છે?\n\n• કલમ ૪૦ (ખ) – શિક્ષકોને બરતરફ, દૂર કે પાયરી ઉતારવા સામે રક્ષણ\n• કલમ ૪૦ (ગ) – શિક્ષકોના રાજીનામા અંગેની કાર્યરીતિ\n• કલમ ૪૦ (ચ) – શિક્ષક-સંચાલક વચ્ચેની તકરારનો નિર્ણય ટ્રિબ્યુનલ દ્વારા કરવો\n• કલમ ૪૦ (જ) – દીવાની કોર્ટની હુકૂમતની મનાઈ",
+        options: ["૧, ૨, ૩ અને ૪ તમામ સાચાં છે", "માત્ર ૧ અને ૨ સાચાં છે", "માત્ર ૩ અને ૪ સાચાં છે", "માત્ર ૧ અને ૩ સાચાં છે"],
+        answer: 0,
+        explanation: "પ્રકરણ ૭-ખ માં કલમ ૪૦(ખ) બરતરફી/પાયરી ઉતારવા સામે રક્ષણ, ૪૦(ગ) રાજીનામાની વિધિ, ૪૦(ચ) તકરાર નિવારણ અને ૪૦(જ) દીવાની અદાલતોની હુકૂમત બાદ રાખવા અંગેની સુસંગત જોગવાઈઓ આપેલી છે."
+      },
+      {
+        id: 107,
+        question: "મુંબઈ પ્રાથમિક શિક્ષણ અધિનિયમ, ૧૯૪૭ અંતર્ગત નાણાકીય સંબંધો (પ્રકરણ ૮) સંદર્ભે કયું વિધાન સાચું નથી?",
+        options: [
+          "કલમ ૪૨ મુજબ જો નગરપાલિકાની વસ્તી ૫૦,૦૦૦ થી ઓછી હોય તો રાજ્ય સરકાર ૬૦% ફાળો આપશે.",
+          "કલમ ૪૨ મુજબ જો નગરપાલિકાની વસ્તી ૫૦,૦૦૦ કે તેથી વધુ હોય તો રાજ્ય સરકાર ૫૦% ફાળો આપશે.",
+          "કલમ ૪૩ હેઠળ સ્કૂલ બોર્ડ વાર્ષિક અંદાજપત્ર તૈયાર કરી રાજ્ય સરકારને મંજૂરી અર્થે મોકલે છે.",
+          "કલમ ૪૪ મુજબ સ્કૂલ બોર્ડે ફંડનું રોકાણ કોઈપણ ખાનગી શેડ્યુલ્ડ બેંકમાં પોતાની સ્વેચ્છાએ કરવાનું રહેશે."
+        ],
+        answer: 3,
+        explanation: "કલમ ૪૬ મુજબ ફંડનું રોકાણ સ્વેચ્છાએ ગમે ત્યાં નહીં, પરંતુ રાજ્ય સરકાર નક્કી કરે તે નિર્દિષ્ટ બેંક અથવા પોસ્ટ ઓફિસ સેવિંગ્સ/સર્ટિફિકેટ્સમાં જ નિયમોને આધીન કરવાનું રહે છે."
+      },
+      {
+        id: 108,
+        question: "અધિનિયમ ૧૯૪૭ ની વિવિધ કલમો અને તેની વિશિષ્ટ જોગવાઈઓ અંગે નીચેના વિધાનો ચકાસો:\n\n• કલમ ૩૭ મુજબ પ્રાથમિક શિક્ષણ બોર્ડના વહીવટી અધિકારીને 'રાજ્યસેવક' (Public Servant) ગણવામાં આવે છે.\n• કલમ ૫૬ અંતર્ગત ગેરવહીવટ બદલ રાજ્ય સરકાર દ્વારા સ્કૂલ બોર્ડનું વિસર્જન કરવાની સત્તા પ્રાપ્ત છે.\n• કલમ ૬૭, ૬૯ અને ૭૧ અનુક્રમે બનાસકાંઠા, કચ્છ અને સૌરાષ્ટ્ર વિસ્તાર સંબંધિત ખાસ જોગવાઈઓ દર્શાવે છે.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૨ અને ૩", "માત્ર ૧ અને ૩", "આપેલ તમામ"],
+        answer: 0,
+        explanation: "કલમ ૬૭ બનાસકાંઠા માટે, કલમ ૬૯ સૌરાષ્ટ્ર માટે અને કલમ ૭૧ કચ્છ જિલ્લા સંબંધિત છે. વિધાન ૩ માં સૌરાષ્ટ્ર અને કચ્છના ક્રમ ઊલટસૂલટ છે."
+      },
+      {
+        id: 109,
+        question: "મુંબઈ પ્રાથમિક શિક્ષણ વિનિયમો, ૧૯૪૯ હેઠળ સ્કૂલ બોર્ડની બેઠકની નોટિસ અને કોરમ (Quorum) ના નિયમો અંગે નીચેનામાંથી કયું વિધાન સાચું છે?",
+        options: [
+          "જિલ્લા સ્કૂલ બોર્ડની સામાન્ય બેઠક માટે ઓછામાં ઓછા ૫ દિવસ અગાઉ અને ખાસ બેઠક માટે ૩ દિવસ અગાઉ નોટિસ આપવી પડે છે.",
+          "મ્યુનિસિપલ સ્કૂલ બોર્ડની સામાન્ય બેઠક માટે ૧૦ દિવસ અને ખાસ બેઠક માટે ૫ દિવસની નોટિસ જરૂરી છે.",
+          "જો સ્કૂલ બોર્ડમાં ૧૪ કરતાં ઓછા સભ્યો હોય તો કોરમ માટે ઓછામાં ઓછા ૪ સભ્યો અને ૧૪ કે તેથી વધુ સભ્યો હોય તો ૫ સભ્યોની હાજરી અનિવાર્ય છે.",
+          "બેઠકમાં કોરમ ન થાય તો અધ્યક્ષે તરત જ બેઠક રદ કરવી પડે છે, રાહ જોવાની કોઈ જોગવાઈ નથી."
+        ],
+        answer: 2,
+        explanation: "નિયમ ૧૬ મુજબ જિલ્લા સ્કૂલ બોર્ડ માટે ૧૦ દિવસ (સામાન્ય) / ૫ દિવસ (ખાસ) તથા મ્યુનિસિપલ માટે ૫ દિવસ (સામાન્ય) / ૩ દિવસ (ખાસ) નોટિસ નિયત છે. નિયમ ૧૭ મુજબ ૧૪ થી ઓછા સભ્યો હોય તો ૪ અને વધુ હોય તો ૫ સભ્યોનું કોરમ જરૂરી છે."
+      },
+      {
+        id: 110,
+        question: "વિનિયમો ૧૯૪૯ અંતર્ગત નાણાકીય ખર્ચ અને ટેન્ડર પ્રક્રિયા (નિયમ ૫૫ અને ૫૬) સંદર્ભે કયું વિધાન અસત્ય છે?",
+        options: [
+          "₹૫,૦૦૦ થી વધુના કોઈપણ ખર્ચ માટે વર્તમાનપત્રોમાં જાહેરખબર આપીને ટેન્ડર મંગાવવું ફરજિયાત છે.",
+          "₹૫૦૦ થી ₹૫,૦૦૦ સુધીના ખર્ચ માટે ઓછામાં ઓછા ત્રણ યોગ્ય કોન્ટ્રાક્ટરો પાસેથી સ્પર્ધાત્મક ભાવો મંગાવવાના રહે છે.",
+          "ટેન્ડર મંજૂર કરનાર કોન્ટ્રાક્ટરે ખર્ચના ૫૦% જેટલી રકમ સરકારી જામીનગીરી ડિપોઝિટ તરીકે અનામત મૂકવી પડે છે.",
+          "₹૫૦૦ થી ઓછા ખર્ચ માટે વર્તમાનપત્રમાં જાહેરાત આપવાની જરૂરિયાત રહેતી નથી."
+        ],
+        answer: 2,
+        explanation: "નિયમ ૫૬ મુજબ કોન્ટ્રાક્ટરે અનામત ડિપોઝિટ તરીકે ૨૫% રકમ સરકારી જામીનગીરી પેટે મૂકવાની હોય છે (૫૦% નહીં)."
+      },
+      {
+        id: 111,
+        question: "વિનિયમો, ૧૯૪૯ મુજબ માન્ય ખાનગી પ્રાથમિક શાળાઓને ગ્રાન્ટ (અનુદાન) ની ચુકવણી અને મૂલ્યાંકન સંદર્ભે નીચેના વિધાનો ધ્યાને લો:\n\n• તપાસણી અધિકારી દ્વારા ૧૦૦ ગુણની બ્લુપ્રિન્ટ મુજબ શાળાની ચકાસણી થાય છે, જેમાં ૭૦ કે તેથી વધુ ગુણ મેળવનાર શાળાને પૂર્ણ ગ્રાન્ટ મળવાપાત્ર થાય છે.\n• ૭૦ કરતાં ઓછા ગુણ મેળવનાર શાળાની ગ્રાન્ટ તુરંત સંપૂર્ણપણે રદ કરવામાં આવે છે.\n• નિયમ ૧૧૯ મુજબ માન્ય શાળાઓને વાર્ષિક ગ્રાન્ટ ત્રણ હપ્તામાં ચૂકવાય છે: પ્રથમ હપ્તો ઓગસ્ટમાં, બીજો નવેમ્બરમાં અને ત્રીજો માર્ચ મહિનામાં.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૧ અને ૩", "માત્ર ૩", "આપેલ તમામ"],
+        answer: 1,
+        explanation: "નિયમ ૧૧૬ મુજબ ૭૦ કે તેથી વધુ ગુણ પર ૧૦૦% ગ્રાન્ટ મળે છે. ૭૦ થી ઓછા ગુણ આવે તો ગ્રાન્ટ રદ થતી નથી પરંતુ પ્રમાણસર કમી (કપાત) થાય છે. નિયમ ૧૧૯ હેઠળ ગ્રાન્ટ ઓગસ્ટ, નવેમ્બર અને માર્ચ એમ ૩ હપ્તામાં અપાય છે."
+      },
+      {
+        id: 112,
+        question: "શાળા સંચાલન, ભૌતિક સુવિધાઓ અને ગૃહકાર્ય અંગે વિનિયમો ૧૯૪૯ ની જોગવાઈઓ સંદર્ભે કયો વિકલ્પ અસત્ય છે?",
+        options: [
+          "નિયમ ૧૨૨ મુજબ વર્ગખંડમાં દરેક વિદ્યાર્થી દીઠ ઓછામાં ઓછી ૮ ચોરસ ફૂટ જગ્યા અને દીવાલોની ઊંચાઈ ૧૦ થી ૧૨ ફૂટ હોવી જોઈએ.",
+          "ધોરણ ૧ અને ૨ ના વિદ્યાર્થીઓને કોઈપણ પ્રકારનું ગૃહકાર્ય (હોમવર્ક) આપવું નહીં.",
+          "ધોરણ ૩ થી ૫ ના વિદ્યાર્થીઓ માટે દૈનિક વધુમાં વધુ ૩૦ મિનિટ (અડધો કલાક) નું ગૃહકાર્ય આપી શકાય છે.",
+          "ધોરણ ૬ અને ૭ ના વિદ્યાર્થીઓ માટે દૈનિક ૨ કલાકનું ગૃહકાર્ય નિયત કરવામાં આવેલું છે."
+        ],
+        answer: 3,
+        explanation: "નિયમ ૧૨૫ અનુસાર ધોરણ ૬ અને ૭ ના વિદ્યાર્થીઓ માટે ગૃહકાર્યનો સમય દૈનિક ૧ કલાક નિયત છે (૨ કલાક નહીં)."
+      },
+      {
+        id: 113,
+        question: "નિયમ ૧૩૩ મુજબ વિદ્યાર્થીઓની દૈનિક હાજરી પત્રક (મસ્ટર) માં વિવિધ સ્થિતિ દર્શાવવા માટેના સંકેતો અંગે કઈ જોડી યોગ્ય નથી?",
+        options: [
+          "વિદ્યાર્થી શાળામાં હાજર હોય ત્યારે – 'હા'",
+          "વિદ્યાર્થી પૂર્વમંજૂરી/રજા લઈને ગેરહાજર હોય ત્યારે – 'ર'",
+          "વિદ્યાર્થી કોઈપણ જાણ કર્યા વગર ગેરહાજર હોય ત્યારે – 'ગેર'",
+          "વિદ્યાર્થી બીમારી/માંદગીના કારણે ગેરહાજર હોય ત્યારે – 'બી'"
+        ],
+        answer: 3,
+        explanation: "નિયમ ૧૩૩ મુજબ માંદગીના કારણસર ગેરહાજર રહેનાર વિદ્યાર્થી માટે સંકેતમાં 'માં' લખાશે ('બી' નહીં). હાજરીની આ તમામ નોંધ પેન્સિલથી નહીં પણ શાહીથી કરવાની રહે છે."
+      },
+      {
+        id: 114,
+        question: "વિનિયમો ૧૯૪૯ અંતર્ગત સેવાકીય શરતો, શાળાઓ અને નિરીક્ષણ અધિકારીઓ બાબતે નીચેના વિધાનો તપાસો:\n\n• નિયમ ૧૬૭ અને ૧૬૮ અનુક્રમે શિક્ષણ નિરીક્ષક (EI) અને મદદનીશ શિક્ષણ નિરીક્ષક (AEI) ની સત્તા અને ફરજો દર્શાવે છે.\n• મદદનીશ શિક્ષણ નિરીક્ષકે (AEI) પોતાની બીટની પ્રત્યેક શાળાની વર્ષમાં ઓછામાં ઓછી એક વખત મુલાકાત લેવી ફરજિયાત છે.\n• ખાનગી પ્રાથમિક શાળાના કાયમી શિક્ષકે રાજીનામું આપવું હોય તો ૩ મહિનાની અને બિન-કાયમી શિક્ષકે ૧ મહિનાની પૂર્વ નોટિસ આપવી પડે છે.\n• કોઈપણ ખાનગી શાળા કે તેના વર્ગો મંજૂરી વિના બંધ કરી શકાતા નથી અને બંધ કરવા માટે ઓછામાં ઓછા ૩ મહિના અગાઉ મંજૂરી લેવી પડે છે.",
+        options: ["માત્ર ૧, ૨ અને ૩", "માત્ર ૨, ૩ અને ૪", "માત્ર ૧ અને ૪", "આપેલ તમામ"],
+        answer: 0,
+        explanation: "ખાનગી પ્રાથમિક શાળા કે વર્ગ બંધ કરવા માટે ઓછામાં ઓછા ૬ મહિના અગાઉ પૂર્વ મંજૂરી મેળવવી ફરજિયાત છે (૩ મહિના નહીં). બાકીના ત્રણેય વિધાનો વિનિયમો અનુસાર સત્ય છે."
+      },
+      {
+        id: 115,
+        question: "RTE Act 2009 ની કલમ ૧૩ અને RTE Rules ૨૦૧૨ ના નિયમ ૮ (પ્રવેશ પ્રક્રિયા તથા કેપિટેશન ફી) સંદર્ભે નીચેના વિધાનો તપાસો:\n\n૧. પ્રવેશ સમયે શાળા દ્વારા લેવાયેલ સ્ક્રીનિંગ/ઇન્ટરવ્યુ પદ્ધતિ સાબિત થાય તો પ્રથમ ઉલ્લંઘન બદલ ₹૨૫,૦૦૦ અને ત્યારબાદના દરેક ઉલ્લંઘન દીઠ ₹૫૦,૦૦૦ સુધીનો દંડ થઈ શકે છે.\n૨. જો શાળા દ્વારા વધારાની માથાદીઠ ફી (કેપિટેશન ફી) લેવામાં આવી હોય, તો સ્થાનિક સત્તાતંત્ર દ્વારા લીધેલી વધારાની ફીના ૧૦ ગણી રકમ વસૂલવાની જોગવાઈ છે.\n૩. પ્રવેશ સમયે બાળક કે વાલી બંનેમાંથી કોઈનો પણ ઇન્ટરવ્યુ લઈ શકાતો નથી.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૨ અને ૩", "માત્ર ૧ અને ૩", "૧, ૨ અને ૩ તમામ"],
+        answer: 3,
+        explanation: "RTE Act ની કલમ ૧૩ અને Rules ના નિયમ ૮ મુજબ પ્રવેશ માટે સ્ક્રીનિંગ/ઇન્ટરવ્યુ સંપૂર્ણ પ્રતિબંધિત છે. ઉલ્લંઘન બદલ પ્રથમ વાર ₹૨૫,૦૦૦ અને ત્યારબાદ પ્રત્યેક વખતે ₹૫૦,૦૦૦ દંડ થાય છે. વધારાની કેપિટેશન ફી લીધી હોય તો તેના ૧૦ ગણી રકમ વસૂલવાની જોગવાઈ છે."
+      },
+      {
+        id: 116,
+        question: "RTE Rules 2012 મુજબ શાળા વ્યવસ્થાપન સમિતિ (SMC) ની રચના અને પુનઃરચના બાબતે નીચેનામાંથી કયું વિધાન સાચું નથી?",
+        options: [
+          "SMC માં કુલ ૧૨ સભ્યો પૈકી ૭૫% (૯ સભ્યો) વિદ્યાર્થીઓના વાલીઓમાંથી હોય છે.",
+          "SMC માં ઓછામાં ઓછી ૫૦% (૬ સભ્યો) મહિલાઓ હોવી ફરજિયાત છે.",
+          "RTE Rules 2012 ના નિયમ ૧૬ મુજબ SMC ની મુદત દર ૩ વર્ષે પૂર્ણ થાય છે અને ૩ વર્ષે પુનઃરચના થાય છે.",
+          "સમિતિએ દર ત્રણ મહિને ઓછામાં ઓછી એક વખત બેઠક યોજવી અનિવાર્ય છે."
+        ],
+        answer: 2,
+        explanation: "ગુજરાત RTE Rules ૨૦૧૨ ના નિયમ ૧૬ અનુસાર SMC ની મુદત દર ૨ વર્ષની હોય છે અને દર ૨ વર્ષે તેની પુનઃરચના કરવાની રહે છે, ૩ વર્ષે નહીં."
+      },
+      {
+        id: 117,
+        question: "શાળાના ભૌતિક ધારાધોરણો અને વર્ગખંડના માપદંડ સંદર્ભે વિશ્લેષણ કરો:\n\nજો કોઈ પ્રાથમિક શાળાના ધોરણ ૪ ના એક વર્ગખંડમાં નિયમ મુજબ ૪૫ વિદ્યાર્થીઓ અભ્યાસ કરી રહ્યા હોય, તો RTE માન્યતા માપદંડો અનુસાર તે વર્ગખંડનું ઓછામાં ઓછું કુલ ક્ષેત્રફળ કેટલું હોવું જોઈએ?",
+        options: ["૩૬૦ ચોરસ ફૂટ", "૪૨૦ ચોરસ ફૂટ", "૪૫૦ ચોરસ ફૂટ", "૪૮૦ ચોરસ ફૂટ"],
+        answer: 1,
+        explanation: "નિયમ અનુસાર વિદ્યાર્થી દીઠ ૮ ચોરસ ફૂટ (૪૫ × ૮ = ૩૬૦ ચોરસ ફૂટ) અને શિક્ષકના અધ્યાપન/હલનચલન માટે ૬૦ ચોરસ ફૂટ જગ્યા જરૂરી છે. તેથી કુલ જરૂરી ક્ષેત્રફળ ૩૬૦ + ૬૦ = ૪૨૦ ચોરસ ફૂટ થાય."
+      },
+      {
+        id: 118,
+        question: "નવી શાળાની માન્યતા અને નિરીક્ષણ પ્રક્રિયા (RTE Rules 2012, નિયમ ૧૩) સંદર્ભે સાચો તાર્કિક ક્રમ કયો છે?\n\n૧. સક્ષમ અધિકારી દ્વારા નમૂના-૨ માં ૩૦ દિવસમાં માન્યતા પ્રમાણપત્ર આપવું\n૨. સંચાલક મંડળ દ્વારા નમૂના-૧ માં સ્વ-એકરારનામા સાથે અરજી રજૂ કરવી\n૩. નિયુક્ત અધિકારી દ્વારા અરજી મળ્યાના ૩ મહિનામાં સ્થળ નિરીક્ષણ કરી અહેવાલ સોંપવો\n૪. ખામી જણાય તો ₹૫,૦૦૦ ની ફી સાથે ૧૫ દિવસમાં પુનઃ નિરીક્ષણ માટે અરજી કરવી",
+        options: ["૨ → ૩ → ૧ → ૪", "૨ → ૩ → ૪ → ૧", "૩ → ૨ → ૧ → ૪", "૨ → ૧ → ૩ → ૪"],
+        answer: 1,
+        explanation: "પ્રથમ નમૂના-૧ માં સ્વ-એકરારનામું થાય, ૩ માસમાં સ્થળ નિરીક્ષણ થાય, ત્રુટિ હોય તો ₹૫,૦૦૦ ભરીને ૧૫ દિવસમાં પુનઃ અરજી થાય અને અંતે બધું યોગ્ય જણાતાં ૩૦ દિવસમાં નમૂના-૨ માં માન્યતા મળે છે."
+      },
+      {
+        id: 119,
+        question: "શિક્ષકોની કામગીરીના દિવસો, કલાકો અને વિદ્યાર્થી-શિક્ષક ગુણોત્તર બાબતે નીચેનામાંથી કઈ જોડી સુસંગત નથી?",
+        options: [
+          "પ્રાથમિક વિભાગ (ધોરણ ૧ થી ૫) - વાર્ષિક ઓછામાં ઓછા ૨૦૦ શૈક્ષણિક દિવસો અને ૮૦૦ શૈક્ષણિક કલાકો",
+          "ઉચ્ચ પ્રાથમિક વિભાગ (ધોરણ ૬ થી ૮) - વાર્ષિક ઓછામાં ઓછા ૨૨૦ શૈક્ષણિક દિવસો અને ૧૦૦૦ શૈક્ષણિક કલાકો",
+          "ઉચ્ચ પ્રાથમિક વિભાગમાં અઠવાડિયાના કામકાજના લઘુત્તમ કલાકો - ૪૫ કલાક (તૈયારીના કલાકો સહિત)",
+          "પ્રાથમિક શાળામાં વિદ્યાર્થી સંખ્યા ૧૨૦ થી વધીને ૧૪૫ થાય ત્યારે - ફરજિયાત અલગ પૂર્ણકાલીન મુખ્ય શિક્ષક (આચાર્ય)"
+        ],
+        answer: 3,
+        explanation: "કલમ ૨૫ ની અનુસૂચિ મુજબ ધોરણ ૧ થી ૫ માં વિદ્યાર્થીઓની સંખ્યા ૧૫૦ થી વધે ત્યારે જ ૫ શિક્ષકો ઉપરાંત ૧ અલગ પૂર્ણકાલીન આચાર્ય મળવાપાત્ર થાય છે. ૧૪૫ ની સંખ્યા પર અલગ આચાર્ય મળતો નથી."
+      },
+      {
+        id: 120,
+        question: "વય-આધારિત પ્રવેશ અને ખાસ તાલીમ કાર્યક્રમ (STP - Special Training Programme) અંગે વિશ્લેષણ કરો:\n\nજો ૧૧ વર્ષનું બાળક ક્યારેય શાળાએ ગયેલ ન હોય અને સીધું પ્રવેશ માટે આવે, તો કાયદાકીય જોગવાઈ અનુસાર નીચેનામાંથી કયો નિર્ણય યોગ્ય ગણાશે?",
+        options: [
+          "બાળકના પાયાના શિક્ષણનો અભાવ હોવાથી તેને ધોરણ-૧ માં પ્રવેશ આપી પાયો મજબૂત કરવો.",
+          "RTE કલમ ૪ અને નિયમ ૪ મુજબ વય અનુસાર તેને સીધો ધોરણ-૬ માં પ્રવેશ આપવો અને ૩ થી ૨૪ માસ સુધી STP તાલીમ આપવી.",
+          "તેની વય મોટી હોવાથી તેને માત્ર અનૌપચારિક શિક્ષણ કે ઓપન સ્કૂલિંગમાં મોકલવો.",
+          "પ્રવેશ કસોટી લઈને તે જે ધોરણના ગુણ મેળવે તે ધોરણમાં પ્રવેશ આપવો."
+        ],
+        answer: 1,
+        explanation: "RTE કલમ ૪ મુજબ બાળકને સ્ક્રીનિંગ ટેસ્ટ વિના તેની વય અનુસારના ધોરણમાં જ પ્રવેશ આપવો પડે (૬ વર્ષે ધોરણ ૧ ગણતાં ૧૧ વર્ષે ધોરણ ૬). ત્યારબાદ તેને વર્ગ સમકક્ષ કરવા ૩ થી ૨૪ માસનો STP (સ્પેશિયલ ટ્રેનિંગ પ્રોગ્રામ) આપવો પડે."
+      },
+      {
+        id: 121,
+        question: "માન્યતા વિના ચાલતી શાળાઓ અને શાળા ફી નિયમન સમિતિ (FRC) ના ઉલ્લંઘન બદલ દંડ અંગે નીચેના વિધાનો તપાસો:\n\n૧. RTE કલમ ૧૮ મુજબ માન્યતા વગર શાળા શરૂ કરવા બદલ ₹૧,૦૦,૦૦૦ સુધીનો દંડ અને ચાલુ રાખે તો પ્રતિદિન ₹૧૦,૦૦૦ નો દંડ થાય છે.\n૨. FRC નિયમ ભંગ બદલ પ્રથમ વખત ₹૫ લાખ, બીજી વખત ₹૧૦ લાખ અને ત્રીજી વખત ભંગ થાય તો શાળાની માન્યતા રદ કરવાની જોગવાઈ છે.\n૩. માન્યતા પાછી ખેંચાયા બાદ શાળા ચાલુ રાખનાર સંચાલક સામે કોઈ કાનૂની કાર્યવાહી થઈ શકતી નથી.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૨ અને ૩", "માત્ર ૧ અને ૩", "૧, ૨ અને ૩ તમામ"],
+        answer: 0,
+        explanation: "વિધાન ૧ અને ૨ સાચાં છે. વિધાન ૩ ખોટું છે, કારણ કે માન્યતા પાછી ખેંચાયા બાદ શાળા ચલાવવી એ કાયદા હેઠળ ગેરકાયદેસર અને દંડપાત્ર અપરાધ છે."
+      },
+      {
+        id: 122,
+        question: "RTE Rules 2012 ના પ્રકરણ-૫ (અભ્યાસક્રમ અને મૂલ્યાંકન) ના નિયમો સંદર્ભે યોગ્ય જોડકાં જોડો:\n\nસ્તંભ-૧ (નિયમ):\n(a) નિયમ ૨૩\n(b) નિયમ ૨૫\n(c) નિયમ ૨૮\n(d) નિયમ ૨૯\n\nસ્તંભ-૨ (વિષયવસ્તુ):\n(i) શિક્ષકો માટે યોગ્યતા કસોટી (TET/TAT) દાખલ કરવી\n(ii) અભ્યાસક્રમ ઠરાવનાર શૈક્ષણિક સત્તામંડળ (GCERT)\n(iii) CRC અને BRC ની કામગીરીનું નિયમિત મૂલ્યાંકન તંત્ર\n(iv) NCTE ની માન્યતા સિવાયની શૈક્ષણિક સંસ્થાઓ બંધ કરવી",
+        options: [
+          "a - ii, b - iii, c - iv, d - i",
+          "a - iii, b - ii, c - i, d - iv",
+          "a - ii, b - iv, c - iii, d - i",
+          "a - iv, b - iii, c - ii, d - i"
+        ],
+        answer: 0,
+        explanation: "નિયમ ૨૩ GCERT ને સત્તા સોંપે છે, નિયમ ૨૫ CRC/BRC મૂલ્યાંકન તંત્ર માટે છે, નિયમ ૨૮ માન્યતા વગરની તાલીમી સંસ્થાઓ બંધ કરવા માટે છે અને નિયમ ૨૯ શિક્ષક યોગ્યતા કસોટી (TET/TAT) ની જોગવાઈ કરે છે."
+      },
+      {
+        id: 123,
+        question: "રાજ્ય બાળ અધિકાર સંરક્ષણ આયોગ (SCPCR / REPA) બાબતે કયું વિધાન અસત્ય છે?",
+        options: [
+          "RTE Act કલમ ૩૧ અને Rules નિયમ ૩૧ હેઠળ રચાયેલ REPA માં અધ્યક્ષ તરીકે વડી અદાલતના ન્યાયાધીશ કે સમકક્ષ વ્યક્તિ હોય છે.",
+          "SCPCR પરિષદમાં હોદ્દાની રૂએ અધ્યક્ષ રાજ્યના પ્રાથમિક શિક્ષણ મંત્રી હોય છે અને સભ્ય સચિવ પ્રાથમિક શિક્ષણ નિયામક હોય છે.",
+          "SCPCR ની પરિષદની બેઠક માટે કુલ સભ્યોના ૩૩% (૧/૩) સભ્યોની હાજરીથી કોરમ પૂર્ણ ગણાય છે.",
+          "સભ્યપદમાં કોઈ આકસ્મિક ખાલી જગ્યા પડે તો તે ૧૨૦ દિવસની મુદતમાં નવી નિમણૂકથી ભરવાની રહે છે."
+        ],
+        answer: 2,
+        explanation: "નિયમ ૩૩ અનુસાર SCPCR ની બેઠક માટે લઘુત્તમ કોરમ ૫૦% સભ્યોનું નિર્ધારિત કરવામાં આવેલું છે, ૩૩% નહીં."
+      },
+      {
+        id: 124,
+        question: "RTE Act 2009 ની કલમ ૨૭ અને ૨૮ ના સંદર્ભમાં શિક્ષકોની જવાબદારીઓ અંગે કયું વિધાન સાચું છે?",
+        options: [
+          "શિક્ષકો આપત્તિ વ્યવસ્થાપન, ચૂંટણી અને વસ્તી ગણતરી સિવાય પણ સ્થાનિક મેળા કે રમતગમતના આયોજનની બિનશૈક્ષણિક કામગીરી કરવા બંધાયેલા છે.",
+          "કલમ ૨૮ મુજબ સરકારી કે અનુદાનિત શાળાના શિક્ષકો શાળા સમય બાદ વળતર મેળવીને ખાનગી ટ્યુશન પ્રવૃત્તિ કરી શકે છે.",
+          "કલમ ૨૭ હેઠળ માત્ર ૩ બિનશૈક્ષણિક ફરજો (દસવાર્ષિક વસ્તી ગણતરી, આપત્તિ રાહત અને ચૂંટણી) સિવાય શિક્ષકને અન્ય કોઈ બિનશૈક્ષણિક કામગીરી સોંપી શકાતી નથી.",
+          "શિક્ષક પોતાના સંબંધીના બાળકોને શાળા કેમ્પસ બહાર ટ્યુશન આપે તો કલમ ૨૮ નો ભંગ ગણાતો નથી."
+        ],
+        answer: 2,
+        explanation: "કલમ ૨૭ હેઠળ ફક્ત ૩ અપવાદો સિવાય શિક્ષકો પાસેથી અન્ય કોઈપણ બિનશૈક્ષણિક કામગીરી કરાવવા પર પૂર્ણ પ્રતિબંધ છે. કલમ ૨૮ હેઠળ તમામ પ્રકારનું ખાનગી ટ્યુશન પ્રતિબંધિત છે."
+      },
+      {
+        id: 125,
+        question: "RTE કલમ ૧૨(૧)(c) અને ગુજરાત RTE Rules ૨૦૧૨ ના નિયમ ૧૧-૧૨ હેઠળ ૨૫% મફત પ્રવેશ પ્રક્રિયા સંદર્ભે વિશ્લેષણ કરો:\n\nજો કોઈ ખાનગી બિન-અનુદાનિત શાળા નબળા અને વંચિત જૂથના યોગ્ય પાત્રતા ધરાવતા બાળકને ૨૫% ક્વોટા હેઠળ પ્રવેશ આપવાનો ઇનકાર કરે અને વાલી સક્ષમ સત્તાતંત્રને ફરિયાદ કરે, તો નિયમો અનુસાર આગળની પ્રક્રિયા શું હશે?",
+        options: [
+          "શાળાની માન્યતા તે જ દિવસે કોઈપણ નોટિસ આપ્યા વિના રદ કરી દેવાશે.",
+          "નિયુક્ત તપાસ અધિકારી તપાસ કરશે અને શાળા વ્યવસ્થાપક મંડળને લેખિત/મૌખિક રજૂઆતની તક આપ્યા બાદ ૬૦ દિવસમાં યોગ્ય આદેશ કરશે.",
+          "વાલીએ સીધા વડી અદાલતમાં (High Court) જઈને રીટ પિટિશન દાખલ કરવી પડશે.",
+          "સ્થાનિક ગ્રામ પંચાયત કે નગરપાલિકા દ્વારા શાળાને તાળાબંધી કરવામાં આવશે."
+        ],
+        answer: 1,
+        explanation: "નિયમ ૧૨ મુજબ ફરિયાદ મળતાં તપાસ અધિકારી તપાસ કરશે, શાળાને બચાવ માટે લેખિત/મૌખિક સુનાવણીની તક અપાશે અને ફરિયાદ મળ્યાના ૬૦ દિવસમાં સક્ષમ અધિકારી દ્વારા આખરી હુકમ કરવામાં આવશે."
+      },
+      {
+        id: 126,
+        question: "RTE Act 2009 ની કલમ ૩૭ અને કલમ ૩૬ ની કાનૂની જોગવાઈઓનો સાચો અર્થઘટન કયો છે?",
+        options: [
+          "શિક્ષક કે અધિકારી દ્વારા શૈક્ષણિક હિતમાં શુભ આશયથી (Good Faith) લીધેલા પગલાં સામે કાનૂની રક્ષણ મળે છે અને કલમ ૩૬ હેઠળ શાળા સમયની ઘટનાઓ માટે પૂર્વ મંજૂરી વિના સીધી ફોજદારી ધરપકડ થઈ શકતી નથી.",
+          "શુભ આશયથી કરેલા કૃત્ય સામે વાલી ગ્રાહક સુરક્ષા ફોરમમાં વળતર માંગી શકે છે પરંતુ પોલીસ ફરિયાદ કરી શકાતી નથી.",
+          "કલમ ૩૭ માત્ર ખાનગી શાળાના ટ્રસ્ટીઓને રક્ષણ આપે છે, સરકારી શિક્ષકોને નહીં.",
+          "ફોજદારી કાર્યવાહી કરવા માટે રાજ્યપાલની સીધી સહીવાળો આદેશ જરૂરી બને છે."
+        ],
+        answer: 0,
+        explanation: "કલમ ૩૭ શુભ આશયથી (Good Faith) કરવામાં આવેલી કામગીરી સામે રક્ષણ આપે છે અને કલમ ૩૬ અનુસાર સક્ષમ અધિકારીની પૂર્વ મંજૂરી વગર સીધી ફોજદારી કાર્યવાહી થઈ શકતી નથી."
+      },
+      {
+        id: 127,
+        question: "POCSO એક્ટ ૨૦૧૨ ની કલમ ૨૯ અને ૩૦ હેઠળ વિશેષ અદાલતમાં પુરાવાના કાયદાથી વિપરીત કઈ જોગવાઈ લાગુ થાય છે?",
+        options: [
+          "આરોપી જ્યાં સુધી દોષિત પુરવાર ન થાય ત્યાં સુધી તેને સંપૂર્ણ નિર્દોષ ગણવો",
+          "જો ફરિયાદ પક્ષ મૂળ તથ્યો સ્થાપિત કરે, તો આરોપી દોષિત હોવાનું કાનૂની અનુમાન (Presumption of Guilt) મૂકવામાં આવે છે",
+          "બાળકના મૌખિક નિવેદનને કોર્ટમાં સીધો પુરાવો ગણવામાં આવતો નથી",
+          "ગુનો સાબિત કરવાની સંપૂર્ણ જવાબદારી પીડિત બાળકના માતાપિતાની રહે છે"
+        ],
+        answer: 1,
+        explanation: "સામાન્ય ફોજદારી કાયદાથી વિપરીત પોક્સોની કલમ ૨૯ અને ૩૦ હેઠળ જો ફરિયાદી પક્ષ દ્વારા પ્રાથમિક તથ્યો સ્થાપિત થાય, તો અદાલત માની લે છે કે આરોપીએ ગુનો અને ગુનાહિત માનસિક સ્થિતિ (Mens Rea) સાથે જ કૃત્ય કર્યું છે; હવે પોતે નિર્દોષ છે તે સાબિત કરવાનો બોજ આરોપી પર રહે છે."
+      },
+      {
+        id: 128,
+        question: "POCSO એક્ટ ૨૦૧૨ ની કલમ ૪૧ મુજબ નીચેનામાંથી કઈ પરિસ્થિતિમાં કલમ ૩ થી ૧૩ સુધીના ગુનાઓ સંબંધિત જોગવાઈઓ લાગુ પડતી નથી?",
+        options: [
+          "શાળામાં શિસ્ત જાળવવા શિક્ષક દ્વારા કરવામાં આવેલી શારીરિક તપાસ",
+          "લાયકાત ધરાવતા તબીબ દ્વારા બાળકની સાચી અને કાયદેસરની તબીબી સારવાર કે તપાસ દરમિયાન થયેલો સ્પર્શ",
+          "નજીકના સંબંધી દ્વારા અજાણતા થયેલ સ્પર્શ",
+          "બાળકે સ્વેચ્છાએ સ્પર્શ કરવાની સંમતિ આપી હોય ત્યારે"
+        ],
+        answer: 1,
+        explanation: "કલમ ૪૧ હેઠળ અપવાદ આપવામાં આવ્યો છે કે તબીબી સારવાર કે કાયદેસર શારીરિક તપાસ દરમિયાન ડોક્ટર બાળકના શરીરને સ્પર્શે કે તબીબી સાધન વાપરે, ત્યારે જાતીય હેતુ ગેરહાજર હોવાથી પોક્સો હેઠળ ગુનો બનતો નથી."
+      },
+      {
+        id: 129,
+        question: "POCSO એક્ટ ૨૦૧૨ ની કલમ ૪૨(A) મુજબ જો પોક્સો એક્ટ અને અન્ય કોઈ કાયદાની જોગવાઈઓ વચ્ચે વિરોધાભાસ ઊભો થાય, તો શું કાનૂની સ્થિતિ રહેશે?",
+        options: [
+          "ભારતીય ન્યાય સંહિતાની જોગવાઈ જ સર્વોપરી ગણાશે",
+          "પોક્સો એક્ટની જોગવાઈઓને અન્ય કાયદાઓ પર અગ્રતા (Overriding Effect) મળશે",
+          "જે કાયદો જૂનો હોય તેની કલમ અમલમાં રહેશે",
+          "અદાલત બંનેમાંથી કોઈપણ એક કાયદો રદબાતલ ઠેરવી શકે છે"
+        ],
+        answer: 1,
+        explanation: "કલમ ૪૨(A) સ્પષ્ટ નિર્દેશ આપે છે કે જો પોક્સો અને અન્ય કોઈ પ્રવર્તમાન કાયદા વચ્ચે અસંગતતા કે વિરોધાભાસ સર્જાય, તો બાળકના સર્વોચ્ચ સંરક્ષણ માટે પોક્સો એક્ટની જોગવાઈઓ જ સર્વોપરી રહેશે."
+      },
+      {
+        id: 130,
+        question: "જુવેનાઇલ જસ્ટિસ એક્ટ ૨૦૧૫ હેઠળ ૧૬ થી ૧૮ વર્ષની વયના બાળકે કરેલા 'જઘન્ય ગુના' (Heinous Offence) બાબતે કઈ કાનૂની પ્રક્રિયા ફરજિયાત છે?",
+        options: [
+          "તેને કોઈ તપાસ વિના સીધો જ પુખ્ત કેદી તરીકે સેન્ટ્રલ જેલમાં મોકલવામાં આવે છે",
+          "JJB દ્વારા કલમ ૧૫ હેઠળ બાળકની શારીરિક-માનસિક ક્ષમતા અને ગુનાના પરિણામ સમજવાની ક્ષમતાનું પ્રાથમિક મૂલ્યાંકન કરવામાં આવે છે",
+          "બાળકની ઉંમરને કારણે કોઈપણ કાર્યવાહી વગર કેસ રદ કરવામાં આવે છે",
+          "કેસ સીધો જ સુપ્રીમ કોર્ટમાં મોકલવામાં આવે છે"
+        ],
+        answer: 1,
+        explanation: "કલમ ૧૫ અને ૧૯ મુજબ ૧૬-૧૮ વર્ષના કિશોરે જઘન્ય ગુનો આચર્યો હોય ત્યારે JJB પ્રાથમિક મૂલ્યાંકન કરે છે કે બાળકે પરિણામો પુખ્તની જેમ સમજીને આચર્યા હતા કે કેમ. ત્યારબાદ જ કેસ ચિલ્ડ્રન્સ કોર્ટમાં પુખ્ત તરીકે ચલાવવો કે નહીં તે નક્કી થાય છે."
+      },
+      {
+        id: 131,
+        question: "જુવેનાઇલ જસ્ટિસ એક્ટ ૨૦૧૫ ની કલમ ૩૮ મુજબ CWC દ્વારા બાળકને કાયદેસર રીતે દત્તક માટે મુક્ત (Legally Free for Adoption) જાહેર કરવા માટે કઈ સમયમર્યાદા નિર્ધારિત છે?",
+        options: [
+          "તમામ બાળકો માટે એકસમાન ૬ મહિના",
+          "૨ વર્ષથી નાની ઉંમરના બાળક માટે ૨ મહિના; ૨ વર્ષથી મોટી ઉંમરના બાળક માટે ૪ મહિના",
+          "૨ વર્ષથી નાની ઉંમરના બાળક માટે ૪ મહિના; ૨ વર્ષથી મોટી ઉંમરના બાળક માટે ૨ મહિના",
+          "કોઈપણ બાળક માટે મહત્તમ ૩૦ દિવસ"
+        ],
+        answer: 1,
+        explanation: "અનાથ કે ત્યજી દેવાયેલા બાળકના વાલી ન મળે ત્યારે CWC એ ૨ વર્ષથી નાના શિશુ માટે ૨ મહિનામાં અને ૨ વર્ષથી મોટા બાળક માટે ૪ મહિનામાં કાયદેસર મુક્ત કરવાનો આદેશ આપવો પડે છે."
+      },
+      {
+        id: 132,
+        question: "જુવેનાઇલ જસ્ટિસ એક્ટ ૨૦૧૫ હેઠળ બાળ સંભાળ સંસ્થા (CCI) માંથી ભાગી ગયેલા બાળકની કાનૂની જવાબદારી અંગે શું જોગવાઈ છે?",
+        options: [
+          "ભાગી જવા બદલ બાળક સામે કલમ ૨૬ મુજબ નવો ફોજદારી ગુનો નોંધી શકાતો નથી",
+          "બાળક સામે કાયદેસર કસ્ટડીમાંથી નાસી જવા બદલ IPC/BNS હેઠળ નવો કેસ થાય છે",
+          "બાળકને સીધી ૧ વર્ષની વધારાની જેલની સજા ફટકારવામાં આવે છે",
+          "બાળકના વાલી સામે દંડ અને અટકાયતી પગલાં લેવાય છે"
+        ],
+        answer: 0,
+        explanation: "કલમ ૨૬ સ્પષ્ટ કરે છે કે જો કોઈ બાળક સંસ્થા કે સેફ કસ્ટડીમાંથી નાસી જાય અને પોલીસ તેને પરત લાવે, તો માત્ર ભાગી જવાના કૃત્ય બદલ તેની સામે કોઈ ફોજદારી કાર્યવાહી હાથ ધરી શકાતી નથી."
+      },
+      {
+        id: 133,
+        question: "POCSO એક્ટ ૨૦૧૨ હેઠળ વિશેષ અદાલતમાં બાળકની જુબાની નોંધવા અંગે નીચેના વિધાનો ધ્યાને લો:\n\n૧. વિશેષ અદાલતમાં બાળકની જુબાની નોંધતી વખતે આરોપી બાળકની સીધી નજરે ન પડે તે માટે પડદો કે સ્ક્રીન રાખવાની જોગવાઈ છે.\n૨. બચાવ પક્ષના વકીલ બાળકને સીધા અને આક્રમક પ્રશ્નો પૂછી શકે છે.\n૩. વિશેષ અદાલત સામાન્ય રીતે ઇન-કેમેરા (બંધ બારણે) કાર્યવાહી હાથ ધરે છે.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૨ અને ૩", "માત્ર ૧ અને ૩", "૧, ૨ અને ૩ તમામ"],
+        answer: 2,
+        explanation: "કલમ ૩૩, ૩૬ અને ૩૭ મુજબ કાર્યવાહી ઇન-કેમેરા થાય છે અને બાળક આરોપીને જોઈ ન શકે તેવી વ્યવસ્થા કરવામાં આવે છે. વકીલ દ્વારા બાળકને સીધા આક્રમક પ્રશ્નો પૂછી શકાતા નથી, પરંતુ પ્રશ્નો જજ મારફતે સોફ્ટ ભાષામાં પૂછવામાં આવે છે; આથી વિધાન ૨ અસત્ય છે."
+      },
+      {
+        id: 134,
+        question: "POCSO એક્ટ ૨૦૧૨ માં ગુનાની જાણ અને નોંધણી (મેન્ડેટરી રિપોર્ટિંગ) અંગે નીચેના વિધાનો તપાસો:\n\n૧. સામાન્ય વ્યક્તિ દ્વારા પોક્સો હેઠળના ગુનાની જાણ ન કરવા બદલ મહત્તમ ૬ મહિના સુધીની કેદ અથવા દંડ થઈ શકે છે.\n૨. શાળા કે હોસ્પિટલના સંસ્થાકીય વડા દ્વારા રિપોર્ટિંગ ન કરવામાં આવે તો ૧ વર્ષ સુધીની કેદ અને દંડની જોગવાઈ છે.\n૩. બાળક દ્વારા આપવામાં આવેલી ખોટી માહિતી કે ફરિયાદ બદલ કલમ ૨૨ હેઠળ બાળકને ૧ વર્ષની કેદની સજા થાય છે.",
+        options: ["માત્ર ૧", "માત્ર ૩", "માત્ર ૨ અને ૩", "માત્ર ૧ અને ૨"],
+        answer: 1,
+        explanation: "કલમ ૨૨ હેઠળ પુખ્ત વ્યક્તિ જો ખોટી ફરિયાદ કરે તો તેને સજા થાય છે, પરંતુ જો બાળક દ્વારા ખોટી માહિતી કે ફરિયાદ આપવામાં આવી હોય તો બાળકને કોઈ સજા કરવામાં આવતી નથી; તેથી વિધાન ૩ અસત્ય છે."
+      },
+      {
+        id: 135,
+        question: "સુપ્રીમ કોર્ટ દ્વારા POCSO એક્ટ સંબંધિત અપાયેલા ચુકાદાઓ અંગે નીચેના વિધાનો ધ્યાને લો:\n\n૧. ૨૦૨૧ ના 'સ્કીન ટુ સ્કીન' કેસમાં સુપ્રીમ કોર્ટે ઠરાવ્યું કે ગુનાહિત જાતીય ઈરાદો મહત્વનો છે, સીધો ચામડીનો સ્પર્શ ફરજિયાત નથી.\n૨. ૨૦૨૪ ના ચુકાદા મુજબ 'ચાઇલ્ડ પોર્નોગ્રાફી' શબ્દના સ્થાને CSAM (Child Sexual Abuse Material) શબ્દપ્રયોગ વધુ યોગ્ય ગણાયો છે.\n૩. કલમ ૧૫ હેઠળ ડિવાઇસમાં CSAM સામગ્રી મળવા માત્રથી જ ગુનો સાબિત થઈ જાય છે, તેમાં સંગ્રહ પાછળનો હેતુ કે જાણકારી તપાસવાની જરૂર રહેતી નથી.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૨ અને ૩", "માત્ર ૧ અને ૩", "૧, ૨ અને ૩ તમામ"],
+        answer: 0,
+        explanation: "૨૦૨૪ ના ચુકાદા મુજબ માત્ર ડિવાઇસમાં સામગ્રી હોવી પૂરતી નથી, પરંતુ તે સામગ્રી પર વ્યક્તિનું સભાન નિયંત્રણ, જાણકારી અને સંગ્રહ પાછળનો દૂષિત હેતુ તપાસવો અનિવાર્ય છે; આથી વિધાન ૩ અસત્ય છે."
+      },
+      {
+        id: 136,
+        question: "જુવેનાઇલ જસ્ટિસ બોર્ડ (JJB) ની રચના અને કાર્યવાહી અંગે નીચેના વિધાનો ધ્યાને લો:\n\n૧. JJB માં ૧ પ્રિન્સિપલ મેજિસ્ટ્રેટ અને ૨ સામાજિક કાર્યકરો મળીને કુલ ૩ સભ્યો હોય છે, જેમાં ઓછામાં ઓછી એક મહિલા હોવી અનિવાર્ય છે.\n૨. સામાજિક કાર્યકર તરીકે નિમણૂક માટે બાળ અધિકાર કે કલ્યાણ ક્ષેત્રમાં ઓછામાં ઓછો ૭ વર્ષનો અનુભવ હોવો જરૂરી છે.\n૩. બોર્ડમાં સભ્યો વચ્ચે મતભેદ થાય ત્યારે નિર્ણય બહુમતીથી લેવાય છે અને બહુમતી ન બને તો પ્રિન્સિપલ મેજિસ્ટ્રેટનો નિર્ણય આખરી ગણાય છે.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૨ અને ૩", "માત્ર ૧ અને ૩", "૧, ૨ અને ૩ તમામ"],
+        answer: 3,
+        explanation: "કલમ ૪ અને ૭ મુજબ JJB ની સભ્ય સંખ્યા ૩ હોય છે (જેમાં ૧ મહિલા અને ૭ વર્ષનો સંબંધિત ક્ષેત્રનો અનુભવ જરૂરી છે). તેમજ બોર્ડની તમામ કાર્યવાહીમાં બહુમતીનો નિર્ણય અને ટાઈ પડે ત્યારે મુખ્ય ન્યાયાધીશનો નિર્ણય અંતિમ રહે છે."
+      },
+      {
+        id: 137,
+        question: "જુવેનાઇલ જસ્ટિસ એક્ટ ૨૦૧૫ હેઠળ બાળકો વિરુદ્ધના ગુનાઓ અને સજાઓ અંગે નીચેના વિધાનો તપાસો:\n\n૧. કલમ ૭૫ હેઠળ બાળક સાથે સામાન્ય ક્રૂરતા આચરવા બદલ ૩ વર્ષ સુધીની કેદ અને ₹૧ લાખ સુધીના દંડની જોગવાઈ છે.\n૨. કલમ ૭૭ અને ૭૮ હેઠળ બાળકને માદક દ્રવ્યો આપવા કે તસ્કરી માટે ઉપયોગ કરવા બદલ ૭ વર્ષ સુધીની કેદ અને ₹૧ લાખ સુધીના દંડની જોગવાઈ છે.\n૩. બાળક દ્વારા ગમે તેટલો ગંભીર ગુનો આચરવામાં આવ્યો હોય તો પણ કલમ ૨૧ હેઠળ તેને આજીવન કેદ કે મૃત્યુદંડની સજા કરી શકાતી નથી.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૨ અને ૩", "માત્ર ૧ અને ૩", "૧, ૨ અને ૩ તમામ"],
+        answer: 3,
+        explanation: "JJ એક્ટની કલમ ૭૫ અને ૭૭/૭૮ બાળ શોષણ અટકાવવા કડક સજાની જોગવાઈ કરે છે, જ્યારે કલમ ૨૧ હેઠળ બાળકના સુધારાવાદી અભિગમને ધ્યાને રાખીને તેને આજીવન કેદ કે ફાંસી આપવા પર સંપૂર્ણ પ્રતિબંધ છે."
+      },
+      {
+        id: 138,
+        question: "જુવેનાઇલ જસ્ટિસ એક્ટ ૨૦૧૫ હેઠળની સંસ્થાઓ અને પુનર્વસન અંગે નીચેના વિધાનો ધ્યાને લો:\n\n૧. CWC (બાળ કલ્યાણ સમિતિ) માં ૧ અધ્યક્ષ અને ૪ સભ્યો મળીને કુલ ૫ સભ્યો હોય છે.\n૨. 'ફોસ્ટર કેર' હેઠળ બાળકને કાયમી ધોરણે અન્ય પરિવારને દત્તક આપી દેવામાં આવે છે.\n૩. પુખ્ત વ્યક્તિ અને બાળકે સંયુક્ત રીતે ગુનો કર્યો હોય તો પણ કલમ ૨૩ હેઠળ બંનેની સંયુક્ત ટ્રાયલ ચલાવી શકાતી નથી.",
+        options: ["માત્ર ૧ અને ૨", "માત્ર ૨ અને ૩", "માત્ર ૧ અને ૩", "૧, ૨ અને ૩ તમામ"],
+        answer: 2,
+        explanation: "કલમ ૪૪ મુજબ 'ફોસ્ટર કેર' એ કામચલાઉ (અસ્થાયી) સમય માટે અન્ય પરિવારને બાળકની દેખરેખ સોંપવાની વ્યવસ્થા છે, કાયમી દત્તક વિધાન નથી; આથી વિધાન ૨ અસત્ય છે. CWC માં ૫ સભ્યો હોય છે અને કલમ ૨૩ મુજબ પુખ્ત અને બાળકની જોઈન્ટ ટ્રાયલ પર પ્રતિબંધ છે."
+      },
+      {
+        id: 139,
+        question: "ગુજરાત મૂલકી સેવા (રજા) નિયમો, ૨૦૦૨ હેઠળ અર્થઘટનની આખરી સત્તા કોની પાસે રહેલી છે?",
+        options: ["શિક્ષણ વિભાગ", "સામાન્ય વહીવટ વિભાગ", "નાણા વિભાગ", "કાયદા વિભાગ"],
+        answer: 2,
+        explanation: "રજાના નિયમોમાં પગાર અને નાણાકીય બાબતો સંકળાયેલી હોવાથી નિયમ ૩ મુજબ કોઈ પણ અર્થઘટન અથવા આખરી નિર્ણય લેવાની સત્તા નાણા વિભાગ પાસે છે."
+      },
+      {
+        id: 140,
+        question: "રજા નિયમો, ૨૦૦૨ અનુસાર નીચેનામાંથી કયું વિધાન સાચું છે?",
+        options: [
+          "રજા એ કર્મચારીનો મૂળભૂત હક છે.",
+          "રજા હક તરીકે માંગી શકાતી નથી; સક્ષમ અધિકારી તેને નકારી કે રદ કરી શકે છે.",
+          "સક્ષમ અધિકારી કર્મચારીની મંજૂરી વગર રજાનો પ્રકાર બદલી શકે છે.",
+          "એકસાથે બધી જ ૧૨ સીએલ કોઈપણ શરત વગર મંજૂર કરી શકાય છે."
+        ],
+        answer: 1,
+        explanation: "નિયમ ૧૦ મુજબ રજા હક તરીકે માંગી શકાતી નથી. સક્ષમ અધિકારી તેને નકારી કે રદ કરી શકે છે, પરંતુ કર્મચારીની લેખિત સંમતિ વગર રજાનો પ્રકાર બદલી શકતા નથી."
+      },
+      {
+        id: 141,
+        question: "કર્મચારીને આખી નોકરી દરમિયાન મહત્તમ કેટલી પ્રાપ્ત રજા (Earned Leave) જમા રાખવાની મર્યાદા છે?",
+        options: ["૨૪૦ દિવસ", "૩૦૦ દિવસ", "૩૬૦ દિવસ", "કોઈ મર્યાદા નથી"],
+        answer: 1,
+        explanation: "પ્રાપ્ત રજા દર વર્ષે ૩૦ (દર છ માસે ૧૫) જમા થાય છે, જે મહત્તમ ૩૦૦ દિવસ સુધી જ સંચિત કરી શકાય છે."
+      },
+      {
+        id: 142,
+        question: "બે કે તેથી ઓછા હયાત બાળકો ધરાવતી મહિલા કર્મચારીને નિયમ ૬૯ મુજબ કેટલી પ્રસૂતિ રજા (Maternity Leave) મળવાપાત્ર છે?",
+        options: ["૯૦ દિવસ", "૧૨૦ દિવસ", "૧૩૫ દિવસ", "૧૮૦ દિવસ"],
+        answer: 3,
+        explanation: "નિયમ ૬૯ અનુસાર બે કરતાં વધુ જીવિત બાળકો ન હોય તેવી મહિલા કર્મચારીને ૧૮૦ દિવસની પ્રસૂતિ રજા મળવાપાત્ર છે."
+      },
+      {
+        id: 143,
+        question: "રજાના નિયમો, ૨૦૦૨ હેઠળ તબીબી પ્રમાણપત્ર (મેડિકલ સર્ટિફિકેટ) કયા નમૂનામાં રજૂ કરવાનું હોય છે?",
+        options: ["નમૂનો ૧", "નમૂનો ૨", "નમૂનો ૩", "નમૂનો ૪"],
+        answer: 2,
+        explanation: "નમૂનો ૧ – રજા અરજી, નમૂનો ૨ – રજાનો હિસાબ, નમૂનો ૩ – તબીબી પ્રમાણપત્ર અને નમૂનો ૪ – રજા બાદ હાજર થવા માટેનું ફિટનેસ પ્રમાણપત્ર છે."
+      },
+      {
+        id: 144,
+        question: "એલ.ટી.સી. (LTC) દરમિયાન પ્રાપ્ત રજાનું કેટલા દિવસનું રોકડમાં રૂપાંતર કરી શકાય છે અને સમગ્ર સેવા દરમિયાન તેની મહત્તમ મર્યાદા કેટલી છે?",
+        options: [
+          "એક વખતમાં ૧૫ દિવસ, મહત્તમ ૬૦ દિવસ",
+          "એક વખતમાં ૧૦ દિવસ, મહત્તમ ૬૦ દિવસ",
+          "એક વખતમાં ૧૦ દિવસ, મહત્તમ ૧૨૦ દિવસ",
+          "એક વખતમાં ૩૦ દિવસ, મહત્તમ ૩૦૦ દિવસ"
+        ],
+        answer: 1,
+        explanation: "નિયમ ૪૭ અનુસાર એક વખતના LTC પ્રવાસ વખતે ૧૦ દિવસની રજાનું રોકડમાં રૂપાંતરણ મળે છે અને સમગ્ર નોકરી દરમિયાન મહત્તમ ૬૦ દિવસ (કુલ ૬ વખત) આ લાભ મળે છે."
+      },
+      {
+        id: 145,
+        question: "આરટીઆઈ (RTI) અધિનિયમ, ૨૦૦૫ સમગ્ર ભારતમાં કઈ તારીખથી અમલમાં આવ્યો?",
+        options: ["૧૫ જૂન, ૨૦૦૫", "૧૨ ઓક્ટોબર, ૨૦૦૫", "૨૨ માર્ચ, ૨૦૧૦", "૨૬ જાન્યુઆરી, ૨૦૦૫"],
+        answer: 1,
+        explanation: "આ કાયદો સંસદમાંથી ૧૫ જૂન ૨૦૦૫ના રોજ પસાર થયો હતો અને ૧૨ ઓક્ટોબર ૨૦૦૫ના રોજ સમગ્ર દેશમાં અમલી બન્યો હતો."
+      },
+      {
+        id: 146,
+        question: "આરટીઆઈ કાયદા હેઠળ સામાન્ય સંજોગોમાં તથા જીવન અને વ્યક્તિગત સ્વતંત્રતા સંબંધી બાબતોમાં અનુક્રમે કેટલા સમયમાં માહિતી આપવાની જોગવાઈ છે?",
+        options: ["૧૫ દિવસ અને ૨૪ કલાક", "૩૦ દિવસ અને ૪૮ કલાક", "૪૫ દિવસ અને ૨૪ કલાક", "૩૦ દિવસ અને ૧૨ કલાક"],
+        answer: 1,
+        explanation: "સામાન્ય અરજીના કિસ્સામાં ૩૦ દિવસમાં અને જો માહિતી વ્યક્તિના જીવન કે સ્વાતંત્ર્ય સાથે જોડાયેલી હોય તો ૪૮ કલાકની અંદર માહિતી આપવી ફરજિયાત છે."
+      },
+      {
+        id: 147,
+        question: "ગુજરાત સરકારના વિભાગો માટે આરટીઆઈ અરજી ફી કેટલી નિયત કરવામાં આવેલી છે?",
+        options: ["₹ ૧૦", "₹ ૨૦", "₹ ૫૦", "₹ ૧૦૦"],
+        answer: 1,
+        explanation: "કેન્દ્ર સરકારમાં અરજી ફી ₹૧૦, ગુજરાત રાજ્ય સરકાર માટે ₹૨૦ અને હાઇકોર્ટ માટે ₹૫૦ નિયત થયેલ છે (BPL કાર્ડધારકો માટે સંપૂર્ણ મફત છે)."
+      },
+      {
+        id: 148,
+        question: "જો કોઈ જાહેર માહિતી અધિકારીને અન્ય સત્તા મંડળ/વિભાગને લગતી અરજી મળે, તો તેણે કેટલા દિવસમાં તે અરજી સંબંધિત વિભાગને તબદીલ (Transfer) કરવી પડે?",
+        options: ["૩ દિવસ", "૫ દિવસ", "૭ દિવસ", "૧૦ દિવસ"],
+        answer: 1,
+        explanation: "કલમ ૬(૩) અને નમૂના 'ઘ' મુજબ જો અરજી અન્ય વિભાગની હોય તો પણ સ્વીકારીને ૫ દિવસની અંદર સંબંધિત વિભાગને મોકલવાની રહે છે."
+      },
+      {
+        id: 149,
+        question: "માહિતી પૂરી પાડવામાં જાણીજોઈને વિલંબ કરવા બદલ જાહેર માહિતી અધિકારી સામે પ્રતિદિન કેટલો અને મહત્તમ કેટલો દંડ થઈ શકે છે?",
+        options: [
+          "પ્રતિદિન ₹ ૧૦૦, મહત્તમ ₹ ૧૦,૦૦૦",
+          "પ્રતિદિન ₹ ૨૫૦, મહત્તમ ₹ ૨૫,૦૦૦",
+          "પ્રતિદિન ₹ ૫૦૦, મહત્તમ ₹ ૫૦,૦૦૦",
+          "પ્રતિદિન ₹ ૨૦૦, મહત્તમ ₹ ૨૦,૦૦૦"
+        ],
+        answer: 1,
+        explanation: "કલમ ૨૦ હેઠળ માહિતી પંચ અધિકારીને વિલંબના દરેક દિવસ દીઠ ₹ ૨૫૦ લેખે મહત્તમ ૧૦૦ દિવસ સુધી એટલે કે વધુમાં વધુ ₹ ૨૫,૦૦૦ સુધીનો દંડ કરી શકે છે."
+      },
+      {
+        id: 150,
+        question: "કેન્દ્રીય માહિતી પંચ તથા રાજ્ય માહિતી પંચમાં મુખ્ય માહિતી કમિશનર ઉપરાંત વધુમાં વધુ કેટલા માહિતી કમિશનરોની નિમણૂક થઈ શકે છે?",
+        options: ["૫", "૮", "૧૦", "૧૨"],
+        answer: 2,
+        explanation: "કલમ ૧૨ (કેન્દ્ર) અને કલમ ૧૫ (રાજ્ય) અનુસાર માહિતી પંચમાં ૧ મુખ્ય માહિતી કમિશનર અને વધુમાં વધુ ૧૦ અન્ય માહિતી કમિશનરો હોઈ શકે છે."
+      }
+    ];
+
+    const CONFIG = {
+      title: "HTAT લક્ષ્યવેધ 2026",
+      durationSeconds: 135 * 60,
+      totalQuestions: 150,
+      storageKey: "HTAT_2026_SESSION_150_V3"
+    };
+
+    let AppState = {
+      studentName: "",
+      rollNumber: "",
+      currentIndex: 0,
+      userAnswers: new Array(CONFIG.totalQuestions).fill(null),
+      reviewFlags: new Array(CONFIG.totalQuestions).fill(false),
+      remainingSeconds: CONFIG.durationSeconds,
+      timerInterval: null,
+      isCompleted: false,
+      theme: "dark"
+    };
+
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("dispTotalQ").innerText = CONFIG.totalQuestions;
+      document.getElementById("dispTotalMarks").innerText = CONFIG.totalQuestions;
+      document.getElementById("hdrTotalQ").innerText = CONFIG.totalQuestions;
+      document.getElementById("qMetaTotal").innerText = CONFIG.totalQuestions;
+      document.getElementById("statTotal").innerText = CONFIG.totalQuestions;
+
+      const savedTheme = localStorage.getItem("HTAT_THEME") || "dark";
+      applyTheme(savedTheme);
+      checkForExistingSession();
+    });
+
+    function toggleTheme() {
+      applyTheme(AppState.theme === "dark" ? "light" : "dark");
+      localStorage.setItem("HTAT_THEME", AppState.theme);
+    }
+
+    function applyTheme(t) {
+      AppState.theme = t;
+      document.body.setAttribute("data-theme", t);
+      const btn = document.getElementById("themeToggleBtn");
+      if (btn) btn.innerHTML = t === "dark" ? "☀️ Light" : "🌙 Dark";
+    }
+
+    function checkForExistingSession() {
+      try {
+        const raw = localStorage.getItem(CONFIG.storageKey);
+        if (!raw) return;
+        const saved = JSON.parse(raw);
+        if (saved && !saved.isCompleted && saved.userAnswers && saved.userAnswers.length === 150) {
+          document.getElementById("resumePromptBox").style.display = "block";
+          document.getElementById("studentNameInput").value = saved.studentName || "";
+          document.getElementById("studentRollInput").value = saved.rollNumber || "";
+        }
+      } catch (e) {}
+    }
+
+    function saveState() {
+      if (AppState.isCompleted) return;
+      try {
+        localStorage.setItem(CONFIG.storageKey, JSON.stringify({
+          studentName: AppState.studentName,
+          rollNumber: AppState.rollNumber,
+          currentIndex: AppState.currentIndex,
+          userAnswers: AppState.userAnswers,
+          reviewFlags: AppState.reviewFlags,
+          remainingSeconds: AppState.remainingSeconds,
+          isCompleted: false
+        }));
+      } catch (e) {}
+    }
+
+    function requestStartTest() {
+      const name = document.getElementById("studentNameInput").value.trim();
+      if (!name) {
+        alert("કૃપા કરીને આગળ વધવા માટે તમારું નામ દાખલ કરો.");
+        document.getElementById("studentNameInput").focus();
+        return;
+      }
+      AppState.studentName = name;
+      AppState.rollNumber = document.getElementById("studentRollInput").value.trim();
+      openModal("confirmStartModal");
+    }
+
+    function executeStartTest() {
+      closeModal("confirmStartModal");
+      AppState.remainingSeconds = CONFIG.durationSeconds;
+      launchEngine();
+    }
+
+    function resumeSavedTest() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(CONFIG.storageKey));
+        AppState.studentName = saved.studentName;
+        AppState.rollNumber = saved.rollNumber;
+        AppState.currentIndex = saved.currentIndex || 0;
+        AppState.userAnswers = saved.userAnswers;
+        AppState.reviewFlags = saved.reviewFlags || new Array(150).fill(false);
+        AppState.remainingSeconds = saved.remainingSeconds || CONFIG.durationSeconds;
+        launchEngine();
+      } catch (e) {
+        discardAndStartNew();
+      }
+    }
+
+    function discardAndStartNew() {
+      localStorage.removeItem(CONFIG.storageKey);
+      document.getElementById("resumePromptBox").style.display = "none";
+      alert("અગાઉનો ડેટા સાફ કરવામાં આવ્યો છે.");
+    }
+
+    function launchEngine() {
+      document.getElementById("screenWelcome").classList.remove("active");
+      document.getElementById("screenTest").classList.add("active");
+      document.getElementById("testHeader").style.display = "block";
+
+      startTimer();
+      buildGrid();
+      loadQuestion(AppState.currentIndex);
+      updateStats();
+    }
+
+    function startTimer() {
+      const initial = AppState.remainingSeconds;
+      const startStamp = Date.now();
+      if (AppState.timerInterval) clearInterval(AppState.timerInterval);
+
+      AppState.timerInterval = setInterval(() => {
+        const elapsed = Math.floor((Date.now() - startStamp) / 1000);
+        AppState.remainingSeconds = Math.max(0, initial - elapsed);
+        renderTimer(AppState.remainingSeconds);
+        saveState();
+
+        if (AppState.remainingSeconds <= 0) {
+          clearInterval(AppState.timerInterval);
+          alert("⏰ સમય પૂર્ણ થઈ ગયો છે! ટેસ્ટ આપમેળે સબમિટ થઈ રહી છે.");
+          finalizeTestSubmission();
+        }
+      }, 1000);
+      renderTimer(AppState.remainingSeconds);
+    }
+
+    function renderTimer(sec) {
+      const h = Math.floor(sec / 3600);
+      const m = Math.floor((sec % 3600) / 60);
+      const s = sec % 60;
+      const str = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+      const badge = document.getElementById("hdrTimer");
+      badge.innerText = str;
+      badge.classList.remove("timer-warning", "timer-critical");
+      if (sec <= 60) badge.classList.add("timer-critical");
+      else if (sec <= 300) badge.classList.add("timer-warning");
+    }
+
+    function loadQuestion(index) {
+      AppState.currentIndex = index;
+      const q = ALL_150_QUESTIONS[index];
+      const isAnswered = AppState.userAnswers[index] !== null;
+
+      document.getElementById("hdrCurrentQ").innerText = String(index + 1).padStart(3, '0');
+      document.getElementById("qMetaNumber").innerText = String(index + 1).padStart(3, '0');
+      document.getElementById("qMetaOriginalId").innerText = `પ્રશ્ન ક્રમ: #${q.id}`;
+      document.getElementById("qTitleText").innerText = q.question;
+
+      const container = document.getElementById("optionsContainer");
+      container.innerHTML = "";
+      const letters = ["A", "B", "C", "D"];
+
+      q.options.forEach((optText, optIdx) => {
+        const item = document.createElement("div");
+        item.className = "option-item";
+        if (isAnswered) {
+          item.classList.add("disabled");
+          const selected = AppState.userAnswers[index];
+          if (optIdx === q.answer) item.classList.add("correct");
+          else if (optIdx === selected) item.classList.add("wrong");
+        } else {
+          item.onclick = () => selectOption(index, optIdx);
+        }
+        item.innerHTML = `<div class="opt-label">${letters[optIdx]}</div><div class="opt-text">${optText}</div>`;
+        container.appendChild(item);
+      });
+
+      const expBox = document.getElementById("explanationBox");
+      const expTxt = document.getElementById("explanationText");
+      if (isAnswered) {
+        expTxt.innerText = q.explanation || "સમજૂતી ઉપલબ્ધ નથી.";
+        expBox.classList.add("show");
+      } else {
+        expBox.classList.remove("show");
+      }
+
+      const revBtn = document.getElementById("btnReviewFlag");
+      if (AppState.reviewFlags[index]) {
+        revBtn.classList.add("flagged");
+        document.getElementById("lblReviewFlag").innerText = "FLAGGED";
+      } else {
+        revBtn.classList.remove("flagged");
+        document.getElementById("lblReviewFlag").innerText = "MARK";
+      }
+
+      document.getElementById("btnPrevQ").disabled = (index === 0);
+      document.getElementById("btnNextQ").disabled = !isAnswered;
+
+      refreshGrid();
+      updateStats();
+      saveState();
+    }
+
+    function selectOption(qIdx, optIdx) {
+      if (AppState.userAnswers[qIdx] !== null) return;
+      AppState.userAnswers[qIdx] = optIdx;
+
+      if (optIdx !== ALL_150_QUESTIONS[qIdx].answer && navigator.vibrate) {
+        try { navigator.vibrate([150, 80, 150]); } catch(e){}
+      }
+      loadQuestion(qIdx);
+    }
+
+    function navigateNext() {
+      if (AppState.currentIndex < CONFIG.totalQuestions - 1) {
+        loadQuestion(AppState.currentIndex + 1);
+      }
+    }
+
+    function navigatePrev() {
+      if (AppState.currentIndex > 0) {
+        loadQuestion(AppState.currentIndex - 1);
+      }
+    }
+
+    function toggleReviewFlag() {
+      AppState.reviewFlags[AppState.currentIndex] = !AppState.reviewFlags[AppState.currentIndex];
+      loadQuestion(AppState.currentIndex);
+    }
+
+    function buildGrid() {
+      const grid = document.getElementById("questionNavGrid");
+      grid.innerHTML = "";
+      for (let i = 0; i < CONFIG.totalQuestions; i++) {
+        const cell = document.createElement("div");
+        cell.className = "nav-cell";
+        cell.id = `navCell_${i}`;
+        cell.innerText = i + 1;
+        cell.onclick = () => jumpToQuestion(i);
+        grid.appendChild(cell);
+      }
+    }
+
+    function jumpToQuestion(targetIndex) {
+      const firstUnanswered = AppState.userAnswers.findIndex(ans => ans === null);
+      if (firstUnanswered !== -1 && targetIndex > firstUnanswered) {
+        alert("Sequential Mode: અગાઉના તમામ પ્રશ્નોના ઉત્તર આપ્યા બાદ જ આ પ્રશ્ન પર જઈ શકાય.");
+        return;
+      }
+      loadQuestion(targetIndex);
+    }
+
+    function refreshGrid() {
+      const firstUnanswered = AppState.userAnswers.findIndex(a => a === null);
+      for (let i = 0; i < CONFIG.totalQuestions; i++) {
+        const cell = document.getElementById(`navCell_${i}`);
+        if (!cell) continue;
+        cell.className = "nav-cell";
+
+        const ans = AppState.userAnswers[i];
+        if (ans !== null) {
+          if (ans === ALL_150_QUESTIONS[i].answer) cell.classList.add("correct");
+          else cell.classList.add("wrong");
+        }
+        if (AppState.reviewFlags[i]) cell.classList.add("review");
+        if (i === AppState.currentIndex) cell.classList.add("active");
+        if (firstUnanswered !== -1 && i > firstUnanswered) cell.classList.add("locked");
+      }
+    }
+
+    function updateStats() {
+      let attempted = 0, correct = 0, wrong = 0, review = 0;
+      AppState.userAnswers.forEach((ans, idx) => {
+        if (ans !== null) {
+          attempted++;
+          if (ans === ALL_150_QUESTIONS[idx].answer) correct++;
+          else wrong++;
+        }
+        if (AppState.reviewFlags[idx]) review++;
+      });
+
+      document.getElementById("hdrScore").innerText = String(correct).padStart(2, '0');
+      document.getElementById("statAttempted").innerText = attempted;
+      document.getElementById("statCorrect").innerText = correct;
+      document.getElementById("statWrong").innerText = wrong;
+      document.getElementById("statReview").innerText = review;
+
+      const pct = (attempted / CONFIG.totalQuestions) * 100;
+      document.getElementById("hdrProgressBar").style.width = `${pct}%`;
+
+      const submitBtn = document.getElementById("btnManualSubmit");
+      document.getElementById("submitProgressTxt").innerText = `${attempted}/${CONFIG.totalQuestions}`;
+      submitBtn.disabled = (attempted !== CONFIG.totalQuestions);
+    }
+
+    function requestManualSubmit() {
+      const attempted = AppState.userAnswers.filter(a => a !== null).length;
+      if (attempted < CONFIG.totalQuestions) {
+        alert(`બધા ${CONFIG.totalQuestions} પ્રશ્નો પૂર્ણ કરો.`);
+        return;
+      }
+      openModal("confirmSubmitModal");
+    }
+
+    function finalizeTestSubmission() {
+      closeModal("confirmSubmitModal");
+      if (AppState.timerInterval) clearInterval(AppState.timerInterval);
+      AppState.isCompleted = true;
+      localStorage.removeItem(CONFIG.storageKey);
+
+      document.getElementById("screenTest").classList.remove("active");
+      document.getElementById("testHeader").style.display = "none";
+      document.getElementById("screenResult").classList.add("active");
+
+      showResults();
+    }
+
+    function showResults() {
+      let correct = 0, wrong = 0;
+      AppState.userAnswers.forEach((ans, idx) => {
+        if (ans === ALL_150_QUESTIONS[idx].answer) correct++;
+        else if (ans !== null) wrong++;
+      });
+
+      const totalAttempted = correct + wrong;
+      const percentage = ((correct / CONFIG.totalQuestions) * 100).toFixed(1);
+      const accuracy = totalAttempted > 0 ? ((correct / totalAttempted) * 100).toFixed(1) : 0;
+      const elapsedSec = CONFIG.durationSeconds - AppState.remainingSeconds;
+      const timeStr = `${Math.floor(elapsedSec / 60)} મિનિટ ${elapsedSec % 60} સેકન્ડ`;
+
+      document.getElementById("resStudentName").innerText = `વિદ્યાર્થી: ${AppState.studentName} ${AppState.rollNumber ? '('+AppState.rollNumber+')' : ''}`;
+      document.getElementById("resScoreVal").innerText = `${correct} / ${CONFIG.totalQuestions}`;
+      document.getElementById("resPercentageVal").innerText = `${percentage}%`;
+      document.getElementById("resCorrectCount").innerText = correct;
+      document.getElementById("resWrongCount").innerText = wrong;
+      document.getElementById("resAccuracy").innerText = `${accuracy}%`;
+      document.getElementById("resTimeTaken").innerText = timeStr;
+
+      const badgeElem = document.getElementById("resBadgeTag");
+      badgeElem.className = "badge-tag";
+      if (percentage >= 90) { badgeElem.innerText = "🌟 OUTSTANDING"; badgeElem.classList.add("badge-outstanding"); }
+      else if (percentage >= 80) { badgeElem.innerText = "🔥 EXCELLENT"; badgeElem.classList.add("badge-excellent"); }
+      else if (percentage >= 70) { badgeElem.innerText = "👍 VERY GOOD"; badgeElem.classList.add("badge-verygood"); }
+      else if (percentage >= 60) { badgeElem.innerText = "👌 GOOD"; badgeElem.classList.add("badge-good"); }
+      else { badgeElem.innerText = "💪 KEEP GOING"; badgeElem.classList.add("badge-keepgoing"); }
+
+      renderDetailedReview();
+    }
+
+    function renderDetailedReview() {
+      const container = document.getElementById("reviewItemsContainer");
+      container.innerHTML = "";
+      const letters = ["A", "B", "C", "D"];
+
+      ALL_150_QUESTIONS.forEach((q, idx) => {
+        const userAns = AppState.userAnswers[idx];
+        const isCorrect = (userAns === q.answer);
+        const div = document.createElement("div");
+        div.className = `review-item ${isCorrect ? 'is-correct' : 'is-wrong'}`;
+        div.innerHTML = `
+          <div style="display:flex; justify-content:space-between; margin-bottom:4px; font-weight:700;">
+            <span>પ્રશ્ન ${idx + 1}</span>
+            <span>${isCorrect ? '🟢 સાચો' : '🔴 ખોટો'}</span>
+          </div>
+          <div style="margin-bottom:6px; font-weight:600;">${q.question}</div>
+          <div style="font-size:0.82rem; margin-bottom:4px;">
+            <div>તમારો જવાબ: <strong>${userAns !== null ? letters[userAns] + '. ' + q.options[userAns] : 'અનુત્તરિત'}</strong></div>
+            <div style="color:var(--correct);">સાચો જવાબ: <strong>${letters[q.answer]}. ${q.options[q.answer]}</strong></div>
+          </div>
+          <div style="background:var(--bg-surface); padding:6px 10px; border-radius:6px; font-size:0.8rem; margin-top:6px;">
+            <strong>સમજૂતી:</strong>\n${q.explanation}
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function shareMyScoreNative() {
+      const correct = document.getElementById("resCorrectCount").innerText;
+      const pct = document.getElementById("resPercentageVal").innerText;
+      const acc = document.getElementById("resAccuracy").innerText;
+      const badge = document.getElementById("resBadgeTag").innerText;
+
+      const msg = `🎯 HTAT લક્ષ્યવેધ 2026 (150 MCQs)\n👤 નામ: ${AppState.studentName}\n🏆 સ્કોર: ${correct} / 150\n📊 ટકાવારી: ${pct}\n🎯 ચોકસાઈ: ${acc}\n🔥 ગ્રેડ: ${badge}\n\nનઘાતપોર પ્રાથમિક શાળા તા. ગરુડેશ્વર • જી. નર્મદા\n#HTATલક્ષ્યવેધ2026`;
+
+      if (navigator.share) {
+        navigator.share({ title: "HTAT Result", text: msg }).catch(() => copyToClipboard(msg));
+      } else {
+        copyToClipboard(msg);
+      }
+    }
+
+    function copyToClipboard(txt) {
+      navigator.clipboard.writeText(txt).then(() => alert("✅ સ્કોર Clipboard માં Copy થઈ ગયો છે!"));
+    }
+
+    function generateAndDownloadCard() {
+      const canvas = document.getElementById("cardCanvas");
+      const ctx = canvas.getContext("2d");
+
+      const grad = ctx.createLinearGradient(0, 0, 0, 1000);
+      grad.addColorStop(0, "#0f172a");
+      grad.addColorStop(1, "#1e293b");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 800, 1000);
+
+      ctx.strokeStyle = "#38bdf8";
+      ctx.lineWidth = 10;
+      ctx.strokeRect(20, 20, 760, 960);
+
+      ctx.fillStyle = "#38bdf8";
+      ctx.font = "bold 38px 'Noto Sans Gujarati', sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("🎯 HTAT લક્ષ્યવેધ 2026", 400, 100);
+
+      ctx.fillStyle = "#94a3b8";
+      ctx.font = "20px 'Noto Sans Gujarati', sans-serif";
+      ctx.fillText("150 MCQs FULL SYLLABUS PRACTICE ENGINE", 400, 140);
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 34px 'Noto Sans Gujarati', sans-serif";
+      ctx.fillText(AppState.studentName || "વિદ્યાર્થી", 400, 240);
+
+      ctx.beginPath();
+      ctx.arc(400, 430, 110, 0, 2 * Math.PI);
+      ctx.fillStyle = "#334155";
+      ctx.fill();
+      ctx.strokeStyle = "#10b981";
+      ctx.lineWidth = 8;
+      ctx.stroke();
+
+      const correct = document.getElementById("resCorrectCount").innerText;
+      ctx.fillStyle = "#38bdf8";
+      ctx.font = "bold 56px 'Poppins', sans-serif";
+      ctx.fillText(`${correct}/150`, 400, 435);
+
+      ctx.fillStyle = "#10b981";
+      ctx.font = "bold 28px 'Poppins', sans-serif";
+      ctx.fillText(document.getElementById("resPercentageVal").innerText, 400, 480);
+
+      ctx.fillStyle = "#0284c7";
+      ctx.fillRect(250, 580, 300, 50);
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 24px 'Noto Sans Gujarati', sans-serif";
+      ctx.fillText(document.getElementById("resBadgeTag").innerText, 400, 614);
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "22px 'Noto Sans Gujarati', sans-serif";
+      ctx.textAlign = "left";
+      ctx.fillText(`સાચા ઉત્તરો: ${correct}`, 200, 710);
+      ctx.fillText(`ખોટા ઉત્તરો: ${document.getElementById("resWrongCount").innerText}`, 200, 750);
+      ctx.fillText(`ચોકસાઈ (Accuracy): ${document.getElementById("resAccuracy").innerText}`, 200, 790);
+
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#94a3b8";
+      ctx.font = "18px 'Noto Sans Gujarati', sans-serif";
+      ctx.fillText("શાહરૂખખાન ચૌહાણ • નઘાતપોર પ્રાથમિક શાળા તા. ગરુડેશ્વર • જી. નર્મદા", 400, 900);
+
+      const link = document.createElement("a");
+      link.download = `HTAT_Result_${(AppState.studentName || 'Student').replace(/\s+/g,'_')}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }
+
+    function openModal(id) { document.getElementById(id).classList.add("active"); }
+    function closeModal(id) { document.getElementById(id).classList.remove("active"); }
+  </script>
+</body>
+</html>
